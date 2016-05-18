@@ -15,7 +15,8 @@ import 'file?name=[name].[ext]!./.htaccess';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
+import { applyRouterMiddleware, Router, useRouterHistory } from 'react-router';
+import { createHistory } from 'history';
 import { syncHistoryWithStore } from 'react-router-redux';
 import useScroll from 'react-router-scroll';
 import configureStore from './store';
@@ -27,6 +28,9 @@ import 'sanitize.css/lib/sanitize.css';
 // this uses the singleton browserHistory provided by react-router
 // Optionally, this could be changed to leverage a created history
 // e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
+const browserHistory = useRouterHistory(createHistory)({
+  basename: location.pathname,
+});
 const initialState = {};
 const store = configureStore(initialState, browserHistory);
 
