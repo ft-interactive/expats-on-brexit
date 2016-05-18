@@ -13,4 +13,3 @@ env:
   GITHUB_REPO: expats-on-brexit
   GIT_DEPLOY_DIR: build
   GIT_DEPLOY_BRANCH: gh-pages
-  NODE_ENV: production

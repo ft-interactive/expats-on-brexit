@@ -9,4 +9,7 @@ stats.json
 npm-debug.log
 .idea
 
+# custom
 /bower_components/
+/.env
+/app/data.js
