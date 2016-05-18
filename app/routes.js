@@ -34,6 +34,15 @@ export default function createRoutes() {
         importModules.catch(errorLoading);
       },
     }, {
+      // NB this is only for use on mobile
+      path: '/filter',
+      name: 'filter',
+      getComponent(location, cb) {
+        System.import('components/FilterPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
       path: '/form',
       name: 'form',
       getComponent(location, cb) {

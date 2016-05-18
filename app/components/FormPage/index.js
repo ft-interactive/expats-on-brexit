@@ -1,14 +1,13 @@
-/*
- *
+/**
  * FormPage
- *
+ * For users to post their own comments.
  */
 
+import InternalLink from '../../components/InternalLink';
 import React from 'react';
+import styles from './styles.css';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import styles from './styles.css';
-import InternalLink from '../../components/InternalLink';
 
 class FormPage extends React.Component {
   render() {
@@ -18,6 +17,7 @@ class FormPage extends React.Component {
 
         <p>
           <InternalLink route="/">Home</InternalLink>
+          <InternalLink route="/filter">Filter</InternalLink>
         </p>
       </div>
     );

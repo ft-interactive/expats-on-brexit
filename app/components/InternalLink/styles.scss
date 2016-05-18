@@ -1,9 +1,0 @@
-@import 'o-colors/main';
-
-.internalLink {
-  @include oColorsFor('link');
-
-  &:hover {
-    @include oColorsFor('link-hover');
-  }
-}

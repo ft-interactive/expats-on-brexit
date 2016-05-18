@@ -7,10 +7,11 @@
  */
 
 import React from 'react';
+import styles from './styles.scss';
 
 function App(props) {
   return (
-    <div>
+    <div className={styles.app}>
       {props.children}
     </div>
   );

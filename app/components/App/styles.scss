@@ -1,0 +1,20 @@
+:global {
+  @import 'o-colors/main';
+  @import 'o-fonts/main';
+
+  body {
+    @include oColorsFor('page');
+    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+    min-height: 100vh;
+  }
+
+  a {
+    @include oColorsFor('link');
+
+    &:hover {
+      @include oColorsFor('link-hover');
+    }
+  }
+}
+
+.app {}
