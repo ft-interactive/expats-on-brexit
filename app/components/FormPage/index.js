@@ -5,23 +5,21 @@
 
 import InternalLink from '../../components/InternalLink';
 import React from 'react';
-import styles from './styles.css';
+import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 
-class FormPage extends React.Component {
-  render() {
-    return (
-      <div className={styles.formPage}>
-        FORM PAGE
+function FormPage() {
+  return (
+    <div className={styles.formPage}>
+      FORM PAGE
 
-        <p>
-          <InternalLink route="/">Home</InternalLink>
-          <InternalLink route="/filter">Filter</InternalLink>
-        </p>
-      </div>
-    );
-  }
+      <p>
+        <InternalLink route="/">Home</InternalLink>
+        <InternalLink route="/filter">Filter</InternalLink>
+      </p>
+    </div>
+  );
 }
 
 export default connect(createStructuredSelector({
