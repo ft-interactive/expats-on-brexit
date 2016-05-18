@@ -37,7 +37,7 @@ export default function createRoutes() {
       path: '/form',
       name: 'form',
       getComponent(location, cb) {
-        System.import('containers/FormPage')
+        System.import('components/FormPage')
           .then(loadModule(cb))
           .catch(errorLoading);
       },
