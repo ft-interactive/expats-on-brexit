@@ -1,13 +1,12 @@
 import React, { PropTypes } from 'react';
-import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 import basePath from '../../basePath';
 
-function InternalLink({ route, children, dispatch }) {
+function InternalLink({ route, children, dispatch, className }) {
   return (
     <a
-      className={styles.internalLink}
+      className={className}
       href={basePath + route}
       onClick={event => {
         event.preventDefault();
@@ -21,6 +20,7 @@ InternalLink.propTypes = {
   children: PropTypes.node.isRequired,
   route: PropTypes.string.isRequired,
   dispatch: PropTypes.func.isRequired,
+  className: PropTypes.string,
 };
 
 export default connect()(InternalLink);

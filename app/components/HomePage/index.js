@@ -14,9 +14,8 @@ export function HomePage() {
     <div className={styles.homePage}>
       <div className={styles.mainContent}>
         <h1>This is the Homepage!</h1>
-        <p>
-          <InternalLink route="/form">Form</InternalLink>
-        </p>
+
+        <InternalLink route="/form" className={styles.floatingActionButton}>Write a comment</InternalLink>
       </div>
 
       <OFooter />
