@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js: '6.2'
-script: npm run build
+script: npm run build:travis
 deploy:
   skip_cleanup: true
   provider: script
@@ -13,3 +13,4 @@ env:
   GITHUB_REPO: expats-on-brexit
   GIT_DEPLOY_DIR: build
   GIT_DEPLOY_BRANCH: gh-pages
+  NODE_ENV: production
