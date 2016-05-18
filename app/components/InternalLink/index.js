@@ -2,12 +2,13 @@ import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
+import basePath from '../../basePath';
 
 function InternalLink({ route, children, dispatch }) {
   return (
     <a
       className={styles.internalLink}
-      href={route}
+      href={basePath + route}
       onClick={event => {
         event.preventDefault();
         dispatch(push(route));
