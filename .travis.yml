@@ -1,7 +1,7 @@
 sudo: false
 language: node_js
 node_js: '6.2'
-script: npm run build:travis
+script: npm run build
 deploy:
   skip_cleanup: true
   provider: script
