@@ -5,10 +5,16 @@
  */
 
 import React from 'react';
+import InternalLink from '../InternalLink';
 
 export function HomePage() {
   return (
-    <h1>This is the Homepage!</h1>
+    <div>
+      <h1>This is the Homepage!</h1>
+      <p>
+        <InternalLink route="/form">Form</InternalLink>
+      </p>
+    </div>
   );
 }
 

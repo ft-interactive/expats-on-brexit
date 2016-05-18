@@ -11,6 +11,9 @@ module.exports = (options) => ({
     path: path.resolve(process.cwd(), 'build'),
     publicPath: '/',
   }, options.output), // Merge with env dependent settings
+  sassLoader: {
+    includePaths: [path.resolve(__dirname, '..', '..', 'bower_components')],
+  },
   module: {
     loaders: [{
       test: /\.js$/, // Transform all .js files required somewhere with Babel
@@ -19,7 +22,7 @@ module.exports = (options) => ({
       query: options.babelQuery,
     }, {
       // Transform our own .css files with PostCSS and CSS-modules
-      test: /\.css$/,
+      test: /\.s?css$/,
       exclude: /node_modules/,
       loader: options.cssLoaders,
     }, {
