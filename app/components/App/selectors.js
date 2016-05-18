@@ -1,16 +1,14 @@
 // selectLocationState expects a plain JS object for the routing state
 export const selectLocationState = () => {
   let prevRoutingState;
-  let prevRoutingStateJS;
 
   return (state) => {
-    const routingState = state.get('route'); // or state.route
+    const routingState = state.route;
 
-    if (!routingState.equals(prevRoutingState)) {
+    if (prevRoutingState !== routingState) {
       prevRoutingState = routingState;
-      prevRoutingStateJS = routingState.toJS();
     }
 
-    return prevRoutingStateJS;
+    return prevRoutingState;
   };
 };

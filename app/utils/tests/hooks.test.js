@@ -6,7 +6,6 @@ import expect from 'expect';
 import configureStore from 'store.js';
 import { memoryHistory } from 'react-router';
 import { put } from 'redux-saga/effects';
-import { fromJS } from 'immutable';
 
 import {
   injectAsyncReducer,
@@ -16,12 +15,15 @@ import {
 
 // Fixtures
 
-const initialState = fromJS({ reduced: 'soon' });
+const initialState = { reduced: 'soon' };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case 'TEST':
-      return state.set('reduced', action.payload);
+      return {
+        ...state,
+        reduced: action.payload,
+      };
     default:
       return state;
   }
@@ -47,10 +49,13 @@ describe('hooks', () => {
       injectReducer('test', reducer);
       injectSagas(sagas);
 
-      const actual = store.getState().get('test');
-      const expected = initialState.merge({ reduced: 'yup' });
+      const actual = store.getState().test;
+      const expected = {
+        ...initialState,
+        reduced: 'yup',
+      );
 
-      expect(actual.toJS()).toEqual(expected.toJS());
+      expect(actual).toEqual(expected);
     });
   });
 
@@ -65,10 +70,10 @@ describe('hooks', () => {
 
         injectReducer('test', reducer);
 
-        const actual = store.getState().get('test');
+        const actual = store.getState().test;
         const expected = initialState;
 
-        expect(actual.toJS()).toEqual(expected.toJS());
+        expect(actual).toEqual(expected);
       });
     });
 
@@ -78,10 +83,13 @@ describe('hooks', () => {
 
         injectSagas(sagas);
 
-        const actual = store.getState().get('test');
-        const expected = initialState.merge({ reduced: 'yup' });
+        const actual = store.getState().test;
+        const expected = {
+          ...initialState,
+          reduced: 'yup',
+        };
 
-        expect(actual.toJS()).toEqual(expected.toJS());
+        expect(actual).toEqual(expected);
       });
     });
   });
