@@ -33,7 +33,7 @@ const browserHistory = useRouterHistory(createHistory)({
   basename: basePath,
 });
 
-console.log('basename set to', location.pathname);
+console.log('1. basename set to', basePath);
 console.log(browserHistory);
 
 const initialState = {};
