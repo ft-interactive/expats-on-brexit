@@ -31,6 +31,10 @@ import 'sanitize.css/lib/sanitize.css';
 const browserHistory = useRouterHistory(createHistory)({
   basename: location.pathname,
 });
+
+console.log('basename set to', location.pathname);
+console.log(browserHistory);
+
 const initialState = {};
 const store = configureStore(initialState, browserHistory);
 
