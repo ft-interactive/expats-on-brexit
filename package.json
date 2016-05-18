@@ -193,6 +193,7 @@
     "lint:jscs:staged": "jscs-staged",
     "lint:staged": "npm run lint:js:staged && npm run lint:css:staged",
     "pagespeed": "node ./internals/scripts/pagespeed.js",
+    "postinstall": "bower install",
     "prebuild": "npm run build:clean",
     "presetup": "npm i chalk",
     "pretest_DISABLED": "npm run lint",
