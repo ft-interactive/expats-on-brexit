@@ -1,7 +1,7 @@
+import basePath from '../../basePath';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
-import basePath from '../../basePath';
 
 function InternalLink({ route, children, dispatch, className }) {
   return (

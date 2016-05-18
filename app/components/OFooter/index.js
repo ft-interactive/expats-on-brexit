@@ -7,6 +7,7 @@ export default function OFooter() {
         <div className="o-footer__row o-footer__copyright">
           <div className="o-footer__col o-footer__col--full-width">
             <span>&#xA9; THE FINANCIAL TIMES LTD .</span>
+            {' '}
             <span><abbr title="Financial Times">FT</abbr> and &#x2018;Financial Times&#x2019; are trademarks of The Financial Times Ltd.</span>
           </div>
         </div>
