@@ -1,2 +1,7 @@
 // this is good enough for now
-export default location.pathname.substr(0, -1);
+const basePath = location.pathname.slice(0, -1);
+
+console.log('initial basePath is', basePath);
+console.log('location', location);
+
+export default basePath;
