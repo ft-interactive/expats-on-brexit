@@ -1,3 +1,25 @@
-.filterPage {
+@import '../../sass/shared';
 
+.filterPage {
+  background-color: white;
+  min-height: 100vh;
+  position: relative;
+  padding: 25px 0 0;
+}
+
+.closeButton {
+  font: 25px Arial, sans-serif;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+
+.submitButton {
+  @include dark-button-style;
+
+  display: block;
+}
+
+.buttons {
+  text-align: center;
 }

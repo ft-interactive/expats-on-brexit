@@ -1,0 +1,9 @@
+.onlyDesktop {
+  display: none;
+}
+
+@media all and (min-width: 740px) {
+  .onlyDesktop {
+    display: inline-block;
+  }
+}

@@ -12,11 +12,12 @@ import { createStructuredSelector } from 'reselect';
 function FormPage() {
   return (
     <div className={styles.formPage}>
-      FORM PAGE
+      <h1>
+        WRITE A COMMENT
+      </h1>
 
       <p>
-        <InternalLink route="/">Home</InternalLink>
-        <InternalLink route="/filter">Filter</InternalLink>
+        <InternalLink route="/">go back</InternalLink>
       </p>
     </div>
   );

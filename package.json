@@ -82,6 +82,7 @@
     "react-router": "^2.3.0",
     "react-router-redux": "^4.0.4",
     "react-router-scroll": "^0.2.0",
+    "react-sticky": "^5.0.0",
     "redux": "^3.5.2",
     "redux-saga": "^0.10.0",
     "reselect": "^2.5.1",
@@ -216,5 +217,9 @@
       "font-family-name-quotes": "single-where-recommended",
       "indentation": 2
     }
+  },
+  "devDependencies": {
+    "classnames": "^2.2.5",
+    "react-select": "^1.0.0-beta13"
   }
 }

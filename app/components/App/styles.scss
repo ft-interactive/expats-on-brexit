@@ -6,13 +6,18 @@
     @include oColorsFor('page');
     font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
     min-height: 100vh;
+    margin: 0;
   }
 
   a {
-    @include oColorsFor('link');
+    // @include oColorsFor('link');
+    color: #2B747C;
+
+    text-decoration: none;
 
     &:hover {
-      @include oColorsFor('link-hover');
+      // @include oColorsFor('link-hover');
+      color: darken(#2B747C, 20%);
     }
   }
 }

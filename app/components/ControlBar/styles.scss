@@ -1,0 +1,55 @@
+@import '../../sass/shared';
+
+.controlBar {
+  background-color: #fff1e0;
+  position: relative;
+}
+  $pink-bar-height: 30px;
+
+  .pinkBar {
+    font-size: 19px;
+    line-height: $pink-bar-height;
+  
+    > a {
+      &:before {
+        content: '‹';
+        font: bold 22px/#{$pink-bar-height} Arial, sans-serif;
+        display: inline-block;
+        width: 15px;
+        text-align: center;
+      }
+    }
+  }
+
+  .whiteBar {
+    background-color: #fff;
+    box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.14);
+    border-top: 1px solid #ddd;
+
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    
+
+    position: absolute;
+    width: 100%;
+  }
+
+    .buttons {
+      display: flex;
+    }
+      .mobileFilterButton {
+        @include button-style;
+      }
+
+    .sentence {
+      flex: 1;
+      margin: 0;
+      padding: 10px;
+      font: 21px $serif;
+
+      > mark {
+        color: #36BAC0;
+        background-color: transparent;
+      }
+    }
