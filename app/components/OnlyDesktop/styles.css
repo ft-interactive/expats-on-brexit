@@ -1,5 +1,9 @@
-@media all and (max-width: 739px) {
+.onlyDesktop {
+  display: none;
+}
+
+@media all and (min-width: 740px) {
   .onlyDesktop {
-    display: none;
+    display: inline-block;
   }
 }

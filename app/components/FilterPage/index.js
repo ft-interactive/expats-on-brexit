@@ -25,17 +25,21 @@ function FilterPage({ count, dispatch }) {
 
       <Filters />
 
-      <InternalLink route="/" className={styles.submitButton}>
-        {`Show ${count} filtered opinions`}
-      </InternalLink>
-      <span>{' or '}</span>
-      <InternalLink
-        route="/"
-        className={styles.submitButton}
-        onClick={() => {
-          dispatch({ type: RESET_FILTERS });
-        }}
-      >show all</InternalLink>
+      <div className={styles.buttons}>
+        <InternalLink route="/" className={styles.submitButton}>
+          {`Find ${count} filtered opinions`}
+        </InternalLink>
+
+        <span>{' or '}</span>
+
+        <InternalLink
+          route="/"
+          className={styles.showAllLink}
+          onClick={() => {
+            dispatch({ type: RESET_FILTERS });
+          }}
+        >show all</InternalLink>
+      </div>
     </div>
   );
 }

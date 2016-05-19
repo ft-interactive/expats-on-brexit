@@ -16,9 +16,8 @@ export function HomePage({
   return (
     <div className={styles.homePage}>
       <div className={styles.mainContent}>
-        <h1>{headline}</h1>
-        <div dangerouslySetInnerHTML={{ __html: standfirst }} />
-        <p>{byline}</p>
+        <h1 className={styles.headline}>{headline}</h1>
+        <div className={styles.standfirst} dangerouslySetInnerHTML={{ __html: standfirst }} />
 
         <StickyContainer>
           <Sticky

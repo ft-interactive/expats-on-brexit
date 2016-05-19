@@ -1,5 +1,9 @@
-@media all and (min-width: 740px) {
+.onlyMobile {
+  display: none;
+}
+
+@media all and (max-width: 739px) {
   .onlyMobile {
-    display: none;
+    display: inline-block;
   }
 }

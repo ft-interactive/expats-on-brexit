@@ -30,7 +30,7 @@ export function Filters({
 
       {/* leaning */}
       <div className={styles.filterSet}>
-        <h5 className={styles.headline}>Leaning</h5>
+        <h5 className={styles.heading}>Leaning</h5>
 
         <TickBox ticked={leaningRemain} onToggle={() => setFilter('leaningRemain', !leaningRemain)}>Remain</TickBox>
         <TickBox ticked={leaningLeave} onToggle={() => setFilter('leaningLeave', !leaningLeave)}>Leave</TickBox>
@@ -39,7 +39,7 @@ export function Filters({
 
       {/* location */}
       <div className={styles.filterSet}>
-        <h5 className={styles.headline}>Expats living</h5>
+        <h5 className={styles.heading}>Expats living</h5>
 
         <TickBox ticked={livingInEU} onToggle={() => setFilter('livingInEU', !livingInEU)}>In the EU</TickBox>
         <TickBox ticked={livingOutsideEU} onToggle={() => setFilter('livingOutsideEU', !livingOutsideEU)}>Outside the EU</TickBox>

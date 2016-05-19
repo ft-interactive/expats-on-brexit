@@ -23,23 +23,25 @@ function ControlBar({ linkToArticle, sentenceParts }) {
       </div>
 
       <div className={styles.whiteBar}>
+        <div className={styles.buttons}>
+          <OnlyMobile>
+            <InternalLink route="/filter" className={styles.mobileFilterButton}>Filter</InternalLink>
+          </OnlyMobile>
+
+          <OnlyDesktop>
+            <InternalLink className={styles.desktopFilterButton}>Filter (Desktop, TODO)</InternalLink>
+            {' '}
+            <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
+          </OnlyDesktop>
+        </div>
+
         <p className={styles.sentence}>
           {sentenceParts.map(({ text, mark }, i) => (
             mark
               ? <mark key={i}>{text}</mark>
               : <span key={i}>{text}</span>
           ))}
-        </p>
-
-        <OnlyMobile>
-          <InternalLink route="/filter">Filter</InternalLink>
-        </OnlyMobile>
-
-        <OnlyDesktop>
-          <InternalLink className={styles.desktopFilterButton}>Filter (Desktop, TODO)</InternalLink>
-          {' '}
-          <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
-        </OnlyDesktop>
+        </p>        
       </div>
     </div>
   );
