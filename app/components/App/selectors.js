@@ -51,7 +51,7 @@ const selectFilterFunction = createSelector(
   }
 );
 
-const selectFilteredOpinions = createSelector(
+export const selectFilteredOpinions = createSelector(
   selectOpinions,
   selectFilterFunction,
   (opinions, filterFunction) => (
@@ -66,6 +66,13 @@ export const selectSentenceParts = createSelector(
   selectFilteredOpinionsCount,
 
   (filters, count) => {
+    if (count === 0) {
+      return [
+        { text: '0 expats', mark: true },
+        { text: ' match your current filters' },
+      ];
+    }
+
     const single = (count === 1);
 
     const parts = [
@@ -85,7 +92,7 @@ export const selectSentenceParts = createSelector(
       parts.push({ text: 'in the EU', mark: true });
     } else if (filters.livingOutsideEU) {
       parts.push({ text: 'outside the EU', mark: true });
-    } else throw new Error('impossible selection');
+    }
 
     // TODO add leaning (work out what to do if 2 out of 3 are selected?)
 

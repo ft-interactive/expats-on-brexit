@@ -11,11 +11,17 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { RESET_FILTERS } from '../../constants';
 import { selectFilteredOpinionsCount } from '../App/selectors';
+import { goBack } from 'react-router-redux';
 
 function FilterPage({ count, dispatch }) {
   return (
     <div className={styles.filterPage}>
-      <InternalLink route="/" className={styles.closeButton}>×</InternalLink>
+      <button
+        className={styles.closeButton}
+        onClick={() => {
+          dispatch(goBack());
+        }}
+      >×</button>
 
       <Filters />
 
