@@ -6,9 +6,10 @@
  * Sticky behaviour might be a bit different on mobile, pulling itself up.
  */
 
+import InternalLink from '../InternalLink';
 import React, { PropTypes } from 'react';
-import { connect } from 'react-redux';
 import styles from './styles.scss';
+import { connect } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
 import { selectOptions } from '../App/selectors';
 
@@ -21,6 +22,7 @@ function ControlBar({ linkToArticle }) {
 
       <div className={styles.whiteBar}>
         ControlBar
+        <InternalLink route="/filter">Filter</InternalLink>
       </div>
     </div>
   );
