@@ -11,9 +11,9 @@ import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
-import { selectOptions } from '../App/selectors';
+import { selectOptions, selectSentenceParts } from '../App/selectors';
 
-function ControlBar({ linkToArticle }) {
+function ControlBar({ linkToArticle, sentenceParts }) {
   return (
     <div className={styles.controlBar}>
       <div className={styles.pinkBar}>
@@ -21,7 +21,14 @@ function ControlBar({ linkToArticle }) {
       </div>
 
       <div className={styles.whiteBar}>
-        ControlBar
+        <p className={styles.sentence}>
+          {sentenceParts.map(({ text, mark }, i) => (
+            mark
+              ? <mark key={i}>{text}</mark>
+              : <span key={i}>{text}</span>
+          ))}
+        </p>
+
         <InternalLink route="/filter">Filter</InternalLink>
       </div>
     </div>
@@ -30,10 +37,12 @@ function ControlBar({ linkToArticle }) {
 
 ControlBar.propTypes = {
   linkToArticle: PropTypes.string.isRequired,
+  sentenceParts: PropTypes.array.isRequired,
 };
 
 const select = createStructuredSelector({
   linkToArticle: createSelector(selectOptions, options => options.linkToArticle),
+  sentenceParts: selectSentenceParts,
 });
 
 export default connect(select)(ControlBar);
