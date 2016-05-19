@@ -1,10 +1,12 @@
-import React, { PropTypes } from 'react';
+import InfoBar from '../InfoBar';
 import InternalLink from '../InternalLink';
 import OFooter from '../OFooter';
+import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createSelector, createStructuredSelector } from 'reselect';
 import { selectOptions } from '../App/selectors';
+import { StickyContainer, Sticky } from 'react-sticky';
 
 export function HomePage({ headline, standfirst }) {
   return (
@@ -13,11 +15,17 @@ export function HomePage({ headline, standfirst }) {
         <h1>{headline}</h1>
         <p>{standfirst}</p>
 
-        <InternalLink route="/form" className={styles.floatingActionButton}>Write a comment</InternalLink>
+        <StickyContainer>
+          <Sticky>
+            <InfoBar />
+          </Sticky>
 
-        <section className={styles.opinionsList}>
-          {[...Array(200).keys()].map((x, i) => <p key={i} style={{ background:'#efe' }}>opinions</p>)}
-        </section>
+          <section className={styles.opinionsList}>
+            {[...Array(200).keys()].map((x, i) => <p key={i} style={{ background:'#efe' }}>opinions {i}</p>)}
+          </section>
+
+          <InternalLink route="/form" className={styles.floatingActionButton}>Write a comment</InternalLink>
+        </StickyContainer>
       </div>
 
       <OFooter />
