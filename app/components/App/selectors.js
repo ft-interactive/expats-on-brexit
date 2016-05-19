@@ -22,9 +22,11 @@ const selectAppState = state => {
 
 export const selectOptions = createSelector(selectAppState, appState => appState.options);
 
+export const selectCountries = createSelector(selectAppState, appState => appState.countries);
+
 const selectOpinions = createSelector(selectAppState, appState => appState.opinions);
 
-const selectCurrentFilters = createSelector(selectAppState, appState => appState.filters);
+export const selectCurrentFilters = createSelector(selectAppState, appState => appState.filters);
 
 const selectFilterFunction = createSelector(
   selectCurrentFilters,
@@ -60,7 +62,7 @@ const selectFilteredOpinions = createSelector(
   ),
 );
 
-const selectFilteredOpinionsCount = createSelector(selectFilteredOpinions, opinions => opinions.length);
+export const selectFilteredOpinionsCount = createSelector(selectFilteredOpinions, opinions => opinions.length);
 
 export const selectSentenceParts = createSelector(
   selectCurrentFilters,

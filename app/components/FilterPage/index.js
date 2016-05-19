@@ -3,26 +3,46 @@
  * Only used on mobile (the desktop site shows filters inline).
  */
 
-import InternalLink from '../../components/InternalLink';
-import React from 'react';
+import Filters from '../Filters';
+import InternalLink from '../InternalLink';
+import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+import { RESET_FILTERS } from '../../constants';
+import { selectFilteredOpinionsCount } from '../App/selectors';
 
+function FilterPage({ count, dispatch }) {
+  console.assert(dispatch);
+  console.log(typeof dispatch, '(dispatch is that type)');
 
-function FilterPage() {
   return (
     <div className={styles.filterPage}>
-      FILTER PAGE
+      <InternalLink route="/" className={styles.closeButton}>×</InternalLink>
 
-      <p>
-        <InternalLink route="/">Home</InternalLink>
-        <InternalLink route="/form">Form</InternalLink>
-      </p>
+      <Filters />
+
+      <InternalLink route="/" className={styles.submitButton}>
+        {`Show ${count} filtered opinions`}
+      </InternalLink>
+
+      or
+      <InternalLink
+        route="/"
+        className={styles.submitButton}
+        onClick={() => {
+          dispatch({ type: RESET_FILTERS })
+        }}
+      >show all</InternalLink>
     </div>
   );
 }
 
+FilterPage.propTypes = {
+  count: PropTypes.number.isRequired,
+  dispatch: PropTypes.func.isRequired,
+};
+
 export default connect(createStructuredSelector({
-  // TODO reflect needed props here, with each one's value being a selector from App/selectors
+  count: selectFilteredOpinionsCount,
 }))(FilterPage);

@@ -217,5 +217,9 @@
       "font-family-name-quotes": "single-where-recommended",
       "indentation": 2
     }
+  },
+  "devDependencies": {
+    "classnames": "^2.2.5",
+    "react-select": "^1.0.0-beta13"
   }
 }

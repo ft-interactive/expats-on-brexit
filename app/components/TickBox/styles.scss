@@ -1,0 +1,36 @@
+.tickBox {
+  background: #f2f2f2;
+  font: 17px/50px MetricWeb;
+  height: 50px;
+  margin-bottom: 10px;
+  position: relative;
+  cursor: pointer;
+}
+
+.icon {
+  display: inline-block;
+  width: 60px;
+  background: yellow;
+}
+
+.text {
+  display: inline-block;
+}
+
+.indicator {
+  display: inline-block;
+  float: right;
+  margin: 12px 20px 0 0;
+  border: 1px solid #e6e6e6;
+
+  height: 26px;
+  width: 26px;
+}
+
+.indicatorTicked {
+  background: green;
+}
+
+.indicatorUnticked {
+  background: red;
+}
