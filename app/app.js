@@ -8,8 +8,8 @@ import 'babel-polyfill';
 
 // TODO constrain eslint import/no-unresolved rule to this block
 // Load the manifest.json file and the .htaccess file
-import 'file?name=[name].[ext]!./manifest.json';
-import 'file?name=[name].[ext]!./.htaccess';
+// import 'file?name=[name].[ext]!./manifest.json';
+// import 'file?name=[name].[ext]!./.htaccess';
 
 // Import all the third party stuff
 import React from 'react';
@@ -23,7 +23,7 @@ import configureStore from './store';
 import basePath from './basePath';
 
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
-import 'sanitize.css/lib/sanitize.css';
+// import 'sanitize.css/lib/sanitize.css';
 
 // Create redux store with history
 // this uses the singleton browserHistory provided by react-router
