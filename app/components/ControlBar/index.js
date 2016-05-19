@@ -9,12 +9,14 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import styles from './styles.scss';
+import { createStructuredSelector, createSelector } from 'reselect';
+import { selectOptions } from '../App/selectors';
 
-function ControlBar() {
+function ControlBar({ linkToArticle }) {
   return (
     <div className={styles.controlBar}>
       <div className={styles.pinkBar}>
-        <a href="https://www.ft.com/">Back to article</a>
+        <a href={linkToArticle}>Back to article</a>
       </div>
 
       <div className={styles.whiteBar}>
@@ -24,6 +26,12 @@ function ControlBar() {
   );
 }
 
-ControlBar.propTypes = {};
+ControlBar.propTypes = {
+  linkToArticle: PropTypes.string.isRequired,
+};
 
-export default connect()(ControlBar);
+const select = createStructuredSelector({
+  linkToArticle: createSelector(selectOptions, options => options.linkToArticle),
+});
+
+export default connect(select)(ControlBar);
