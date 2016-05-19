@@ -7,6 +7,8 @@
  */
 
 import InternalLink from '../InternalLink';
+import OnlyMobile from '../OnlyMobile';
+import OnlyDesktop from '../OnlyDesktop';
 import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
@@ -29,7 +31,15 @@ function ControlBar({ linkToArticle, sentenceParts }) {
           ))}
         </p>
 
-        <InternalLink route="/filter">Filter</InternalLink>
+        <OnlyMobile>
+          <InternalLink route="/filter">Filter</InternalLink>
+        </OnlyMobile>
+
+        <OnlyDesktop>
+          <InternalLink className={styles.desktopFilterButton}>Filter (Desktop, TODO)</InternalLink>
+          {' '}
+          <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
+        </OnlyDesktop>
       </div>
     </div>
   );

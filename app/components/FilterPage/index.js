@@ -13,9 +13,6 @@ import { RESET_FILTERS } from '../../constants';
 import { selectFilteredOpinionsCount } from '../App/selectors';
 
 function FilterPage({ count, dispatch }) {
-  console.assert(dispatch);
-  console.log(typeof dispatch, '(dispatch is that type)');
-
   return (
     <div className={styles.filterPage}>
       <InternalLink route="/" className={styles.closeButton}>×</InternalLink>
@@ -25,13 +22,12 @@ function FilterPage({ count, dispatch }) {
       <InternalLink route="/" className={styles.submitButton}>
         {`Show ${count} filtered opinions`}
       </InternalLink>
-
-      or
+      <span>{' or '}</span>
       <InternalLink
         route="/"
         className={styles.submitButton}
         onClick={() => {
-          dispatch({ type: RESET_FILTERS })
+          dispatch({ type: RESET_FILTERS });
         }}
       >show all</InternalLink>
     </div>

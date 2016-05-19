@@ -15,10 +15,7 @@ export const selectLocationState = () => {
   };
 };
 
-const selectAppState = state => {
-  console.log('state', state);
-  return state.app;
-};
+const selectAppState = state => state.app;
 
 export const selectOptions = createSelector(selectAppState, appState => appState.options);
 
@@ -69,9 +66,11 @@ export const selectSentenceParts = createSelector(
   selectFilteredOpinionsCount,
 
   (filters, count) => {
+    const single = (count === 1);
+
     const parts = [
       { text: count, mark: true },
-      { text: ' expats who live ' },
+      { text: ` expat${single ? '' : 's'} who live${single ? 's' : ''} ` },
     ];
 
     // add living filter
