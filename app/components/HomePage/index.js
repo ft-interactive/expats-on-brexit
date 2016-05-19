@@ -1,4 +1,4 @@
-import InfoBar from '../InfoBar';
+import ControlBar from '../ControlBar';
 import InternalLink from '../InternalLink';
 import OFooter from '../OFooter';
 import React, { PropTypes } from 'react';
@@ -8,16 +8,17 @@ import { createSelector, createStructuredSelector } from 'reselect';
 import { selectOptions } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-export function HomePage({ headline, standfirst }) {
+export function HomePage({ headline, standfirst, byline }) {
   return (
     <div className={styles.homePage}>
       <div className={styles.mainContent}>
         <h1>{headline}</h1>
         <p>{standfirst}</p>
+        <p>{byline}</p>
 
         <StickyContainer>
-          <Sticky>
-            <InfoBar />
+          <Sticky onStickyStateChange={isStuck => { console.log('isStuck', isStuck) }}>
+            <ControlBar />
           </Sticky>
 
           <section className={styles.opinionsList}>
@@ -41,6 +42,7 @@ HomePage.propTypes = {
 const select = createStructuredSelector({
   headline: createSelector(selectOptions, options => options.headline),
   standfirst: createSelector(selectOptions, options => options.standfirst),
+  byline: createSelector(selectOptions, options => options.byline),
 });
 
 export default connect(select)(HomePage);
