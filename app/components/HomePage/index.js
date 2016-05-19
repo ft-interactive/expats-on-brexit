@@ -13,7 +13,7 @@ export function HomePage({ headline, standfirst, byline }) {
     <div className={styles.homePage}>
       <div className={styles.mainContent}>
         <h1>{headline}</h1>
-        <p>{standfirst}</p>
+        <div dangerouslySetInnerHTML={{ __html: standfirst }} />
         <p>{byline}</p>
 
         <StickyContainer>
@@ -37,6 +37,7 @@ export function HomePage({ headline, standfirst, byline }) {
 HomePage.propTypes = {
   headline: PropTypes.string.isRequired,
   standfirst: PropTypes.string.isRequired,
+  byline: PropTypes.string.isRequired,
 };
 
 const select = createStructuredSelector({
