@@ -1,6 +1,7 @@
 import ControlBar from '../ControlBar';
 import InternalLink from '../InternalLink';
 import Opinion from '../Opinion';
+import OnlyMobile from '../OnlyMobile';
 import OFooter from '../OFooter';
 import React, { PropTypes } from 'react';
 import styles from './styles.scss';
@@ -22,9 +23,9 @@ export function HomePage({
         <StickyContainer>
           <Sticky
             stickyStyle={{ zIndex: 4 }}
-            onStickyStateChange={isStuck => {
-              console.log('isStuck', isStuck)
-            }}
+            // onStickyStateChange={isStuck => {
+            //   console.log('isStuck', isStuck)
+            // }}
           >
             <ControlBar />
           </Sticky>
@@ -35,7 +36,11 @@ export function HomePage({
             ))}
           </section>
 
-          <InternalLink route="/form" className={styles.floatingActionButton}>Write a comment</InternalLink>
+          <OnlyMobile>
+            <InternalLink route="/form" className={styles.floatingActionButton}>
+              Write a comment
+            </InternalLink>
+          </OnlyMobile>
         </StickyContainer>
       </div>
 
@@ -48,6 +53,7 @@ HomePage.propTypes = {
   headline: PropTypes.string.isRequired,
   standfirst: PropTypes.string.isRequired,
   byline: PropTypes.string.isRequired,
+  filteredOpinions: PropTypes.array.isRequired,
 };
 
 const select = createStructuredSelector({
