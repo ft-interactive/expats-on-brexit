@@ -1,3 +1,8 @@
+// TODO: in here, add classes for app-wide icons:
+// .iconRemain, .iconLeave, .iconUnsure, .iconInEU, .iconOutsideEU, .iconTick
+// including cover style maybe, and a default size
+// then maybe other components can just import this file and use the classnames
+
 :global {
   @import 'o-colors/main';
   @import 'o-fonts/main';

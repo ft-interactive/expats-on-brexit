@@ -41,7 +41,7 @@ function ControlBar({ linkToArticle, sentenceParts }) {
               ? <mark key={i}>{text}</mark>
               : <span key={i}>{text}</span>
           ))}
-        </p>        
+        </p>
       </div>
     </div>
   );
