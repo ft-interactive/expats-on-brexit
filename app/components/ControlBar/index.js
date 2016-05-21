@@ -7,15 +7,17 @@
  */
 
 import InternalLink from '../InternalLink';
+import Filters from '../Filters';
 import OnlyMobile from '../OnlyMobile';
 import OnlyDesktop from '../OnlyDesktop';
 import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
-import { selectOptions, selectSentenceParts } from '../App/selectors';
+import { selectOptions, selectSentenceParts, selectFilteredOpinionsCount } from '../App/selectors';
+import { RESET_FILTERS } from '../../constants';
 
-function ControlBar({ linkToArticle, sentenceParts }) {
+function ControlBar({ linkToArticle, sentenceParts, count, dispatch }) {
   return (
     <div className={styles.controlBar}>
       <div className={styles.pinkBar}>
@@ -23,25 +25,57 @@ function ControlBar({ linkToArticle, sentenceParts }) {
       </div>
 
       <div className={styles.whiteBar}>
-        <div className={styles.buttons}>
-          <OnlyMobile>
-            <InternalLink route="/filter" className={styles.mobileFilterButton}>Filter</InternalLink>
-          </OnlyMobile>
+        <div className={styles.sentenceAndButtons}>
+          <div className={styles.buttons}>
+            <OnlyMobile>
+              <InternalLink route="/filter" className={styles.mobileFilterButton}>Filter</InternalLink>
+            </OnlyMobile>
 
-          <OnlyDesktop>
-            <InternalLink className={styles.desktopFilterButton}>Filter (Desktop, TODO)</InternalLink>
-            {' '}
-            <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
-          </OnlyDesktop>
+            <OnlyDesktop>
+              <InternalLink className={styles.desktopFilterButton}>Filter (Desktop, TODO)</InternalLink>
+              {' '}
+              <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
+            </OnlyDesktop>
+          </div>
+
+          <p className={styles.sentence}>
+            {sentenceParts.map(({ text, mark }, i) => (
+              mark
+                ? <mark key={i}>{text}</mark>
+                : <span key={i}>{text}</span>
+            ))}
+          </p>
         </div>
 
-        <p className={styles.sentence}>
-          {sentenceParts.map(({ text, mark }, i) => (
-            mark
-              ? <mark key={i}>{text}</mark>
-              : <span key={i}>{text}</span>
-          ))}
-        </p>
+        <OnlyDesktop>
+          <div className={styles.dropDownFiltersWrapper}>
+            <Filters horizontal />
+
+            <div className={styles.dropDownFiltersButtons}>
+              <button
+                className={styles.applyFiltersButton}
+                onClick={() => {
+                  // TODO hide filters
+                  // TODO maybe also scroll to top, if filters have changed?
+                }}
+              >
+                {`Show ${count} responses`}
+              </button>
+
+              <span>{' or '}</span>
+
+              <button
+                className={styles.showAll}
+                onClick={() => {
+                  dispatch({ type: RESET_FILTERS });
+                  // TODO hide filters
+                }}
+              >
+                show all
+              </button>
+            </div>
+          </div>
+        </OnlyDesktop>
       </div>
     </div>
   );
@@ -50,11 +84,14 @@ function ControlBar({ linkToArticle, sentenceParts }) {
 ControlBar.propTypes = {
   linkToArticle: PropTypes.string.isRequired,
   sentenceParts: PropTypes.array.isRequired,
+  count: PropTypes.number.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const select = createStructuredSelector({
   linkToArticle: createSelector(selectOptions, options => options.linkToArticle),
   sentenceParts: selectSentenceParts,
+  count: selectFilteredOpinionsCount,
 });
 
 export default connect(select)(ControlBar);

@@ -7,6 +7,14 @@
   @import 'o-colors/main';
   @import 'o-fonts/main';
 
+  html {
+    box-sizing: border-box;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
   body {
     @include oColorsFor('page');
     font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);

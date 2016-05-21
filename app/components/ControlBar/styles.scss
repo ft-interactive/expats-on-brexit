@@ -2,11 +2,15 @@
 
 .controlBar {
   background-color: #fff1e0;
-  position: relative;
+
+  position: absolute;
+  width: 100%;
+  z-index: 4;
 }
-  $pink-bar-height: 30px;
 
   .pinkBar {
+    $pink-bar-height: 30px;
+
     font-size: 19px;
     line-height: $pink-bar-height;
   
@@ -26,30 +30,33 @@
     box-shadow: 0px 4px 4px 0px rgba(0,0,0,0.14);
     border-top: 1px solid #ddd;
 
-    display: flex;
-    flex-direction: row-reverse;
-    align-items: center;
-    
-
     position: absolute;
     width: 100%;
   }
-
-    .buttons {
+    .sentenceAndButtons {
       display: flex;
-    }
-      .mobileFilterButton {
-        @include button-style;
-      }
+      flex-direction: row-reverse;
+      align-items: center;
 
-    .sentence {
-      flex: 1;
-      margin: 0;
-      padding: 10px;
-      font: 21px $serif;
-
-      > mark {
-        color: #36BAC0;
-        background-color: transparent;
-      }
     }
+      .buttons {
+        display: flex;
+      }
+        .mobileFilterButton {
+          @include button-style;
+        }
+      .sentence {
+        flex: 1;
+        margin: 0;
+        padding: 10px;
+        font: 21px $serif;
+
+        > mark {
+          color: #36BAC0;
+          background-color: transparent;
+        }
+      }
+  
+  .dropDownFiltersWrapper {
+    // background: green;
+  }
