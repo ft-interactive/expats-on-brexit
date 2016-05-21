@@ -17,6 +17,8 @@ export const selectLocationState = () => {
 
 const selectAppState = state => state.app;
 
+export const selectDesktopFiltersVisible = createSelector(selectAppState, appState => appState.desktopFiltersVisible);
+
 export const selectOptions = createSelector(selectAppState, appState => appState.options);
 
 export const selectCountries = createSelector(selectAppState, appState => appState.countries);

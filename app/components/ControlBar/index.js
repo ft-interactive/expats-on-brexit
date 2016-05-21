@@ -6,20 +6,25 @@
  * Sticky behaviour might be a bit different on mobile, pulling itself up.
  */
 
-import InternalLink from '../InternalLink';
+import classnames from 'classnames';
 import Filters from '../Filters';
-import OnlyMobile from '../OnlyMobile';
+import InternalLink from '../InternalLink';
 import OnlyDesktop from '../OnlyDesktop';
+import OnlyMobile from '../OnlyMobile';
 import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
-import { selectOptions, selectSentenceParts, selectFilteredOpinionsCount } from '../App/selectors';
-import { RESET_FILTERS } from '../../constants';
+import { RESET_FILTERS, HIDE_DESKTOP_FILTERS, SHOW_DESKTOP_FILTERS } from '../../constants';
+import { selectOptions, selectSentenceParts, selectFilteredOpinionsCount, selectDesktopFiltersVisible } from '../App/selectors';
 
-function ControlBar({ linkToArticle, sentenceParts, count, dispatch }) {
+function ControlBar({ linkToArticle, sentenceParts, count, desktopFiltersVisible, dispatch }) {
   return (
-    <div className={styles.controlBar}>
+    <div
+      className={classnames(styles.controlBar, {
+        [styles.desktopFiltersVisible]: desktopFiltersVisible,
+      })}
+    >
       <div className={styles.pinkBar}>
         <a href={linkToArticle}>Back to article</a>
       </div>
@@ -32,7 +37,12 @@ function ControlBar({ linkToArticle, sentenceParts, count, dispatch }) {
             </OnlyMobile>
 
             <OnlyDesktop>
-              <InternalLink className={styles.desktopFilterButton}>Filter (Desktop, TODO)</InternalLink>
+              <button
+                className={styles.desktopFilterButton}
+                onClick={() => {
+                  dispatch({ type: SHOW_DESKTOP_FILTERS });
+                }}
+              >Filter</button>
               {' '}
               <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
             </OnlyDesktop>
@@ -55,7 +65,8 @@ function ControlBar({ linkToArticle, sentenceParts, count, dispatch }) {
               <button
                 className={styles.applyFiltersButton}
                 onClick={() => {
-                  // TODO hide filters
+                  dispatch({ type: HIDE_DESKTOP_FILTERS });
+
                   // TODO maybe also scroll to top, if filters have changed?
                 }}
               >
@@ -68,6 +79,7 @@ function ControlBar({ linkToArticle, sentenceParts, count, dispatch }) {
                 className={styles.showAll}
                 onClick={() => {
                   dispatch({ type: RESET_FILTERS });
+                  dispatch({ type: HIDE_DESKTOP_FILTERS });
                   // TODO hide filters
                 }}
               >
@@ -85,6 +97,7 @@ ControlBar.propTypes = {
   linkToArticle: PropTypes.string.isRequired,
   sentenceParts: PropTypes.array.isRequired,
   count: PropTypes.number.isRequired,
+  desktopFiltersVisible: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
@@ -92,6 +105,7 @@ const select = createStructuredSelector({
   linkToArticle: createSelector(selectOptions, options => options.linkToArticle),
   sentenceParts: selectSentenceParts,
   count: selectFilteredOpinionsCount,
+  desktopFiltersVisible: selectDesktopFiltersVisible,
 });
 
 export default connect(select)(ControlBar);

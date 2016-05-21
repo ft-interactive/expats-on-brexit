@@ -62,7 +62,7 @@ export function Filters({
             value: name,
           }))}
           value={country}
-          onChange={({ value }) => setFilter('country', value)}
+          onChange={(change) => setFilter('country', change && change.value)}
         />
       </div>
     </div>
@@ -75,7 +75,6 @@ Filters.propTypes = {
   horizontal: PropTypes.bool,
 
   values: PropTypes.shape({
-
     leaningLeave: PropTypes.bool.isRequired,
     leaningRemain: PropTypes.bool.isRequired,
     leaningUnsure: PropTypes.bool.isRequired,

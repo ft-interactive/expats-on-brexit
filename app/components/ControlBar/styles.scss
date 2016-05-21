@@ -38,13 +38,18 @@
       flex-direction: row-reverse;
       align-items: center;
 
+      .desktopFiltersVisible & {
+        display: none;
+      }
     }
       .buttons {
         display: flex;
       }
-        .mobileFilterButton {
+        .mobileFilterButton,
+        .desktopFilterButton {
           @include button-style;
         }
+
       .sentence {
         flex: 1;
         margin: 0;
@@ -59,4 +64,10 @@
   
   .dropDownFiltersWrapper {
     // background: green;
+
+    display: none;
+
+    .desktopFiltersVisible & {
+      display: block;
+    }
   }

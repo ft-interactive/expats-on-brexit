@@ -4,8 +4,7 @@
 // then maybe other components can just import this file and use the classnames
 
 :global {
-  @import 'o-colors/main';
-  @import 'o-fonts/main';
+  @import '../../sass/shared';
 
   html {
     box-sizing: border-box;
@@ -32,6 +31,36 @@
       // @include oColorsFor('link-hover');
       color: darken(#2B747C, 20%);
     }
+  }
+  
+  // style button, or just things with class .btn, to look like a nice button
+  button,
+  .btn {
+    box-sizing: border-box;
+    border: 1px solid #27757B;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 8px;
+    padding: 0 8px;
+    height: $button-height;
+    line-height: $button-height;
+    color: #27757B;
+    background-color: transparent;
+    text-align: center;
+
+    &.dark {
+      background-color: #27757B;
+      color: white;
+    }
+  }
+
+  button.link {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    display: inline;
+    text-align: left;
   }
 }
 

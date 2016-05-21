@@ -3,6 +3,8 @@
  */
 
 @import 'o-fonts/main';
+@import 'o-colors/main';
+@import 'o-fonts/main';
 
 $sans: oFontsGetFontFamilyWithFallbacks('MetricWeb');
 $serif: oFontsGetFontFamilyWithFallbacks('FinancierTextWeb');
@@ -22,24 +24,24 @@ $display: oFontsGetFontFamilyWithFallbacks('FinancierDisplayWeb');
 $button-height: 40px;
 
 @mixin button-style {
-  box-sizing: border-box;
-  border: 1px solid #27757B;
-  border-radius: 3px;
-  display: inline-block;
-  margin: 8px;
-  padding: 0 8px;
-  height: $button-height;
-  line-height: $button-height;
-  color: #27757B;
-  background-color: white;
-  text-align: center;
+  // box-sizing: border-box;
+  // border: 1px solid #27757B;
+  // border-radius: 3px;
+  // display: inline-block;
+  // margin: 8px;
+  // padding: 0 8px;
+  // height: $button-height;
+  // line-height: $button-height;
+  // color: #27757B;
+  // background-color: white;
+  // text-align: center;
 }
 
 @mixin dark-button-style {
-  @include button-style;
+  // @include button-style;
 
-  background-color: #27757B;
-  color: white;
+  // background-color: #27757B;
+  // color: white;
 }
 
 
