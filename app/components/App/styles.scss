@@ -43,10 +43,11 @@
     margin: 8px;
     padding: 0 8px;
     height: $button-height;
-    line-height: $button-height;
     color: #27757B;
     background-color: transparent;
     text-align: center;
+    font: inherit;
+    line-height: $button-height;
 
     &.dark {
       background-color: #27757B;
