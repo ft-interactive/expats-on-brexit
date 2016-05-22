@@ -2,7 +2,7 @@ import ControlBar from '../ControlBar';
 import InternalLink from '../InternalLink';
 import OFooter from '../OFooter';
 import OnlyMobile from '../OnlyMobile';
-import Opinion from '../Opinion';
+import OpinionsList from '../OpinionsList';
 import React, { Component, PropTypes } from 'react';
 // import ReactDOM from 'react-dom';
 import SiteHeader from '../SiteHeader';
@@ -82,11 +82,7 @@ export class ExplorePage extends Component {
               <ControlBar />
             </Sticky>
 
-            <section className="explore-page__opinions-list">
-              {filteredOpinions.map(opinion => (
-                <Opinion {...opinion} num={opinion.key} />
-              ))}
-            </section>
+            <OpinionsList opinions={filteredOpinions} />
 
             <OnlyMobile>
               <InternalLink route="/form" className="explore-page__floating-action-button">
