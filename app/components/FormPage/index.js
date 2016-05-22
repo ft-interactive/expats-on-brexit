@@ -17,7 +17,7 @@ function FormPage() {
       </h1>
 
       <p>
-        <InternalLink route="/">go back</InternalLink>
+        <InternalLink route="/explore">go back</InternalLink>
       </p>
     </div>
   );

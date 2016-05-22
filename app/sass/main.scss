@@ -1,0 +1,14 @@
+:global {
+  @import './shared'; // TODO: get rid of this; move bits into proper places (once no components are relying on it)
+  
+  @import './var';
+  @import './mixins';
+  @import './base';
+  @import './layout';
+
+  @import '../components/SiteHeader/main';
+  @import '../components/LandingPage/main';
+  @import '../components/ExplorePage/main';
+  @import '../components/ControlBar/main';
+  @import '../components/OpinionsList/main';
+}

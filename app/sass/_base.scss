@@ -1,0 +1,82 @@
+
+  html {
+    box-sizing: border-box;
+
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  body {
+    @include oColorsFor('page');
+    font-family: oFontsGetFontFamilyWithFallbacks(MetricWeb);
+    min-height: 100vh;
+    margin: 0;
+  }
+
+  a {
+    // @include oColorsFor('link');
+    color: #2B747C;
+
+    text-decoration: none;
+
+    &:hover {
+      // @include oColorsFor('link-hover');
+      color: darken(#2B747C, 20%);
+    }
+  }
+  
+  // style button, or just things with class .btn, to look like a nice button
+  button,
+  .btn {
+    // @include shadow-1dp;
+
+    font-family: $sans;
+
+    box-sizing: border-box;
+    border: 1px solid #27757B;
+    border-radius: 3px;
+    display: inline-block;
+    margin: 8px;
+    padding: 0 8px;
+    height: $button-height;
+    
+    background-color: transparent;
+    text-align: center;
+    
+    line-height: $button-height;
+    color: #27757B;
+
+
+
+    &:hover { color: #27757B; }
+
+    &--dark {
+      border: 0;
+      background-color: #27757B;
+      color: white;
+
+      &:hover {
+        color: white;
+        background-color: lighten(#27757B, 5%);
+      }
+      &:active {
+        color: white;
+        background-color: lighten(#27757B, 8%);
+      }
+    }
+  }
+  
+  // for when a button should look like a text link
+  button.link {
+    border: 0;
+    padding: 0;
+    margin: 0;
+    line-height: 1;
+    display: inline;
+    text-align: left;
+    font: inherit;
+  }
