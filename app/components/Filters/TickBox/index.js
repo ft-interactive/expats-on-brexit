@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import styles from './styles.scss';
+import styles from '../styles.scss';
 import classify from 'classnames';
 
 export default function TickBox({ ticked, onToggle, children }) {
@@ -11,9 +11,9 @@ export default function TickBox({ ticked, onToggle, children }) {
       )}
       onClick={onToggle}
     >
-      <span className={styles.icon} />
+      <span className={styles.tickBoxIcon} />
 
-      <span className={styles.text}>{children}</span>
+      <span className={styles.tickBoxLabel}>{children}</span>
 
       <span
         className={classify(

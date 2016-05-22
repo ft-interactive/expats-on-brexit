@@ -22,6 +22,9 @@ import useScroll from 'react-router-scroll';
 import configureStore from './store';
 import basePath from './basePath';
 
+import './sass/main.scss';
+import 'file?name=[name].[ext]!./images/illustration.jpg';
+
 // Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
 // import 'sanitize.css/lib/sanitize.css';
 

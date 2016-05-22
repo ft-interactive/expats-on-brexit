@@ -4,6 +4,6 @@
 
 @media all and (max-width: 739px) {
   .onlyMobile {
-    display: inline-block;
+    display: block;
   }
 }

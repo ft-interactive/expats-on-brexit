@@ -12,7 +12,10 @@ module.exports = (options) => ({
     // publicPath: '/',
   }, options.output), // Merge with env dependent settings
   sassLoader: {
-    includePaths: [path.resolve(__dirname, '..', '..', 'bower_components')],
+    includePaths: [
+      path.resolve(__dirname, '..', '..', 'bower_components'),
+      path.resolve(__dirname, '..', '..', 'node_modules'),
+    ],
   },
   module: {
     loaders: [{
