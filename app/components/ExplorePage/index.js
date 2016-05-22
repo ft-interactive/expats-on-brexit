@@ -1,21 +1,19 @@
 import ControlBar from '../ControlBar';
 import InternalLink from '../InternalLink';
-import Opinion from '../Opinion';
-import OnlyMobile from '../OnlyMobile';
 import OFooter from '../OFooter';
+import OnlyMobile from '../OnlyMobile';
+import Opinion from '../Opinion';
 import React, { PropTypes } from 'react';
+import SiteHeader from '../SiteHeader';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createSelector, createStructuredSelector } from 'reselect';
 import { selectOptions, selectFilteredOpinions } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
-import SiteHeader from '../SiteHeader';
 
-export function HomePage({
-  headline, standfirst, filteredOpinions,
-}) {
+export function ExplorePage({ headline, standfirst, filteredOpinions }) {
   return (
-    <div className={styles.homePage}>
+    <div className={styles.explorePage}>
       <SiteHeader />
       <div className={styles.mainContent}>
         <h1 className={styles.headline}>{headline}</h1>
@@ -50,7 +48,7 @@ export function HomePage({
   );
 }
 
-HomePage.propTypes = {
+ExplorePage.propTypes = {
   headline: PropTypes.string.isRequired,
   standfirst: PropTypes.string.isRequired,
   byline: PropTypes.string.isRequired,
@@ -64,4 +62,4 @@ const select = createStructuredSelector({
   filteredOpinions: selectFilteredOpinions,
 });
 
-export default connect(select)(HomePage);
+export default connect(select)(ExplorePage);
