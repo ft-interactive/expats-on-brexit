@@ -1,24 +1,23 @@
 import React, { PropTypes } from 'react';
-import styles from '../styles.scss';
 import classify from 'classnames';
 
-export default function TickBox({ ticked, onToggle, children }) {
+export default function TickBox({ icon, ticked, onToggle, children }) {
   return (
     <div
       className={classify(
-        styles.tickBox,
+        'tick-box',
         // ticked ? styles.tickBoxTicked : styles.tickBoxUnticked
       )}
       onClick={onToggle}
     >
-      <span className={styles.tickBoxIcon} />
+      <span className={`tick-box__icon tick-box__icon--${icon}`} />
 
-      <span className={styles.tickBoxLabel}>{children}</span>
+      <span className="tick-box__label">{children}</span>
 
       <span
         className={classify(
-          styles.indicator,
-          ticked ? styles.indicatorTicked : styles.indicatorUnticked
+          'tick-box__indicator',
+          ticked ? 'tick-box__indicator--ticked' : 'tick-box__indicator--unticked'
         )}
       />
     </div>
@@ -26,6 +25,7 @@ export default function TickBox({ ticked, onToggle, children }) {
 }
 
 TickBox.propTypes = {
+  icon: PropTypes.string.isRequired,
   ticked: PropTypes.bool.isRequired,
   onToggle: PropTypes.func,
   children: PropTypes.node,

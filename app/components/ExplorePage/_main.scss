@@ -37,11 +37,19 @@
   }
 
   &__opinions-list-wrapper {
-    // padding: 40px 10px;
     margin-top: 40px;
     margin-bottom: 40px;
     min-height: 100vh;
   }
+    &__eligibility-note {
+      font: 16px $sans;
+      color: #555;
+      padding: 0 15px;
+
+      > span {
+        color: #D47264;
+      }
+    }
   
   &__sticky-control-bar-wrapper {
     // pointer-events: none;
@@ -53,17 +61,25 @@
 
     &--stuck {
       z-index: 6;
-
-      top: $header-height !important; // override inline style
+      top: $header-height !important; // overrides inline style set by react-sticky
 
       > .control-bar {
         @include shadow-6dp;
 
         background-color: white;
-        // margin-top: $header-height;
         border-top-color: white;
         border-bottom-color: white;
       }
+    }
+  }
+}
+
+@include oGridRespondTo(M) {
+  .explore-page {
+    &__eligibility-note {
+      max-width: 400px;
+      margin: 20px auto 30px;
+      text-align: center;
     }
   }
 }

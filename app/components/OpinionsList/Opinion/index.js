@@ -9,7 +9,7 @@ class Opinion extends Component {
     textHTML: PropTypes.string.isRequired,
   };
 
-  shouldComponentUpdate = (nextProps) => nextProps.num !== this.props.num;
+  shouldComponentUpdate = nextProps => nextProps.num !== this.props.num;
 
   render() {
     const { name, displayLocation, canVote, textHTML } = this.props;

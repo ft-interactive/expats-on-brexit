@@ -77,12 +77,16 @@ export class ExplorePage extends Component {
               className="explore-page__sticky-control-bar-wrapper"
               stickyClassName="explore-page__sticky-control-bar-wrapper--stuck"
               topOffset={-50}
-              // stickyStyle={{ zIndex: 6 }}
             >
               <ControlBar />
             </Sticky>
 
             <div className="explore-page__opinions-list-wrapper">
+              <p className="explore-page__eligibility-note">
+                ‘<span>CAN’T VOTE</span>’
+                {' '}
+                marks respondents who have lived abroad for more than 15 years.
+              </p>
               <OpinionsList opinions={filteredOpinions} />
             </div>
 
