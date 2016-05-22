@@ -13,17 +13,19 @@
   }
 
     &__headline {
-      font: 400 35px $display;
+      font: 400 35px/1.1 $display;
       color: rgba(0,0,0,0.90);
       letter-spacing: 0px;
-      line-height: 38px;
+      margin: 25px auto 10px;
     }
 
     &__standfirst {
-      font: 21px $display;
+      font: 21px/1.35 $display;
       color: #444;
+      max-width: 500px;
       
-      margin: 10px 15px;
+      padding: 10px 15px;
+      margin: 0 auto;
     }
 
     &__byline {
@@ -39,11 +41,11 @@
   
   &__copy {
     padding: 0 15px;
+    max-width: 650px;
+    margin: 0 auto;
+
     p {
-      font-family: FinancierText-Regular;
-      font-size: 19px;
-      color: rgba(0,0,0,0.70);
-      line-height: 26px;
+      font: 19px/1.35 $serif;
     }
   }
     &__explore-link {

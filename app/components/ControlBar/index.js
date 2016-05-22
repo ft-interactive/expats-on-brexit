@@ -1,5 +1,5 @@
 /**
- * ControlBar - the sticky bar containing the sentence summary and buttons.
+ * ControlBar - the sticky bar containing the entence-and-buttons summary and buttons.
  *
  * Both mobile and desktop. (But the 'write comment' button is hidden on mobile, and the 'filter' button behaves differently, taking you to a different page on mobile.)
  *
@@ -12,43 +12,38 @@ import InternalLink from '../InternalLink';
 import OnlyDesktop from '../OnlyDesktop';
 import OnlyMobile from '../OnlyMobile';
 import React, { PropTypes } from 'react';
-import styles from './styles.scss';
 import { connect } from 'react-redux';
-import { createStructuredSelector, createSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import { RESET_FILTERS, HIDE_DESKTOP_FILTERS, SHOW_DESKTOP_FILTERS } from '../../constants';
-import { selectOptions, selectSentenceParts, selectFilteredOpinionsCount, selectDesktopFiltersVisible } from '../App/selectors';
+import { selectSentenceParts, selectFilteredOpinionsCount, selectDesktopFiltersVisible } from '../App/selectors';
 
-function ControlBar({ linkToArticle, sentenceParts, count, desktopFiltersVisible, dispatch }) {
+function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
   return (
     <div
-      className={classnames(styles.controlBar, {
-        [styles.desktopFiltersVisible]: desktopFiltersVisible,
+      className={classnames('control-bar', {
+        'control-bar--desktop-filters-visible': desktopFiltersVisible,
       })}
     >
-      <div className={styles.pinkBar}>
-        <a href={linkToArticle}>Back to article</a>
-      </div>
-
-      <div className={styles.whiteBar}>
-        <div className={styles.sentenceAndButtons}>
-          <div className={styles.buttons}>
+      <div className="control-bar__inner">
+        <div className="control-bar__sentence-and-buttons">
+          <div className="control-bar__buttons">
             <OnlyMobile>
-              <InternalLink route="/filter" className={styles.mobileFilterButton}>Filter</InternalLink>
+              <InternalLink route="/filter" className="control-bar__mobile-filter-button btn">Filter</InternalLink>
             </OnlyMobile>
 
             <OnlyDesktop>
               <button
-                className={styles.desktopFilterButton}
+                className="control-bar__desktop-filter-button"
                 onClick={() => {
                   dispatch({ type: SHOW_DESKTOP_FILTERS });
                 }}
               >Filter</button>
               {' '}
-              <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
+              <InternalLink route="/form" className="control-bar__desktop-write-comment-button">Write a comment</InternalLink>
             </OnlyDesktop>
           </div>
 
-          <p className={styles.sentence}>
+          <p className="control-bar__sentence">
             {sentenceParts.map(({ text, mark }, i) => (
               mark
                 ? <mark key={i}>{text}</mark>
@@ -58,12 +53,12 @@ function ControlBar({ linkToArticle, sentenceParts, count, desktopFiltersVisible
         </div>
 
         <OnlyDesktop>
-          <div className={styles.dropDownFiltersWrapper}>
+          <div className={'control-bar__dropdown-filters-wrapper'}>
             <Filters horizontal />
 
-            <div className={styles.dropDownFiltersButtons}>
+            <div className={'control-bar__dropdown-filters-buttons'}>
               <button
-                className={styles.applyFiltersButton}
+                className={'control-bar__apply-filters-button'}
                 onClick={() => {
                   dispatch({ type: HIDE_DESKTOP_FILTERS });
 
@@ -76,7 +71,7 @@ function ControlBar({ linkToArticle, sentenceParts, count, desktopFiltersVisible
               <span>{' or '}</span>
 
               <button
-                className={styles.showAll}
+                className={'control-bar__show-all-button'}
                 onClick={() => {
                   dispatch({ type: RESET_FILTERS });
                   dispatch({ type: HIDE_DESKTOP_FILTERS });
@@ -94,7 +89,6 @@ function ControlBar({ linkToArticle, sentenceParts, count, desktopFiltersVisible
 }
 
 ControlBar.propTypes = {
-  linkToArticle: PropTypes.string.isRequired,
   sentenceParts: PropTypes.array.isRequired,
   count: PropTypes.number.isRequired,
   desktopFiltersVisible: PropTypes.bool.isRequired,
@@ -102,7 +96,6 @@ ControlBar.propTypes = {
 };
 
 const select = createStructuredSelector({
-  linkToArticle: createSelector(selectOptions, options => options.linkToArticle),
   sentenceParts: selectSentenceParts,
   count: selectFilteredOpinionsCount,
   desktopFiltersVisible: selectDesktopFiltersVisible,

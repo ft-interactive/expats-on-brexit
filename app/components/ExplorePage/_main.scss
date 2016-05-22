@@ -1,6 +1,18 @@
 .explore-page {
   $floating-button-height: 40px;
 
+  &__intro {
+    max-width: 560px;
+    text-align: center;
+    padding: 1px 20px;
+    margin: -1px auto;
+
+    > p {
+      font: 23px/1.35 $display;
+      color: #444;
+    }
+  }
+
   &__floating-action-button {
     font-weight: 200;
     letter-spacing: 0.05em;
@@ -26,7 +38,30 @@
 
   &__opinions-list {
     padding: 40px 10px;
-    margin-top: 60px;
+    // margin-top: 60px;
   }
+  
+  &__sticky-control-bar-wrapper {
+    // pointer-events: none;
 
+    > .control-bar {
+      transition-property: box-shadow, background-color;
+      transition-duration: 0.2s, 0.2s;
+    }
+
+    &--stuck {
+      z-index: 6;
+
+      top: $header-height !important; // override inline style
+
+      > .control-bar {
+        @include shadow-6dp;
+
+        background-color: white;
+        // margin-top: $header-height;
+        border-top-color: white;
+        border-bottom-color: white;
+      }
+    }
+  }
 }

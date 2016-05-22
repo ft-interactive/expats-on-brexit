@@ -1,0 +1,49 @@
+.control-bar {
+  background-color: #fff1e0;
+  border-top: 1px solid getColor('pink-tint2');
+  border-bottom: 1px solid getColor('pink-tint2');
+  position: relative;
+  position: sticky;
+  // top: $header-height;
+  width: 100%;
+
+  &__inner {
+    padding: 5px 20px;
+  }
+    &__sentence-and-buttons {
+      display: flex;
+      flex-direction: row-reverse;
+      align-items: center;
+    }
+      &__buttons {
+        display: flex;
+      }
+        // &__mobile-filter-button,
+        // &__desktop-filter-button {
+        //   // @include button-style;
+        // }
+
+      &__sentence {
+        flex: 1;
+        margin: 0;
+        padding: 10px;
+        font: 21px $serif;
+
+        > mark {
+          color: #36BAC0;
+          background-color: transparent;
+        }
+      }
+
+  &__dropdown-filters-wrapper {
+    display: none;
+
+    .control-bar--desktop-filters-visible &  {
+      display: block;
+    }
+  }
+}
+
+.control-bar--desktop-filters-visible .control-bar__dropdown-filters-wrapper {
+  display: block;
+}

@@ -1,8 +1,14 @@
-$shadow-key-umbra-opacity: 0.2 !default;
-$shadow-key-penumbra-opacity: 0.14 !default;
-$shadow-ambient-shadow-opacity: 0.12 !default;
+@function getColor($name) {
+  @return oColorsGetPaletteColor($name);
+}
 
-$dark-brown: #5F3000;
+$shadow-multiplier: 0.5;
+
+$shadow-key-umbra-opacity: 0.2 * $shadow-multiplier !default;
+$shadow-key-penumbra-opacity: 0.14 * $shadow-multiplier !default;
+$shadow-ambient-shadow-opacity: 0.12 * $shadow-multiplier !default;
+
+$dark-brown: #1F1000;
 
 @mixin focus-shadow() {
   box-shadow: 0 0 8px rgba(0,0,0,.18),0 8px 16px rgba(0,0,0,.36);

@@ -11,6 +11,8 @@
     position: fixed;
     z-index: 5;
     width: 100%;
+
+    @include shadow-6dp;
   }
 
   &__link {
@@ -62,18 +64,13 @@
   }
 }
 
-.site-header--light {
-  .site-header__inner {
-    background: #fff1e0;
-    color: #333;
-  }
-}
-
-// overrides
 .site-header--simple {
+
   .site-header__inner {
     background: #fff1e0;
     position: static;
+
+    box-shadow: none;
   }
 
   .site-header__brand {
