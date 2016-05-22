@@ -3,14 +3,11 @@
  */
 
 import InternalLink from '../../components/InternalLink';
-import React, { PropTypes } from 'react';
+import React from 'react';
 import SiteHeader from '../SiteHeader';
 import ShareLinks from '../ShareLinks';
 import OFooter from '../OFooter';
 import { connect } from 'react-redux';
-import { createStructuredSelector, createSelector } from 'reselect';
-import { selectOptions } from '../App/selectors';
-import basePath from '../../basePath';
 
 function LandingPage() {
   return (
@@ -125,14 +122,6 @@ function LandingPage() {
   );
 }
 
-LandingPage.propTypes = {
-  // headline: PropTypes.string.isRequired,
-  // standfirst: PropTypes.string.isRequired,
-  // byline: PropTypes.string.isRequired,
-};
+// LandingPage.propTypes = {};
 
-export default connect(createStructuredSelector({
-  // headline: createSelector(selectOptions, options => options.headline),
-  // standfirst: createSelector(selectOptions, options => options.standfirst),
-  // byline: createSelector(selectOptions, options => options.byline),  
-}))(LandingPage);
+export default connect()(LandingPage);
