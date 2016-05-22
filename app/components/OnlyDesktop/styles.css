@@ -4,6 +4,10 @@
 
 @media all and (min-width: 740px) {
   .onlyDesktop {
+<<<<<<< HEAD
     display: block;
+=======
+    display: inline-block;
+>>>>>>> master
   }
 }

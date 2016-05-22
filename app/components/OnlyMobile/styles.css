@@ -4,6 +4,10 @@
 
 @media all and (max-width: 739px) {
   .onlyMobile {
+<<<<<<< HEAD
     display: block;
+=======
+    display: inline-block;
+>>>>>>> master
   }
 }

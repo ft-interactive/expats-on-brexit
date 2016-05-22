@@ -4,20 +4,37 @@
   background-color: white;
   min-height: 100vh;
   position: relative;
+<<<<<<< HEAD
   // padding: 25px 0 0;
+=======
+  padding: 25px 0 0;
+>>>>>>> master
 }
 
 .closeButton {
   font: 25px Arial, sans-serif;
   position: absolute;
+<<<<<<< HEAD
   top: 60px;
+=======
+  top: 10px;
+>>>>>>> master
   right: 10px;
 }
 
 .submitButton {
   @include dark-button-style;
+<<<<<<< HEAD
 
   display: block;
+}
+
+.buttons {
+  text-align: center;
+=======
+
+  display: block;
+>>>>>>> master
 }
 
 .buttons {

@@ -82,7 +82,11 @@
     "react-router": "^2.3.0",
     "react-router-redux": "^4.0.4",
     "react-router-scroll": "^0.2.0",
+<<<<<<< HEAD
     "react-sticky": "^5.0.1",
+=======
+    "react-sticky": "^5.0.0",
+>>>>>>> master
     "redux": "^3.5.2",
     "redux-saga": "^0.10.0",
     "reselect": "^2.5.1",

@@ -1,0 +1,52 @@
+@import '../../sass/shared';
+
+.homePage {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.mainContent {
+  flex: 1; // makes footer sticky
+}
+
+.headline {
+  display: none; // TODO
+}
+
+.standfirst {
+  font: 21px $display;
+  color: #444;
+  text-align: center;
+  margin: 10px 15px;
+}
+
+$floating-button-height: 40px;
+
+.floatingActionButton {
+  font-weight: 200;
+  letter-spacing: 0.05em;
+  box-sizing: border-box;
+  display: block;
+  position: fixed;
+  border-radius: $floating-button-height;
+  top: 80vh;
+  bottom: 90px;
+  right: 30px;
+  color: white;
+  background-color: #27757B;
+  padding: 0 15px;
+  height: $floating-button-height;
+  line-height: $floating-button-height;
+  z-index: 5;
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
+
+  &:hover {
+    color: white;
+  }
+}
+
+.opinionsList {
+  padding: 40px 10px;
+  margin-top: 60px;
+}
