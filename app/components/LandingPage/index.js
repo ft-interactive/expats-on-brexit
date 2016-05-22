@@ -5,12 +5,12 @@
 import InternalLink from '../../components/InternalLink';
 import React, { PropTypes } from 'react';
 import SiteHeader from '../SiteHeader';
+import ShareLinks from '../ShareLinks';
 import OFooter from '../OFooter';
 import { connect } from 'react-redux';
 import { createStructuredSelector, createSelector } from 'reselect';
 import { selectOptions } from '../App/selectors';
 import basePath from '../../basePath';
-
 
 function LandingPage() {
   return (
@@ -47,6 +47,27 @@ function LandingPage() {
 
           <p>An estimated five million British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though much less scientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
 
+          <div className="landing-page__aside-pair">
+            <aside className="landing-page__factbox">
+              <h4>Public information for British expats</h4>
+              <ul>
+                <li>Register online (before June 7)</li>
+                <li>Government Q&A page</li>
+                <li>Vote Leave campaign</li>
+                <li>Vote Remain campaign</li>
+              </ul>
+            </aside>
+
+            <aside className="landing-page__factbox">
+              <h4>FT coverage on the EU referendum</h4>
+              <ul>
+                <li>Your top 10 questions answered</li>
+                <li>What do Europeans think of Brexit?</li>
+                <li>What are economists' views on Brexit?</li>
+              </ul>
+            </aside>
+          </div>
+
           <h3>EU dwellers: “I want practical facts”</h3>
 
           <p>Expats living in EU countries will be most directly affected by this vote. One main concern was what would happen to their residency rights if the UK voted to quit the union.</p>
@@ -78,26 +99,25 @@ function LandingPage() {
           <p>TK: 2 OPINIONS</p>
 
           <p>More British expats are eligible to vote than they think: according to a survey by the Electoral Commission, 20 per cent of eligible voters wrongly think they are not entitled. The number of overseas Britons who have registered to vote has jumped to approximately 196,000 in recent months, but that still only accounts for about 3 per cent of British expats - and 1 per cent of eligible Brexit voters.</p>
-          
-          <aside className="landing-page__factbox">
-            <h4>Public information for British expats</h4>
-            <ul>
-              <li>Register online (before June 7)</li>
-              <li>Government Q&A page</li>
-              <li>Vote Leave campaign</li>
-              <li>Vote Remain campaign</li>
-            </ul>
-          </aside>
-
-          <aside className="landing-page__factbox">
-            <h4>FT coverage on the EU referendum</h4>
-            <ul>
-              <li>Your top 10 questions answered</li>
-              <li>What do Europeans think of Brexit?</li>
-              <li>What are economists' views on Brexit?</li>
-            </ul>
-          </aside>
         </div>
+
+        <div className="landing-page__invitation">
+          <p>Are you also a British expat? We want to hear from you.</p>
+          <p>Quality responses will be published</p>
+
+          <div>
+            <InternalLink route="/form" className="btn btn--dark">Add your views</InternalLink>
+          </div>
+        </div>
+
+        <ShareLinks
+          url="https://ig.ft.com/sites/expats-on-brexit/"
+          text="What do British expats think of Brexit?"
+        />
+
+        <p className="landing-page__illustrator-credit">
+          Illustration by Jonathan McHugh
+        </p>
       </main>
 
       <OFooter />
