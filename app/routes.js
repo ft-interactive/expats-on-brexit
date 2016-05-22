@@ -19,10 +19,18 @@ export default function createRoutes() {
   return [
     {
       path: '/',
-      name: 'home',
+      name: 'landing',
+      getComponent(location, cb) {
+        System.import('components/LandingPage')
+          .then(loadModule(cb))
+          .catch(errorLoading);
+      },
+    }, {
+      path: '/explore',
+      name: 'explore',
       getComponent(nextState, cb) {
         const importModules = Promise.all([
-          System.import('components/HomePage'),
+          System.import('components/ExplorePage'),
         ]);
 
         const renderRoute = loadModule(cb);

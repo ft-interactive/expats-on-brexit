@@ -1,20 +1,25 @@
 /**
  * <Filters />
  *
- * This is used for both mobile and desktop control panels, plus the desktop's extra pull-down control panel.
+ * The UI for toggling filters on and off.
+ *
+ * Optional 'horizontal' flag for a wider layout.
  */
 
+// import 'react-select/dist/react-select.css';
+
+import classnames from 'classnames';
 import React, { PropTypes } from 'react';
 import Select from 'react-select';
-import selectStyles from 'react-select/dist/react-select.css';
 import styles from './styles.scss';
-import TickBox from '../TickBox';
+import TickBox from './TickBox';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { selectCurrentFilters, selectCountries } from '../App/selectors';
 import { SET_FILTER } from '../../constants';
 
 export function Filters({
+  horizontal,
   countries, dispatch,
   values: {
     leaningLeave, leaningRemain, leaningUnsure,
@@ -26,7 +31,7 @@ export function Filters({
   };
 
   return (
-    <div className={styles.filters}>
+    <div className={classnames(styles.filters, { [styles.filtersHorizontal]: horizontal })}>
 
       {/* leaning */}
       <div className={styles.filterSet}>
@@ -44,16 +49,20 @@ export function Filters({
         <TickBox ticked={livingInEU} onToggle={() => setFilter('livingInEU', !livingInEU)}>In the EU</TickBox>
         <TickBox ticked={livingOutsideEU} onToggle={() => setFilter('livingOutsideEU', !livingOutsideEU)}>Outside the EU</TickBox>
 
-        <p>or</p>
+        {' '}
+        <p className={styles.bigOr}>or</p>
+        {' '}
 
         <Select
-          className={selectStyles.Select}
+          style={{ boxSizing: 'content-box' }}
+          className={classnames(styles.countrySelector)}
+          placeholder="Choose a country..."
           options={countries.map(({ name }) => ({
             label: name,
             value: name,
           }))}
           value={country}
-          onChange={({ value }) => setFilter('country', value)}
+          onChange={(change) => setFilter('country', change && change.value)}
         />
       </div>
     </div>
@@ -61,6 +70,10 @@ export function Filters({
 }
 
 Filters.propTypes = {
+  countries: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  horizontal: PropTypes.bool,
+
   values: PropTypes.shape({
     leaningLeave: PropTypes.bool.isRequired,
     leaningRemain: PropTypes.bool.isRequired,
@@ -74,10 +87,6 @@ Filters.propTypes = {
       PropTypes.bool,
     ]).isRequired,
   }).isRequired,
-
-  countries: PropTypes.array.isRequired,
-
-  dispatch: PropTypes.func.isRequired,
 };
 
 const select = createStructuredSelector({
