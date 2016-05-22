@@ -19,10 +19,17 @@ class Opinion extends Component {
         <header className="opinion__header">
           <h2 className="opinion__name">{name}</h2>
           <p className="opinion__location">{displayLocation}</p>
-          {canVote
-            ? <p className="opinion__eligibility opinion__eligibility--can"><span>Can vote</span></p>
-            : <p className="opinion__eligibility opinion__eligibility--cannot"><span>Can't vote</span></p>
-          }
+          {canVote ? (
+            <p
+              className="opinion__eligibility opinion__eligibility--can"
+              title="Lived abroad for less than 15 years"
+            ><span>Can vote</span></p>
+          ) : (
+            <p
+              className="opinion__eligibility opinion__eligibility--cannot"
+              title="Lived abroad for more than 15 years"
+            ><span>Can't vote</span></p>
+          )}
         </header>
 
         <div className="opinion__text" dangerouslySetInnerHTML={{ __html: textHTML }}></div>

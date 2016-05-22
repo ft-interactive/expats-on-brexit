@@ -6,7 +6,6 @@ export default function TickBox({ icon, ticked, onToggle, children }) {
     <div
       className={classify(
         'tick-box',
-        // ticked ? styles.tickBoxTicked : styles.tickBoxUnticked
       )}
       onClick={onToggle}
     >

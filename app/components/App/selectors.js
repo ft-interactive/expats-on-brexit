@@ -32,7 +32,7 @@ export const selectCountries = createSelector(
   appState => appState.countries
 );
 
-const selectOpinions = createSelector(
+export const selectOpinions = createSelector(
   selectAppState,
   appState => appState.opinions
 );

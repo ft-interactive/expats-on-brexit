@@ -67,9 +67,10 @@
         width: $eligibility-indicator-size;
         // text-align: center;
         text-transform: uppercase;
-        font-size: 12px;
+        font: 400 12px $sans;
         position: relative;
         left: -3px;
+        cursor: default;
       }
 
       &--can {

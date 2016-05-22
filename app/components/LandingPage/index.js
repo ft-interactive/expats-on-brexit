@@ -3,13 +3,23 @@
  */
 
 import InternalLink from '../../components/InternalLink';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import SiteHeader from '../SiteHeader';
 import ShareLinks from '../ShareLinks';
 import OFooter from '../OFooter';
+import OpinionsList from '../OpinionsList';
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectOpinions } from '../App/selectors';
 
-function LandingPage() {
+function LandingPage({ opinions }) {
+  const insertOpinions = (...opinionIDs) => (
+    <OpinionsList
+      opinions={opinionIDs.map(id => opinions.find(opinion =>
+        opinion.id === id))}
+    />
+  );
+
   return (
     <div className="landing-page page">
       <SiteHeader simple />
@@ -69,31 +79,35 @@ function LandingPage() {
 
           <p>Expats living in EU countries will be most directly affected by this vote. One main concern was what would happen to their residency rights if the UK voted to quit the union.</p>
 
-          <p>TK: 2 OPINIONS</p>
+          {insertOpinions(25)}
+
+          <p>Many EU-based respondents also provided interesting context from their experiences living on the continent. Here are some observations of two FT readers living in Spain:</p>
+
+          {insertOpinions(30, 16)}
 
           <h3>The Swiss model: “Some sovereignty!”</h3>
 
           <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received 15 responses from Switzerland, 12 of which leaned Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
 
-          <p>TK: 2 OPINIONS</p>
+          {insertOpinions(8, 53)}
 
           <h3>Brussels residents: the insider perspective</h3>
 
           <p>A few respondents from Brussels offered some interesting insights on the inner workings of the EU as an institution.</p>
 
-          <p>TK: 1 OPINION</p>
+          {insertOpinions(26)}
 
           <h3>Australasians: “Come on out, the water’s lovely”</h3>
 
           <p>Residents of Commonwealth countries were much more split: 49 per cent leaned Remain and 33 per cent Leave. Many responses from New Zealand and Australia referred to their varied relationship with the UK - pointing to those countries as models for economic independence, or chastising the UK for focusing too much attention on the EU in recent years.</p>
 
-          <p>TK: 1 OPINION</p>
+          {insertOpinions(19, 101)}
 
           <h3>The disenfranchised: “I have no vote!”</h3>
 
           <p>Finally, it is worth noting the concerns of British expats who have lived abroad for more than 15 years and therefore cannot vote in the referendum. These ineligible EU members recently lost a challenge in the court of appeal; their case has escalated to the supreme court. Many responses from this 15-year-plus population expressed deep frustration.</p>
 
-          <p>TK: 2 OPINIONS</p>
+          {insertOpinions(12, 1)}
 
           <p>More British expats are eligible to vote than they think: according to a survey by the Electoral Commission, 20 per cent of eligible voters wrongly think they are not entitled. The number of overseas Britons who have registered to vote has jumped to approximately 196,000 in recent months, but that still only accounts for about 3 per cent of British expats - and 1 per cent of eligible Brexit voters.</p>
         </div>
@@ -122,6 +136,10 @@ function LandingPage() {
   );
 }
 
-// LandingPage.propTypes = {};
+LandingPage.propTypes = {
+  opinions: PropTypes.array.isRequired,
+};
 
-export default connect()(LandingPage);
+export default connect(createStructuredSelector({
+  opinions: selectOpinions,
+}))(LandingPage);

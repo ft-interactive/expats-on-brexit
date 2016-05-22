@@ -1,4 +1,8 @@
 .landing-page {
+  .opinions-list {
+    margin-bottom: 35px;
+  }
+
   &__illustration {
     position: relative;
 
@@ -38,14 +42,21 @@
       color: #8B572A;
     }
 
-  
   &__copy {
     padding: 0 15px;
     max-width: 650px;
     margin: 0 auto;
+    color: #444;
 
-    p {
+    > h3 {
+      font: 500 23px/1.35 $sans;
+      margin-bottom: 0.25em;
+      margin-top: 1.75em;
+    }
+
+    > p {
       font: 19px/1.35 $serif;
+      margin-top: 0;
     }
   }
     &__explore-link {
@@ -58,7 +69,6 @@
       }
     }
 }
-
 
 @include oGridRespondTo(M) {
   .landing-page {
@@ -74,4 +84,3 @@
     }
   }
 }
-
