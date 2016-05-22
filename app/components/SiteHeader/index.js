@@ -8,8 +8,7 @@ import classnames from 'classnames';
 import InternalLink from '../InternalLink';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { createSelector, createStructuredSelector } from 'reselect';
-import { selectOptions } from '../App/selectors';
+import { createStructuredSelector } from 'reselect';
 
 export function SiteHeader({ simple }) {
   return (
@@ -34,7 +33,7 @@ SiteHeader.propTypes = {
 };
 
 const select = createStructuredSelector({
-  linkToArticle: createSelector(selectOptions, options => options.linkToArticle),
+
 });
 
 export default connect(select)(SiteHeader);

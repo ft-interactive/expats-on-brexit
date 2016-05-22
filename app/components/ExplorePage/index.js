@@ -5,21 +5,17 @@ import OnlyMobile from '../OnlyMobile';
 import Opinion from '../Opinion';
 import React, { PropTypes } from 'react';
 import SiteHeader from '../SiteHeader';
-import styles from './styles.scss';
 import { connect } from 'react-redux';
 import { createSelector, createStructuredSelector } from 'reselect';
 import { selectOptions, selectFilteredOpinions } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
 
-export function ExplorePage({ headline, standfirst, filteredOpinions }) {
+export function ExplorePage({ filteredOpinions }) {
   return (
-    <div className={styles.explorePage}>
+    <div className="explore-page page">
       <SiteHeader />
 
-      <div className={styles.mainContent}>
-        <h1 className={styles.headline}>{headline}</h1>
-        <div className={styles.standfirst} dangerouslySetInnerHTML={{ __html: standfirst }} />
-
+      <main>
         <StickyContainer>
           <Sticky
             stickyStyle={{ zIndex: 4 }}
@@ -30,19 +26,19 @@ export function ExplorePage({ headline, standfirst, filteredOpinions }) {
             <ControlBar />
           </Sticky>
 
-          <section className={styles.opinionsList}>
+          <section className="explore-page__opinions-list">
             {filteredOpinions.map(opinion => (
               <Opinion {...opinion} num={opinion.key} />
             ))}
           </section>
 
           <OnlyMobile>
-            <InternalLink route="/form" className={styles.floatingActionButton}>
+            <InternalLink route="/form" className="explore-page__floating-action-button">
               Write a comment
             </InternalLink>
           </OnlyMobile>
         </StickyContainer>
-      </div>
+      </main>
 
       <OFooter />
     </div>
@@ -50,16 +46,10 @@ export function ExplorePage({ headline, standfirst, filteredOpinions }) {
 }
 
 ExplorePage.propTypes = {
-  headline: PropTypes.string.isRequired,
-  standfirst: PropTypes.string.isRequired,
-  byline: PropTypes.string.isRequired,
   filteredOpinions: PropTypes.array.isRequired,
 };
 
 const select = createStructuredSelector({
-  headline: createSelector(selectOptions, options => options.headline),
-  standfirst: createSelector(selectOptions, options => options.standfirst),
-  byline: createSelector(selectOptions, options => options.byline),
   filteredOpinions: selectFilteredOpinions,
 });
 

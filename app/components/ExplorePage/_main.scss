@@ -1,0 +1,32 @@
+.explore-page {
+  $floating-button-height: 40px;
+
+  &__floating-action-button {
+    font-weight: 200;
+    letter-spacing: 0.05em;
+    box-sizing: border-box;
+    display: block;
+    position: fixed;
+    border-radius: $floating-button-height;
+    top: 80vh;
+    bottom: 90px;
+    right: 30px;
+    color: white;
+    background-color: #27757B;
+    padding: 0 15px;
+    height: $floating-button-height;
+    line-height: $floating-button-height;
+    z-index: 5;
+    box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
+
+    &:hover {
+      color: white;
+    }
+  }
+
+  &__opinions-list {
+    padding: 40px 10px;
+    margin-top: 60px;
+  }
+
+}

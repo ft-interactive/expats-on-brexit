@@ -1,10 +1,3 @@
-// TODO: in here, add classes for app-wide icons:
-// .iconRemain, .iconLeave, .iconUnsure, .iconInEU, .iconOutsideEU, .iconTick
-// including cover style maybe, and a default size
-// then maybe other components can just import this file and use the classnames
-
-:global {
-  @import '../../sass/shared';
 
   html {
     box-sizing: border-box;
@@ -39,6 +32,10 @@
   // style button, or just things with class .btn, to look like a nice button
   button,
   .btn {
+    // @include shadow-1dp;
+
+    font-family: $sans;
+
     box-sizing: border-box;
     border: 1px solid #27757B;
     border-radius: 3px;
@@ -46,18 +43,34 @@
     margin: 8px;
     padding: 0 8px;
     height: $button-height;
-    color: #27757B;
+    
     background-color: transparent;
     text-align: center;
-    font: inherit;
+    
     line-height: $button-height;
+    color: #27757B;
 
-    &.dark {
+
+
+    &:hover { color: #27757B; }
+
+    &--dark {
+      border: 0;
       background-color: #27757B;
       color: white;
+
+      &:hover {
+        color: white;
+        background-color: lighten(#27757B, 5%);
+      }
+      &:active {
+        color: white;
+        background-color: lighten(#27757B, 8%);
+      }
     }
   }
-
+  
+  // for when a button should look like a text link
   button.link {
     border: 0;
     padding: 0;
@@ -65,7 +78,5 @@
     line-height: 1;
     display: inline;
     text-align: left;
+    font: inherit;
   }
-}
-
-.app {}

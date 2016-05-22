@@ -2,7 +2,10 @@
   @import './shared'; // TODO: get rid of this; move bits into proper places (once no components are relying on it)
   
   @import './var';
-  @import './shadows';
+  @import './mixins';
+  @import './base';
+  @import './layout';
 
   @import '../components/SiteHeader/main';
+  @import '../components/LandingPage/main';
 }
