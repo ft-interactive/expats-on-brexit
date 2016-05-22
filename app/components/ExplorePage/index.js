@@ -82,7 +82,9 @@ export class ExplorePage extends Component {
               <ControlBar />
             </Sticky>
 
-            <OpinionsList opinions={filteredOpinions} />
+            <div className="explore-page__opinions-list-wrapper">
+              <OpinionsList opinions={filteredOpinions} />
+            </div>
 
             <OnlyMobile>
               <InternalLink route="/form" className="explore-page__floating-action-button">

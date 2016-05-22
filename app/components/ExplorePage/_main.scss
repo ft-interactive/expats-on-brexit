@@ -36,8 +36,10 @@
     }
   }
 
-  .opinions-list {
-    padding: 40px 10px;
+  &__opinions-list-wrapper {
+    // padding: 40px 10px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     min-height: 100vh;
   }
   
