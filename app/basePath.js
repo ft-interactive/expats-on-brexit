@@ -14,7 +14,8 @@ switch (location.hostname) {
     _basePath = '/expats-on-brexit';
     break;
   default:
-    throw new Error('Host not known; add it to basePath.js');
+    _basePath = '';
+    console.warn('Host not known; add it to basePath.js');
 }
 
 const basePath = _basePath;
