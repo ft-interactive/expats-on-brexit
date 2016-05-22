@@ -8,10 +8,10 @@
 let _basePath;
 switch (location.hostname) {
   case 'localhost':
-    _basePath = '/';
+    _basePath = '';
     break;
   case 'ft-interactive.github.io':
-    _basePath = '/expats-on-brexit/';
+    _basePath = '/expats-on-brexit';
     break;
   default:
     throw new Error('Host not known; add it to basePath.js');
