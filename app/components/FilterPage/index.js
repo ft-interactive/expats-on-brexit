@@ -5,6 +5,7 @@
 
 import Filters from '../Filters';
 import InternalLink from '../InternalLink';
+import SiteHeader from '../SiteHeader';
 import React, { PropTypes } from 'react';
 import styles from './styles.scss';
 import { connect } from 'react-redux';
@@ -16,6 +17,7 @@ import { goBack } from 'react-router-redux';
 function FilterPage({ count, dispatch }) {
   return (
     <div className={styles.filterPage}>
+      <SiteHeader />
       <button
         className={styles.closeButton}
         onClick={() => {

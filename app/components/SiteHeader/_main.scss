@@ -1,21 +1,115 @@
 .site-header {
-  background: blue;
+  height: $header-height;
+
+  &__inner {
+    // @include shadow-4dp;
+
+    color: white;
+    background: black;
+    height: $header-height;
+    overflow: hidden;
+    position: fixed;
+    z-index: 5;
+    width: 100%;
+  }
+
+  &__link {
+    > a {
+      display: inline-block;
+      height: $header-height;
+      font: 19px/#{$header-height} $sans;
+      margin-left: $header-height / 4;
+      color: white;
+      opacity: 0.85;
+      padding-left: $header-height / 2;
+
+      background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:arrow-left?source=ig&tint=%23FFFFFF,%23FFFFFF&format=svg);
+      background-repeat: no-repeat;
+      background-size: $header-height / 3;
+      background-position: 0 center;
+
+      &:hover {
+        color: white;
+        opacity: 1;
+      }
+    }
+  }
+
+  &__brand {
+    position: absolute;
+    right: $header-height / 4;
+    top: $header-height / 4;
+    height: $header-height / 2;
+    
+    > a {
+      background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft?source=ig&format=svg);
+      display: inline-block;
+      background-repeat: no-repeat;
+      background-size: ($header-height / 2) * 0.8;
+      background-position: center ($header-height / 10);
+      width: $header-height / 2;
+      height: $header-height / 2;
+      overflow: none;
+      background-color: #fff1e0;
+      opacity: 0.9;
+
+      &:hover { opacity: 1; }
+
+      > span {
+        @include visually-hidden;
+      }
+    }
+  }
 }
 
-  
-    // display: block;
-    // height: 100%;
-    // position: relative;
-    // background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ofticons&tint=%23FFFFFF,%23FFFFFF&format=svg);
-    // background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ofticons&tint=%23FFFFFF,%23FFFFFF&format=png&width=336)\9;
-    // display: inline-block;
-    // width: 336px;
-    // height: 336px;
-    // background-repeat: no-repeat;
-    // background-size: contain;
-    // background-position: 50%;
-    // background-color: transparent;
-    // vertical-align: middle;
-    // display: block;
-    // margin: 17px auto;
-    // height: 27px
+.site-header--light {
+  .site-header__inner {
+    background: #fff1e0;
+    color: #333;
+  }
+}
+
+// overrides
+.site-header--simple {
+  .site-header__inner {
+    background: #fff1e0;
+  }
+
+  .site-header__brand {
+    right: 50%;
+    margin-right: -($header-height * 2);
+
+    > a {
+      background-color: transparent;
+      background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ig&format=svg);
+      background-size: contain;
+      width: $header-height * 4;
+      height: $header-height / 2;
+      opacity: 0.8;
+
+      &:hover { opacity: 1; }
+    }
+  }
+}
+
+@include oGridRespondTo(M) {
+  .site-header {
+    &__link {
+      position: absolute;
+    }
+
+    &__brand {
+      right: 50%;
+      margin-right: -($header-height * 2);
+
+      > a {
+        background-color: transparent;
+        // background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ig&tint=%23FFFFFF,%23FFFFFF&format=png&width=200);
+        background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ig&tint=%23FFFFFF,%23FFFFFF&format=svg);
+        background-size: contain;
+        width: $header-height * 4;
+        height: $header-height / 2;
+      }
+    }
+  }
+}

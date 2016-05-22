@@ -15,6 +15,7 @@ export function ExplorePage({ headline, standfirst, filteredOpinions }) {
   return (
     <div className={styles.explorePage}>
       <SiteHeader />
+
       <div className={styles.mainContent}>
         <h1 className={styles.headline}>{headline}</h1>
         <div className={styles.standfirst} dangerouslySetInnerHTML={{ __html: standfirst }} />

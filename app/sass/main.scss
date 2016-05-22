@@ -1,3 +1,8 @@
 :global {
+  @import './shared'; // TODO: get rid of this; move bits into proper places (once no components are relying on it)
+  
+  @import './var';
+  @import './shadows';
+
   @import '../components/SiteHeader/main';
 }
