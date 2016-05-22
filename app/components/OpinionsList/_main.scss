@@ -1,3 +1,90 @@
 .opinions-list {
-  background: blue;
+  // background: blue;
 }
+
+  .opinion {
+    max-width: 600px;
+    border-radius: 5px;
+    margin: 0 auto 20px;
+    position: relative;
+    background: #fff;
+    padding: 60px 15px;
+
+    box-shadow: 0px 1px 1px 1px rgba(206,198,185,0.50);
+    text-align: center;
+
+    &:before,
+    &:after {
+      color: #444;
+      display: block;
+      width: 100%;
+      // text-align: center;
+      position: absolute;
+      left: 0;
+      font: 50px $sans;
+    }
+
+    &:before {
+      content: '“';
+      top: 20px;
+    }
+
+    &:after {
+      content: '”';
+      bottom: 0px;
+    }
+
+    &__header {
+      // text-align: center;
+    }
+
+    &__name {
+      font: 18px $sans;
+      color: #555;
+    }
+
+    &__location {
+      font: 200 14px $sans;
+      text-transform: uppercase;
+      color: #aaa;
+      letter-spacing: 0.1em;
+    }
+
+    $eligibility-indicator-size: 40px;
+
+    &__eligibility {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding-top: $eligibility-indicator-size;
+      width: $eligibility-indicator-size;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+
+      > span {
+        display: block;
+        width: $eligibility-indicator-size;
+        // text-align: center;
+        text-transform: uppercase;
+        font-size: 12px;
+        position: relative;
+        left: -3px;
+      }
+
+      &--can {
+        color: #9DCE39;
+        background-image: $can-vote-svg;
+      }
+
+      &--cannot {
+        color: #D47264;
+        background-image: $cannot-vote-svg;
+      }
+    }
+
+    &__text {
+      font: 17px/29px $serif;
+      color: #222;
+    }
+  }

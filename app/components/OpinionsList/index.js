@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import Opinion from '../Opinion';
+import Opinion from './Opinion';
 
 export default function OpinionsList({ opinions }) {
   return (

@@ -1,6 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import styles from './styles.scss';
-import classify from 'classnames';
 
 class Opinion extends Component {
   static propTypes = {
@@ -17,17 +15,17 @@ class Opinion extends Component {
     const { name, displayLocation, canVote, textHTML } = this.props;
 
     return (
-      <article className={styles.opinion}>
-        <header className={styles.header}>
-          <h2 className={styles.name}>{name}</h2>
-          <p className={styles.location}>{displayLocation}</p>
+      <article className="opinion">
+        <header className="opinion__header">
+          <h2 className="opinion__name">{name}</h2>
+          <p className="opinion__location">{displayLocation}</p>
           {canVote
-            ? <p className={classify(styles.eligibility, styles.canVote)}><span>Can vote</span></p>
-            : <p className={classify(styles.eligibility, styles.cannotVote)}><span>Can't vote</span></p>
+            ? <p className="opinion__eligibility opinion__eligibility--can"><span>Can vote</span></p>
+            : <p className="opinion__eligibility opinion__eligibility--cannot"><span>Can't vote</span></p>
           }
         </header>
 
-        <div className={styles.text} dangerouslySetInnerHTML={{ __html: textHTML }}></div>
+        <div className="opinion__text" dangerouslySetInnerHTML={{ __html: textHTML }}></div>
       </article>
     );
   }
