@@ -9,12 +9,14 @@ import { connect } from 'react-redux';
 import { createSelector, createStructuredSelector } from 'reselect';
 import { selectOptions, selectFilteredOpinions } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
+import SiteHeader from '../SiteHeader';
 
 export function HomePage({
-  headline, standfirst, byline, filteredOpinions,
+  headline, standfirst, filteredOpinions,
 }) {
   return (
     <div className={styles.homePage}>
+      <SiteHeader />
       <div className={styles.mainContent}>
         <h1 className={styles.headline}>{headline}</h1>
         <div className={styles.standfirst} dangerouslySetInnerHTML={{ __html: standfirst }} />
