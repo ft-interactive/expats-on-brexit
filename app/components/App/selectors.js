@@ -17,7 +17,6 @@ export const selectLocationState = () => {
 
 const selectAppState = state => state.app;
 
-<<<<<<< HEAD
 export const selectDesktopFiltersVisible = createSelector(
   selectAppState,
   appState => appState.desktopFiltersVisible
@@ -42,15 +41,6 @@ export const selectCurrentFilters = createSelector(
   selectAppState,
   appState => appState.filters
 );
-=======
-export const selectOptions = createSelector(selectAppState, appState => appState.options);
-
-export const selectCountries = createSelector(selectAppState, appState => appState.countries);
-
-const selectOpinions = createSelector(selectAppState, appState => appState.opinions);
-
-export const selectCurrentFilters = createSelector(selectAppState, appState => appState.filters);
->>>>>>> master
 
 const selectFilterFunction = createSelector(
   selectCurrentFilters,
@@ -86,14 +76,10 @@ export const selectFilteredOpinions = createSelector(
   ),
 );
 
-<<<<<<< HEAD
 export const selectFilteredOpinionsCount = createSelector(
   selectFilteredOpinions,
   opinions => opinions.length
 );
-=======
-export const selectFilteredOpinionsCount = createSelector(selectFilteredOpinions, opinions => opinions.length);
->>>>>>> master
 
 export const selectSentenceParts = createSelector(
   selectCurrentFilters,

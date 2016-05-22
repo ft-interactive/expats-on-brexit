@@ -1,16 +1,11 @@
 /**
-<<<<<<< HEAD
  * ControlBar - the sticky bar containing the entence-and-buttons summary and buttons.
-=======
- * ControlBar - the sticky bar containing the sentence summary and buttons.
->>>>>>> master
  *
  * Both mobile and desktop. (But the 'write comment' button is hidden on mobile, and the 'filter' button behaves differently, taking you to a different page on mobile.)
  *
  * Sticky behaviour might be a bit different on mobile, pulling itself up.
  */
 
-<<<<<<< HEAD
 import classnames from 'classnames';
 import Filters from '../Filters';
 import InternalLink from '../InternalLink';
@@ -88,51 +83,12 @@ function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
             </div>
           </div>
         </OnlyDesktop>
-=======
-import InternalLink from '../InternalLink';
-import OnlyMobile from '../OnlyMobile';
-import OnlyDesktop from '../OnlyDesktop';
-import React, { PropTypes } from 'react';
-import styles from './styles.scss';
-import { connect } from 'react-redux';
-import { createStructuredSelector, createSelector } from 'reselect';
-import { selectOptions, selectSentenceParts } from '../App/selectors';
-
-function ControlBar({ linkToArticle, sentenceParts }) {
-  return (
-    <div className={styles.controlBar}>
-      <div className={styles.pinkBar}>
-        <a href={linkToArticle}>Back to article</a>
-      </div>
-
-      <div className={styles.whiteBar}>
-        <div className={styles.buttons}>
-          <OnlyMobile>
-            <InternalLink route="/filter" className={styles.mobileFilterButton}>Filter</InternalLink>
-          </OnlyMobile>
-
-          <OnlyDesktop>
-            <InternalLink className={styles.desktopFilterButton}>Filter (Desktop, TODO)</InternalLink>
-            {' '}
-            <InternalLink route="/form" className={styles.desktopWriteCommentButton}>Write a comment</InternalLink>
-          </OnlyDesktop>
-        </div>
-
-        <p className={styles.sentence}>
-          {sentenceParts.map(({ text, mark }, i) => (
-            mark
-              ? <mark key={i}>{text}</mark>
-              : <span key={i}>{text}</span>
-          ))}
-        </p>        
->>>>>>> master
       </div>
     </div>
   );
 }
 
 ControlBar.propTypes = {
-<<<<<<< HEAD
   sentenceParts: PropTypes.array.isRequired,
   count: PropTypes.number.isRequired,
   desktopFiltersVisible: PropTypes.bool.isRequired,
@@ -143,15 +99,6 @@ const select = createStructuredSelector({
   sentenceParts: selectSentenceParts,
   count: selectFilteredOpinionsCount,
   desktopFiltersVisible: selectDesktopFiltersVisible,
-=======
-  linkToArticle: PropTypes.string.isRequired,
-  sentenceParts: PropTypes.array.isRequired,
-};
-
-const select = createStructuredSelector({
-  linkToArticle: createSelector(selectOptions, options => options.linkToArticle),
-  sentenceParts: selectSentenceParts,
->>>>>>> master
 });
 
 export default connect(select)(ControlBar);
