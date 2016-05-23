@@ -93,6 +93,7 @@
     "sass-svg-uri": "^1.0.0",
     "shelljs": "^0.7.0",
     "sinon": "^2.0.0-pre",
+    "soup": "^0.1.5",
     "style-loader": "^0.13.1",
     "stylelint": "^6.3.3",
     "stylelint-config-standard": "^7.0.0",
@@ -179,7 +180,7 @@
   "private": true,
   "scripts": {
     "analyze": "node ./internals/scripts/analyze.js",
-    "build": "trip data && (cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color --bail -p) && cp build/index.html build/explore.html && cp build/index.html build/filter.html && cp build/index.html build/form.html",
+    "build": "trip data && (cross-env NODE_ENV=production webpack --config internals/webpack/webpack.prod.babel.js --color --bail -p) && trip fixbuild",
     "build:clean": "rimraf ./build/*",
     "clean": "shjs ./internals/scripts/clean.js",
     "coveralls": "cat ./coverage/lcov/lcov.info | coveralls",
