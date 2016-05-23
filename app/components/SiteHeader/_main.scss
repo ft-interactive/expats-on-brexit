@@ -45,7 +45,7 @@
     
     > a {
       background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft?source=ig&format=svg);
-      display: inline-block;
+      display: block;
       background-repeat: no-repeat;
       background-size: ($header-height / 2) * 0.8;
       background-position: center ($header-height / 10);
@@ -81,8 +81,8 @@
       background-color: transparent;
       background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ig&format=svg);
       background-size: contain;
-      width: $header-height * 4;
-      height: $header-height / 2;
+      width: $masthead-width;
+      height: $header-height;
       opacity: 0.8;
 
       &:hover { opacity: 1; }
@@ -105,8 +105,8 @@
         // background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ig&tint=%23FFFFFF,%23FFFFFF&format=png&width=200);
         background-image: url(https://image.webservices.ft.com/v1/images/raw/fticon:brand-ft-masthead?source=ig&tint=%23FFFFFF,%23FFFFFF&format=svg);
         background-size: contain;
-        width: $header-height * 4;
-        height: $header-height / 2;
+        width: $masthead-width;
+        height: $header-height;
       }
     }
   }

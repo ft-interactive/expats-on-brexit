@@ -39,7 +39,7 @@ function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
                 }}
               >Filter</button>
               {' '}
-              <InternalLink route="/form" className="control-bar__desktop-write-comment-button">Write a comment</InternalLink>
+              <InternalLink route="/form" className="control-bar__desktop-write-comment-button btn">Write a comment</InternalLink>
             </OnlyDesktop>
           </div>
 
@@ -58,7 +58,7 @@ function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
 
             <div className={'control-bar__dropdown-filters-buttons'}>
               <button
-                className={'control-bar__apply-filters-button'}
+                className="btn btn--dark"
                 onClick={() => {
                   dispatch({ type: HIDE_DESKTOP_FILTERS });
 
@@ -71,7 +71,7 @@ function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
               <span>{' or '}</span>
 
               <button
-                className={'control-bar__show-all-button'}
+                className="link"
                 onClick={() => {
                   dispatch({ type: RESET_FILTERS });
                   dispatch({ type: HIDE_DESKTOP_FILTERS });

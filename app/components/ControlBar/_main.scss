@@ -14,20 +14,18 @@
       display: flex;
       flex-direction: row-reverse;
       align-items: center;
+      min-height: 62px;
     }
       &__buttons {
         display: flex;
       }
-        // &__mobile-filter-button,
-        // &__desktop-filter-button {
-        //   // @include button-style;
-        // }
 
       &__sentence {
         flex: 1;
         margin: 0;
         padding: 10px;
         font: 21px $serif;
+        // align-self: center;
 
         > mark {
           color: #2BBBBF;
@@ -42,8 +40,17 @@
       display: block;
     }
   }
+    &__dropdown-filters-buttons {
+      border-top: rgba(0,0,0,0.1);
+      padding-top: 10px;
+      margin-top: 10px;
+      text-align: center;
+    }
 }
 
 .control-bar--desktop-filters-visible .control-bar__dropdown-filters-wrapper {
   display: block;
+}
+.control-bar--desktop-filters-visible .control-bar__desktop-filter-button {
+  visibility: hidden;
 }
