@@ -37,6 +37,7 @@ button,
   cursor: pointer;
 
   font-family: $sans;
+  font-size: 18px;
 
   box-sizing: border-box;
   border: 1px solid #27757B;
@@ -52,9 +53,10 @@ button,
   line-height: $button-height;
   color: #27757B;
 
-
-
-  &:hover { color: #27757B; }
+  &:hover {
+    color: darken(#27757B, 5%);
+    background-color: rgba(0,0,0,0.03);
+  }
 
   &--dark {
     border: 0;
@@ -85,8 +87,13 @@ button.link {
   border: 0;
   padding: 0;
   margin: 0;
-  line-height: 1;
+  line-height: inherit;
   display: inline;
   text-align: left;
   font: inherit;
+
+  &:hover {
+    background-color: transparent;
+    color: black;
+  }
 }

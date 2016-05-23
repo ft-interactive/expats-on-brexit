@@ -140,3 +140,13 @@
       // background: transparent;
     }
 }
+
+@include oGridRespondTo(L) {
+  .filters--horizontal {
+    max-width: 960px;
+
+    .tick-box {
+      min-width: 220px;
+    }
+  }
+}

@@ -1,6 +1,6 @@
 /**
  * FilterPage
- * Only used on mobile (the desktop site shows filters inline).
+ * Only used on mobile - the desktop site shows filters inline, inside a ControlBar component.
  */
 
 import Filters from '../Filters';
@@ -18,17 +18,17 @@ function FilterPage({ count, dispatch }) {
   return (
     <div className={styles.filterPage}>
       <SiteHeader />
-      <button
-        className={styles.closeButton}
+      {/*<button
+        className="btn"
         onClick={() => {
           dispatch(goBack());
         }}
-      >×</button>
+      >×</button>*/}
 
       <Filters />
 
       <div className={styles.buttons}>
-        <InternalLink route="/" className={styles.submitButton}>
+        <InternalLink route="/" className="btn btn--dark btn--raised">
           {`Find ${count} filtered opinions`}
         </InternalLink>
 
@@ -36,7 +36,7 @@ function FilterPage({ count, dispatch }) {
 
         <InternalLink
           route="/"
-          className={styles.showAllLink}
+           // className="btn btn--dark"
           onClick={() => {
             dispatch({ type: RESET_FILTERS });
           }}
