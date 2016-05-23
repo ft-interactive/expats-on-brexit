@@ -70,6 +70,14 @@ button,
       background-color: lighten(#27757B, 8%);
     }
   }
+
+  &--raised {
+    @include shadow-1dp;
+
+    &:hover {
+      @include shadow-4dp;
+    }
+  }
 }
 
 // for when a button should look like a text link

@@ -1,5 +1,5 @@
 /**
- * LandingPage - the article.
+ * LandingPage – the article.
  */
 
 import InternalLink from '../../components/InternalLink';
@@ -46,10 +46,10 @@ function LandingPage({ opinions }) {
         </header>
 
         <div className="landing-page__copy">
-          <p>Millions of Britons living abroad have an interest in the outcome of the EU referendum. With the June 7 voting registration deadline looming, we asked FT readers to describe how the referendum may affect them and what they have learned from living abroad. Nearly 350 British expats in 53 countries responded to our call - from Malta to Ghana to South Korea. You can explore their responses in our interactive. If you are an expat yourself, there is space to add your own opinion.</p>
+          <p>Millions of Britons living abroad have an interest in the outcome of the EU referendum. With the June 7 voting registration deadline looming, we asked FT readers to describe how the referendum may affect them and what they have learned from living abroad. Nearly 350 British expats in 53 countries responded to our call – from Malta to Ghana to South Korea. You can explore their responses in our interactive. If you are an expat yourself, there is space to add your own opinion.</p>
 
           <p className="landing-page__explore-link">
-            <InternalLink route="/explore" className="btn btn--dark">Explore expat responses</InternalLink>
+            <InternalLink route="/explore" className="btn btn--dark btn--raised">Explore expat responses</InternalLink>
           </p>
 
           <p>An estimated five million British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though much less scientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
@@ -121,7 +121,7 @@ function LandingPage({ opinions }) {
 
           <h3>Australasians: “Come on out, the water’s lovely”</h3>
 
-          <p>Residents of Commonwealth countries were much more split: 49 per cent leaned Remain and 33 per cent Leave. Many responses from New Zealand and Australia referred to their varied relationship with the UK - pointing to those countries as models for economic independence, or chastising the UK for focusing too much attention on the EU in recent years.</p>
+          <p>Residents of Commonwealth countries were much more split: 49 per cent leaned Remain and 33 per cent Leave. Many responses from New Zealand and Australia referred to their varied relationship with the UK – pointing to those countries as models for economic independence, or chastising the UK for focusing too much attention on the EU in recent years.</p>
 
           {insertOpinions(19, 101)}
 
@@ -131,15 +131,15 @@ function LandingPage({ opinions }) {
 
           {insertOpinions(12, 1)}
 
-          <p>More British expats are eligible to vote than they think: according to a survey by the Electoral Commission, 20 per cent of eligible voters wrongly think they are not entitled. The number of overseas Britons who have registered to vote has jumped to approximately 196,000 in recent months, but that still only accounts for about 3 per cent of British expats - and 1 per cent of eligible Brexit voters.</p>
+          <p>More British expats are eligible to vote than they think: according to a survey by the Electoral Commission, 20 per cent of eligible voters wrongly think they are not entitled. The number of overseas Britons who have registered to vote has jumped to approximately 196,000 in recent months, but that still only accounts for about 3 per cent of British expats – and 1 per cent of eligible Brexit voters.</p>
         </div>
 
-        <div className="landing-page__invitation">
+        <div className="landing-page__invitation-well">
           <p>Are you also a British expat? We want to hear from you.</p>
-          <p>Quality responses will be published</p>
+          <p>Quality responses will be published.</p>
 
           <div>
-            <InternalLink route="/form" className="btn btn--dark">Add your views</InternalLink>
+            <InternalLink route="/form" className="btn btn--dark btn--raised">Add your views</InternalLink>
           </div>
         </div>
 
