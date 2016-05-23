@@ -2,6 +2,24 @@
   @return oColorsGetPaletteColor($name);
 }
 
+@function getIconURL($name, $color: #ffffff) {
+  // @return 'http://example.com/';
+  // @warn "#{$name}?source=ig&tint=#{$color},#{$color}&format=svg";
+
+  $color: str-slice(ie-hex-str($color), 4);
+  $query: "?source=ig&tint=%23#{$color},%23#{$color}";
+
+  @return 'https://image.webservices.ft.com/v1/images/raw/fticon:' + $name + $query;
+
+  // url(oAssetsResolve("svg/#{$icon-name}.svg", o-ft-icons));
+
+  // @return (
+  //   'https://image.webservices.ft.com/v1/images/raw/fticon:' +
+  //   '?source=ig&tint=' +
+  //   inspect($color) + ',' + inspect($color) + '&format=svg'
+  // );
+}
+
 $shadow-multiplier: 0.5;
 
 $shadow-key-umbra-opacity: 0.2 * $shadow-multiplier !default;

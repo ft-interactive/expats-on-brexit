@@ -11,7 +11,6 @@
 import classnames from 'classnames';
 import React, { PropTypes } from 'react';
 import Select from 'react-select';
-import styles from './styles.scss';
 import TickBox from './TickBox';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
@@ -31,31 +30,31 @@ export function Filters({
   };
 
   return (
-    <div className={classnames(styles.filters, { [styles.filtersHorizontal]: horizontal })}>
+    <div className={classnames('filters', { 'filters--horizontal': horizontal })}>
 
       {/* leaning */}
-      <div className={styles.filterSet}>
-        <h5 className={styles.heading}>Leaning</h5>
+      <div className={'filters__filter-set'}>
+        <h5 className={'filters__heading'}>Leaning</h5>
 
-        <TickBox ticked={leaningRemain} onToggle={() => setFilter('leaningRemain', !leaningRemain)}>Remain</TickBox>
-        <TickBox ticked={leaningLeave} onToggle={() => setFilter('leaningLeave', !leaningLeave)}>Leave</TickBox>
-        <TickBox ticked={leaningUnsure} onToggle={() => setFilter('leaningUnsure', !leaningUnsure)}>Unsure</TickBox>
+        <TickBox icon="eu-flag" ticked={leaningRemain} onToggle={() => setFilter('leaningRemain', !leaningRemain)}>Remain</TickBox>
+        <TickBox icon="exit-door" ticked={leaningLeave} onToggle={() => setFilter('leaningLeave', !leaningLeave)}>Leave</TickBox>
+        <TickBox icon="question-mark" ticked={leaningUnsure} onToggle={() => setFilter('leaningUnsure', !leaningUnsure)}>Unsure</TickBox>
       </div>
 
       {/* location */}
-      <div className={styles.filterSet}>
-        <h5 className={styles.heading}>Expats living</h5>
+      <div className={'filters__filter-set'}>
+        <h5 className={'filters__heading'}>Expats living</h5>
 
-        <TickBox ticked={livingInEU} onToggle={() => setFilter('livingInEU', !livingInEU)}>In the EU</TickBox>
-        <TickBox ticked={livingOutsideEU} onToggle={() => setFilter('livingOutsideEU', !livingOutsideEU)}>Outside the EU</TickBox>
+        <TickBox icon="in-eu" ticked={livingInEU} onToggle={() => setFilter('livingInEU', !livingInEU)}>In the EU</TickBox>
+        <TickBox icon="outside-eu" ticked={livingOutsideEU} onToggle={() => setFilter('livingOutsideEU', !livingOutsideEU)}>Outside the EU</TickBox>
 
         {' '}
-        <p className={styles.bigOr}>or</p>
+        <p className={'filters__big-or'}>or</p>
         {' '}
 
         <Select
           style={{ boxSizing: 'content-box' }}
-          className={classnames(styles.countrySelector)}
+          className={classnames('filters__country-selector')}
           placeholder="Choose a country..."
           options={countries.map(({ name }) => ({
             label: name,

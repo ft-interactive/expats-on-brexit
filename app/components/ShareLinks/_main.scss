@@ -1,0 +1,29 @@
+$share-link-size: 37px;
+
+.share-links {
+  text-align: center;
+
+  &__link {
+    display: inline-block;
+    margin: 0 5px;
+    height: $share-link-size;
+    width: $share-link-size;
+    background-size: $share-link-size * 0.9;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: $share-link-size;
+    opacity: 0.8;
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &--twitter { background-image: $twitter-icon; }
+    &--facebook { background-image: $facebook-icon; }
+    &--linkedin { background-image: $linkedin-icon; }
+
+    > span {
+      @include visually-hidden;
+    }
+  }
+}

@@ -32,7 +32,7 @@ export const selectCountries = createSelector(
   appState => appState.countries
 );
 
-const selectOpinions = createSelector(
+export const selectOpinions = createSelector(
   selectAppState,
   appState => appState.opinions
 );
@@ -84,8 +84,9 @@ export const selectFilteredOpinionsCount = createSelector(
 export const selectSentenceParts = createSelector(
   selectCurrentFilters,
   selectFilteredOpinionsCount,
+  selectCountries,
 
-  (filters, count) => {
+  (filters, count, countries) => {
     if (count === 0) {
       return [
         { text: '0 expats', mark: true },
@@ -102,8 +103,11 @@ export const selectSentenceParts = createSelector(
 
     // add living filter
     if (filters.country) {
+      const country = countries.find(c => c.name === filters.country);
+      if (!country) throw new Error(`Unknown country: ${filters.country}`);
+
       parts.push(
-        { text: 'in ' },
+        { text: (country.the ? 'in the ' : 'in ') },
         { text: filters.country, mark: true },
       );
     } else if (filters.livingInEU && filters.livingOutsideEU) {
@@ -114,7 +118,62 @@ export const selectSentenceParts = createSelector(
       parts.push({ text: 'outside the EU', mark: true });
     }
 
-    // TODO add leaning (work out what to do if 2 out of 3 are selected?)
+    // add leaning clause
+    if (filters.leaningRemain) {
+      if (filters.leaningLeave) {
+        if (filters.leaningUnsure) {
+          parts.push(
+            { text: ' and who are leaning ' },
+            { text: 'any direction', mark: true },
+          );
+        } else {
+          parts.push(
+            { text: ' and who think Britain should ' },
+            { text: 'remain', mark: true },
+            { text: '/' },
+            { text: 'leave', mark: true },
+          );
+        }
+      } else {
+        if (filters.leaningUnsure) {
+          parts.push(
+            { text: ' and who think Britain should ' },
+            { text: 'remain', mark: true },
+            { text: ' or are ' },
+            { text: 'unsure', mark: true },
+          );
+        } else {
+          parts.push(
+            { text: ' and who think Britain should ' },
+            { text: 'remain', mark: true },
+          );
+        }
+      }
+    } else {
+      if (filters.leaningLeave) {
+        if (filters.leaningUnsure) {
+          parts.push(
+            { text: ' and who think Britain should ' },
+            { text: 'leave', mark: true },
+            { text: ' or are ' },
+            { text: 'unsure', mark: true },
+          );
+        } else {
+          parts.push(
+            { text: ' and who think Britain should ' },
+            { text: 'leave', mark: true },
+          );
+        }
+      } else {
+        if (filters.leaningUnsure) {
+          parts.push(
+            { text: ' and who are ' },
+            { text: 'unsure', mark: true },
+            { text: ' whether Britain should remain or leave' },
+          );
+        } // else nothing is selected
+      }
+    }
 
     return parts;
   }

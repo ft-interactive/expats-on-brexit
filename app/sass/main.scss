@@ -1,7 +1,14 @@
 :global {
+  @import "sass-svg-uri/svg-uri";
+
+  @import './var';
+
+  @import 'o-ft-icons/main';
+  @import 'o-fonts/main';
+  @import 'o-colors/main';
+
   @import './shared'; // TODO: get rid of this; move bits into proper places (once no components are relying on it)
   
-  @import './var';
   @import './mixins';
   @import './base';
   @import './layout';
@@ -11,4 +18,6 @@
   @import '../components/ExplorePage/main';
   @import '../components/ControlBar/main';
   @import '../components/OpinionsList/main';
+  @import '../components/Filters/main';
+  @import '../components/ShareLinks/main';
 }
