@@ -12,7 +12,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { RESET_FILTERS } from '../../constants';
 import { selectFilteredOpinionsCount } from '../App/selectors';
-import { goBack } from 'react-router-redux';
+// import { goBack } from 'react-router-redux';
 
 function FilterPage({ count, dispatch }) {
   return (
@@ -28,14 +28,14 @@ function FilterPage({ count, dispatch }) {
       <Filters />
 
       <div className={styles.buttons}>
-        <InternalLink route="/" className="btn btn--dark btn--raised">
+        <InternalLink route="/explore" className="btn btn--dark btn--raised">
           {`Find ${count} filtered opinions`}
         </InternalLink>
 
         <span>{' or '}</span>
 
         <InternalLink
-          route="/"
+          route="/explore"
            // className="btn btn--dark"
           onClick={() => {
             dispatch({ type: RESET_FILTERS });
