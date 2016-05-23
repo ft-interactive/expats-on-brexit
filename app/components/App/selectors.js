@@ -45,8 +45,6 @@ export const selectCurrentFilters = createSelector(
 const selectFilterFunction = createSelector(
   selectCurrentFilters,
   f => {
-    console.log('selecting filter function based on ', f);
-
     // return a filtering function suitable for passing to Array#filter
     return o => {
       const visible = ((
@@ -60,8 +58,6 @@ const selectFilterFunction = createSelector(
         (f.livingOutsideEU && o.livingOutsideEU) ||
         (o.country && (f.country === o.country))
       ));
-
-      // console.log('filtering opinion!', visible);
 
       return visible;
     };

@@ -36,9 +36,6 @@ const browserHistory = useRouterHistory(createHistory)({
   basename: basePath,
 });
 
-console.log('1. basename set to', basePath);
-console.log(browserHistory);
-
 const initialState = {};
 const store = configureStore(initialState, browserHistory);
 
