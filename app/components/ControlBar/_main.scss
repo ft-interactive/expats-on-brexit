@@ -54,3 +54,17 @@
 .control-bar--desktop-filters-visible .control-bar__desktop-filter-button {
   visibility: hidden;
 }
+
+
+@include oGridRespondTo(M) {
+  .control-bar__sentence-and-buttons {
+    max-width: 740px;
+    margin: 0 auto;
+  }
+}
+
+@include oGridRespondTo(M) {
+  .control-bar__sentence-and-buttons {
+    max-width: 980px;
+  }
+}
