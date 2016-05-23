@@ -54,23 +54,37 @@ function LandingPage({ opinions }) {
 
           <p>An estimated five million British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though much less scientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
 
-          <div className="landing-page__aside-pair">
+          <div className="landing-page__factbox-pair">
             <aside className="landing-page__factbox">
               <h4>Public information for British expats</h4>
               <ul>
-                <li>Register online (before June 7)</li>
-                <li>Government Q&A page</li>
-                <li>Vote Leave campaign</li>
-                <li>Vote Remain campaign</li>
+                <li>
+                  <a href="https://www.gov.uk/register-to-vote">Register online (before June 7)</a>
+                </li>
+                <li>
+                  <a href="https://www.eureferendum.gov.uk/q-and-a/">Government Q&A page</a>
+                </li>
+                <li>
+                  <a href="http://www.voteleavetakecontrol.org/campaign">Vote Leave campaign</a>
+                </li>
+                <li>
+                  <a href="http://www.strongerin.co.uk/">Vote Remain campaign</a>
+                </li>
               </ul>
             </aside>
 
             <aside className="landing-page__factbox">
               <h4>FT coverage on the EU referendum</h4>
               <ul>
-                <li>Your top 10 questions answered</li>
-                <li>What do Europeans think of Brexit?</li>
-                <li>What are economists' views on Brexit?</li>
+                <li>
+                  <a href="https://www.ft.com/content/e7b2d4d4-daea-11e5-98fd-06d75973fe09">Your top 10 questions answered</a>
+                </li>
+                <li>
+                  <a href="https://www.ft.com/content/1465ef50-da34-11e5-98fd-06d75973fe09">What Brexit means for the UK economy</a>
+                </li>
+                <li>
+                  <a href="https://www.ft.com/content/1a86ab36-afbe-11e5-b955-1a1d298b6250">What are economists’ views on Brexit?</a>
+                </li>
               </ul>
             </aside>
           </div>
