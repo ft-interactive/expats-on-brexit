@@ -84,8 +84,9 @@ export const selectFilteredOpinionsCount = createSelector(
 export const selectSentenceParts = createSelector(
   selectCurrentFilters,
   selectFilteredOpinionsCount,
+  selectCountries,
 
-  (filters, count) => {
+  (filters, count, countries) => {
     if (count === 0) {
       return [
         { text: '0 expats', mark: true },
@@ -102,8 +103,11 @@ export const selectSentenceParts = createSelector(
 
     // add living filter
     if (filters.country) {
+      const country = countries.find(c => c.name === filters.country);
+      if (!country) throw new Error(`Unknown country: ${filters.country}`);
+
       parts.push(
-        { text: 'in ' },
+        { text: (country.the ? 'in the ' : 'in ') },
         { text: filters.country, mark: true },
       );
     } else if (filters.livingInEU && filters.livingOutsideEU) {
