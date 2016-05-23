@@ -4,17 +4,26 @@ import { connect } from 'react-redux';
 import { push } from 'react-router-redux';
 
 function InternalLink({ route, children, dispatch, onClick, className }) {
+  let href = route && (basePath + route);
+  let isInternalRoute = Boolean(route);
+
+  // TODO change this when the real form is done
+  if (route === '/form') {
+    href = 'https://docs.google.com/forms/d/1adMO1Tn5NaihAhirDIdnbaayXooQyTFBXDMXJ-KrV8c/viewform';
+    isInternalRoute = false;
+  }
+
   return (
     <a
       className={className}
-      href={route && (basePath + route)}
+      href={href}
       onClick={event => {
         if (onClick) {
           onClick(event);
           if (event.defaultPrevented) return;
         }
 
-        if (route) {
+        if (isInternalRoute) {
           event.preventDefault();
           dispatch(push(route));
         }

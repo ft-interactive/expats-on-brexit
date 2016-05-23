@@ -139,7 +139,7 @@ function LandingPage({ opinions }) {
           <p>Quality responses will be published.</p>
 
           <div>
-            <InternalLink route="/form" className="btn btn--dark btn--raised">Add your views</InternalLink>
+            <InternalLink route="/form" className="btn btn--dark btn--raised">Add your view</InternalLink>
           </div>
         </div>
 
