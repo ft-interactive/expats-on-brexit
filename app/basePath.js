@@ -13,6 +13,9 @@ switch (location.hostname) {
   case 'ft-interactive.github.io':
     _basePath = '/expats-on-brexit';
     break;
+  case 'ig.ft.com':
+    _basePath = '/sites/expats-on-brexit';
+    break;
   default:
     _basePath = '';
     console.warn('Host not known; add it to basePath.js');
