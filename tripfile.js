@@ -4,6 +4,7 @@ import 'dotenv/config';
 import fetch from 'node-fetch';
 import sander from 'sander';
 import MarkdownIt from 'markdown-it';
+import Soup from 'soup';
 
 console.assert(process.env.SPREADSHEET_KEY, 'Environment var SPREADSHEET_KEY should be set.');
 
@@ -81,4 +82,36 @@ export async function data() {
     'data.js',
     `export default ${JSON.stringify(finalData, null, 2)};`
   );
+}
+
+
+/**
+ * hack to fix the build (runs as the last part of `npm run build`)
+ *
+ * - copies index.html to make the other files
+ *   - but with different page titles
+ *   - and nullifies
+ */
+export async function fixbuild() {
+  const soup = new Soup(await sander.readFile('build', 'index.html'));
+
+  // define mapping of pages (without extension) to desired page titles
+  const pages = {
+    explore: 'Explore British expat perspectives on Brexit and add your own',
+    filter: 'Filter results',
+    form: 'Add your perspective',
+  };
+
+  // delete the 'canonical' link (just deleting the attrs will do for now)
+  soup.setAttribute('link[rel=canonical]', 'href', false);
+  soup.setAttribute('link[rel=canonical]', 'rel', false);
+
+  // loop over to write them all
+  for (const page of Object.keys(pages)) {
+    soup.setInnerHTML('title', () => pages[page]);
+
+    // TODO maybe prerender the body?
+
+    await sander.writeFile('build', `${page}.html`, soup.toString());
+  }
 }
