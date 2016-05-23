@@ -59,13 +59,15 @@
       margin-top: 0;
     }
   }
+
     &__factbox-pair {
       border: 1px solid getColor(pink-tint3);
       padding: 15px;
     }
       &__factbox {
         > h4 {
-          font: 500 21px/1.35 $sans;
+          font: 400 21px/1.35 $sans;
+          color: #444;
           margin: 0 0 0.5em;
         }
 

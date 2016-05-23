@@ -59,16 +59,24 @@ function LandingPage({ opinions }) {
               <h4>Public information for British expats</h4>
               <ul>
                 <li>
-                  <a href="https://www.gov.uk/register-to-vote">Register online (before June 7)</a>
+                  <a href="https://www.gov.uk/register-to-vote" target="_blank">
+                    Register online (before June 7)
+                  </a>
                 </li>
                 <li>
-                  <a href="https://www.eureferendum.gov.uk/q-and-a/">Government Q&A page</a>
+                  <a href="https://www.eureferendum.gov.uk/q-and-a/" target="_blank">
+                    Government Q&A page
+                  </a>
                 </li>
                 <li>
-                  <a href="http://www.voteleavetakecontrol.org/campaign">Vote Leave campaign</a>
+                  <a href="http://www.voteleavetakecontrol.org/campaign" target="_blank">
+                    Vote Leave campaign
+                  </a>
                 </li>
                 <li>
-                  <a href="http://www.strongerin.co.uk/">Vote Remain campaign</a>
+                  <a href="http://www.strongerin.co.uk/" target="_blank">
+                    Vote Remain campaign
+                  </a>
                 </li>
               </ul>
             </aside>
