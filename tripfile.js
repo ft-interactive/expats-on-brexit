@@ -30,10 +30,10 @@ export async function data() {
   }
 
   // convert certain options from markdown to HTML
-  const md = new MarkdownIt({ xhtmlOut: true });
-  for (const name of ['bodyCopy', 'standfirst']) {
-    finalData.options[name] = md.render(finalData.options[name]);
-  }
+  // const md = new MarkdownIt({ xhtmlOut: true });
+  // for (const name of ['bodyCopy', 'standfirst']) {
+  //   finalData.options[name] = md.render(finalData.options[name]);
+  // }
 
   function isInEU(country) {
     for (const { name, eu } of finalData.countries) {
