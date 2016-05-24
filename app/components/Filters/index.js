@@ -55,6 +55,7 @@ export function Filters({
         <Select
           style={{ boxSizing: 'content-box' }}
           className={classnames('filters__country-selector')}
+          matchPos="start"
           placeholder="Choose a country..."
           options={countries.map(({ name }) => ({
             label: name,
