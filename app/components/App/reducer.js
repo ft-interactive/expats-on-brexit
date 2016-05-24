@@ -1,6 +1,6 @@
 import data from '../../data';
 import {
-  SET_FILTER, RESET_FILTERS, SHOW_DESKTOP_FILTERS, HIDE_DESKTOP_FILTERS,
+  SET_FILTER, RESET_FILTERS, ACTIVATE_DROPDOWN_FILTERS, DEACTIVATE_DROPDOWN_FILTERS,
   SHOW_MORE_OPINIONS,
 } from '../../constants';
 
@@ -10,7 +10,7 @@ const OPINIONS_INCREMENT = 20;
 const initialState = {
   ...data,
 
-  desktopFiltersVisible: false,
+  areDropdownFiltersActive: false,
 
   maxVisibleOpinions: INITIAL_MAX_VISIBLE_OPINIONS,
 
@@ -92,16 +92,16 @@ export default function appReducer(state = initialState, action) {
         filters: initialState.filters,
       };
 
-    case SHOW_DESKTOP_FILTERS:
+    case ACTIVATE_DROPDOWN_FILTERS:
       return {
         ...state,
-        desktopFiltersVisible: true,
+        areDropdownFiltersActive: true,
       };
 
-    case HIDE_DESKTOP_FILTERS:
+    case DEACTIVATE_DROPDOWN_FILTERS:
       return {
         ...state,
-        desktopFiltersVisible: false,
+        areDropdownFiltersActive: false,
       };
 
     case SHOW_MORE_OPINIONS:

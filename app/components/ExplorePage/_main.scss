@@ -1,6 +1,28 @@
 .explore-page {
   $floating-button-height: 40px;
 
+  &__overlay {
+    background-color: black;
+    opacity: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: $z-overlay;
+    transition: opacity 0.1s linear;
+    pointer-events: none;
+
+    &--active {
+      opacity: 0.5;
+      transition: opacity 0s linear;
+    }
+  }
+
+  &__permanent-filters-wrapper {
+    margin-bottom: 30px;
+  }
+
   &__intro {
     max-width: 560px;
     text-align: center;
@@ -17,18 +39,18 @@
     font-weight: 400;
     letter-spacing: 0.05em;
     box-sizing: border-box;
-    display: block;
-    position: fixed;
+    display: inline-block;
     border-radius: $floating-button-height;
-    top: 80vh;
-    bottom: 90px;
+    position: fixed;
+    // top: 80vh;
+    bottom: 60px;
     right: 30px;
     color: white;
     background-color: #27757B;
     padding: 0 15px;
     height: $floating-button-height;
     line-height: $floating-button-height;
-    z-index: 5;
+    z-index: $z-floating-button;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
 
     &:hover {
@@ -64,7 +86,7 @@
     }
 
     &--stuck {
-      z-index: 6;
+      z-index: $z-stuck-control-bar;
       top: $header-height !important; // overrides inline style set by react-sticky
 
       > .control-bar {
@@ -72,8 +94,11 @@
 
         background-color: white;
         border-top-color: white;
-        border-bottom-color: white;
+        // border-bottom-color: #f7f7f7;
       }
+        .control-bar__toggle-dropdown-filters {
+          visibility: visible;
+        }
     }
   }
 }

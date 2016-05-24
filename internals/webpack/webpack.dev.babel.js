@@ -8,7 +8,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 // PostCSS plugins
 const cssnext = require('postcss-cssnext');
-const postcssFocus = require('postcss-focus');
+// const postcssFocus = require('postcss-focus');
 const postcssReporter = require('postcss-reporter');
 
 module.exports = require('./webpack.base.babel')({
@@ -30,7 +30,7 @@ module.exports = require('./webpack.base.babel')({
 
   // Process the CSS with PostCSS
   postcssPlugins: [
-    postcssFocus(), // Add a :focus to every :hover
+    // postcssFocus(), // Add a :focus to every :hover
     cssnext({ // Allow future CSS features to be used, also auto-prefixes the CSS...
       browsers: ['last 2 versions', 'IE > 10'], // ...based on this browser list
     }),

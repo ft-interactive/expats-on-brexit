@@ -17,9 +17,9 @@ export const selectLocationState = () => {
 
 const selectAppState = state => state.app;
 
-export const selectDesktopFiltersVisible = createSelector(
+export const selectAreDropdownFiltersActive = createSelector(
   selectAppState,
-  appState => appState.desktopFiltersVisible
+  appState => appState.areDropdownFiltersActive,
 );
 
 export const selectOptions = createSelector(

@@ -1,15 +1,75 @@
 .control-bar {
   background-color: #fff1e0;
   border-top: 1px solid getColor('pink-tint2');
-  border-bottom: 1px solid getColor('pink-tint2');
+  // border-bottom: 1px solid getColor('pink-tint2');
   position: relative;
   position: sticky;
   // top: $header-height;
   width: 100%;
 
   &__inner {
-    padding: 5px 20px;
+    // padding: 0 20px;
+    // position: relative;
+    // overflow: hidden;
   }
+    &__dropdown-filters-wrapper {
+      // max-height: 0;
+      display: none;
+      overflow: hidden;
+
+      // transition: max-height 0.5s linear;
+      // position: relative;
+
+      > .filters {
+        margin: 20px 0 0 0;
+      }
+    }
+
+    &__toggle-dropdown-filters {
+      display: block;
+      visibility: hidden;
+      width: 100%;
+      background: #f7f7f7;
+      border: 0;
+      border-top: 1px solid #dfdfdf;
+      border-bottom: 1px solid #c5c5c5;
+      text-align: center;
+      font-size: 11px;
+      padding: 20px 0 7px;
+      position: relative;
+      cursor: pointer;
+      color: #555;
+
+      &:before {
+        $circle-size: 30px;
+        content: '';
+
+        border: 1px solid #ccc;
+        border-radius: $circle-size;
+        width: $circle-size;
+        height: $circle-size;
+        display: block;
+        position: absolute;
+        top: -($circle-size * 0.5);
+        left: 50%;
+        margin-left: -($circle-size * 0.5);
+
+        background: url(getIconURL('arrow-down', #27757b)) center center no-repeat white;
+        background-size: $circle-size * 0.5;
+
+        @include shadow-2dp;
+      }
+
+      &:hover {
+        color: #333;
+        background-color: #f3f3f3;
+
+        &:before {
+          @include shadow-3dp;
+        }
+      }
+    }
+
     &__sentence-and-buttons {
       display: flex;
       flex-direction: row-reverse;
@@ -25,6 +85,7 @@
         margin: 0;
         padding: 10px;
         font: 21px $serif;
+        text-align: center;
         // align-self: center;
 
         > mark {
@@ -34,11 +95,11 @@
       }
 
   &__dropdown-filters-wrapper {
-    display: none;
+  //   display: none;
 
-    .control-bar--desktop-filters-visible &  {
-      display: block;
-    }
+  //   .control-bar--desktop-filters-visible &  {
+  //     display: block;
+  //   }
   }
     &__dropdown-filters-buttons {
       border-top: rgba(0,0,0,0.1);
@@ -48,12 +109,12 @@
     }
 }
 
-.control-bar--desktop-filters-visible .control-bar__dropdown-filters-wrapper {
-  display: block;
-}
-.control-bar--desktop-filters-visible .control-bar__desktop-filter-button {
-  visibility: hidden;
-}
+// .control-bar--desktop-filters-visible .control-bar__dropdown-filters-wrapper {
+//   display: block;
+// }
+// .control-bar--desktop-filters-visible .control-bar__desktop-filter-button {
+//   visibility: hidden;
+// }
 
 
 @include oGridRespondTo(M) {
@@ -66,5 +127,20 @@
 @include oGridRespondTo(M) {
   .control-bar__sentence-and-buttons {
     max-width: 980px;
+  }
+}
+
+
+.control-bar--dropdown-filters-visible {
+  .control-bar__toggle-dropdown-filters {
+    &:before {
+      background-image: url(getIconURL('arrow-up', #27757b));
+    }
+  }
+
+  .control-bar__dropdown-filters-wrapper {
+    max-height: 500px;
+    // background: red;
+    display: block;
   }
 }

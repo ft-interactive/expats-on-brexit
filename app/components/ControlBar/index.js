@@ -14,33 +14,26 @@ import OnlyMobile from '../OnlyMobile';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { RESET_FILTERS, HIDE_DESKTOP_FILTERS, SHOW_DESKTOP_FILTERS } from '../../constants';
-import { selectSentenceParts, selectFilteredOpinionsCount, selectDesktopFiltersVisible } from '../App/selectors';
+import { RESET_FILTERS, DEACTIVATE_DROPDOWN_FILTERS, ACTIVATE_DROPDOWN_FILTERS } from '../../constants';
+import { selectSentenceParts, selectFilteredOpinionsCount, selectAreDropdownFiltersActive } from '../App/selectors';
 
-function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
+function ControlBar({ sentenceParts, count, areDropdownFiltersActive, dispatch }) {
   return (
     <div
       className={classnames('control-bar', {
-        'control-bar--desktop-filters-visible': desktopFiltersVisible,
+        'control-bar--dropdown-filters-visible': areDropdownFiltersActive,
       })}
     >
       <div className="control-bar__inner">
+        <div className="control-bar__dropdown-filters-wrapper">
+          <Filters horizontal />
+        </div>
+
         <div className="control-bar__sentence-and-buttons">
           <div className="control-bar__buttons">
             <OnlyMobile>
               <InternalLink route="/filter" className="control-bar__mobile-filter-button btn">Filter</InternalLink>
             </OnlyMobile>
-
-            <OnlyDesktop>
-              <button
-                className="control-bar__desktop-filter-button"
-                onClick={() => {
-                  dispatch({ type: SHOW_DESKTOP_FILTERS });
-                }}
-              >Filter</button>
-              {' '}
-              <InternalLink route="/form" className="control-bar__desktop-write-comment-button btn">Write a comment</InternalLink>
-            </OnlyDesktop>
           </div>
 
           <p className="control-bar__sentence">
@@ -52,37 +45,14 @@ function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
           </p>
         </div>
 
-        <OnlyDesktop>
-          <div className={'control-bar__dropdown-filters-wrapper'}>
-            <Filters horizontal />
-
-            <div className={'control-bar__dropdown-filters-buttons'}>
-              <button
-                className="btn btn--dark"
-                onClick={() => {
-                  dispatch({ type: HIDE_DESKTOP_FILTERS });
-
-                  // TODO maybe also scroll to top, if filters have changed?
-                }}
-              >
-                {`Show ${count} responses`}
-              </button>
-
-              <span>{' or '}</span>
-
-              <button
-                className="link"
-                onClick={() => {
-                  dispatch({ type: RESET_FILTERS });
-                  dispatch({ type: HIDE_DESKTOP_FILTERS });
-                  // TODO hide filters
-                }}
-              >
-                show all
-              </button>
-            </div>
-          </div>
-        </OnlyDesktop>
+        <button
+          className="control-bar__toggle-dropdown-filters"
+          onClick={() => {
+            dispatch({ type: areDropdownFiltersActive ? DEACTIVATE_DROPDOWN_FILTERS : ACTIVATE_DROPDOWN_FILTERS });
+          }}
+        >
+          {areDropdownFiltersActive ? 'Hide filters' : 'Adjust filters'}
+        </button>
       </div>
     </div>
   );
@@ -91,14 +61,14 @@ function ControlBar({ sentenceParts, count, desktopFiltersVisible, dispatch }) {
 ControlBar.propTypes = {
   sentenceParts: PropTypes.array.isRequired,
   count: PropTypes.number.isRequired,
-  desktopFiltersVisible: PropTypes.bool.isRequired,
+  areDropdownFiltersActive: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
 };
 
 const select = createStructuredSelector({
   sentenceParts: selectSentenceParts,
   count: selectFilteredOpinionsCount,
-  desktopFiltersVisible: selectDesktopFiltersVisible,
+  areDropdownFiltersActive: selectAreDropdownFiltersActive,
 });
 
 export default connect(select)(ControlBar);
