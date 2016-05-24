@@ -78,7 +78,7 @@ export class ExplorePage extends Component {
         <main>
           <StickyContainer className="sticky-container">
             <div className="explore-page__intro">
-              <p>Hundreds of British expat readers discuss how they think the EU referendum will affect them.</p>
+              <p>Hundreds of British expats discuss how they think the EU referendum will affect them.</p>
               <p>Play with the filters below to unearth different points of view.</p>
             </div>
 
