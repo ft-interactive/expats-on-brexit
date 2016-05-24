@@ -8,8 +8,9 @@ import React, { Component, PropTypes } from 'react';
 import SiteHeader from '../SiteHeader';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectFilteredOpinions } from '../App/selectors';
+import { selectVisibleOpinions, selectIsMoreOpinionsAvailable } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { SHOW_MORE_OPINIONS } from '../../constants';
 
 
 export class ExplorePage extends Component {
@@ -60,7 +61,7 @@ export class ExplorePage extends Component {
   // }
 
   render() {
-    const { filteredOpinions } = this.props;
+    const { visibleOpinions, isMoreOpinionsAvailable, dispatch } = this.props;
 
     return (
       <div className="explore-page page">
@@ -87,8 +88,18 @@ export class ExplorePage extends Component {
                 {' '}
                 marks respondents who have lived abroad for more than 15 years.
               </p>
-              <OpinionsList opinions={filteredOpinions} />
+              <OpinionsList opinions={visibleOpinions} />
             </div>
+
+            {isMoreOpinionsAvailable ? (
+              <div className="explore-page__show-more">
+                <button
+                  onClick={() => {
+                    dispatch({ type: SHOW_MORE_OPINIONS });
+                  }}
+                >Show more responses</button>
+              </div>
+            ) : null}
 
             <OnlyMobile>
               <InternalLink route="/form" className="explore-page__floating-action-button">
@@ -105,11 +116,13 @@ export class ExplorePage extends Component {
 }
 
 ExplorePage.propTypes = {
-  filteredOpinions: PropTypes.array.isRequired,
+  visibleOpinions: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
 };
 
 const select = createStructuredSelector({
-  filteredOpinions: selectFilteredOpinions,
+  visibleOpinions: selectVisibleOpinions,
+  isMoreOpinionsAvailable: selectIsMoreOpinionsAvailable,
 });
 
 export default connect(select)(ExplorePage);

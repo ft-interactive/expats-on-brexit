@@ -1,10 +1,18 @@
 import data from '../../data';
-import { SET_FILTER, RESET_FILTERS, SHOW_DESKTOP_FILTERS, HIDE_DESKTOP_FILTERS } from '../../constants';
+import {
+  SET_FILTER, RESET_FILTERS, SHOW_DESKTOP_FILTERS, HIDE_DESKTOP_FILTERS,
+  SHOW_MORE_OPINIONS,
+} from '../../constants';
+
+const INITIAL_MAX_VISIBLE_OPINIONS = 20;
+const OPINIONS_INCREMENT = 20;
 
 const initialState = {
   ...data,
 
   desktopFiltersVisible: false,
+
+  maxVisibleOpinions: INITIAL_MAX_VISIBLE_OPINIONS,
 
   filters: {
     leaningRemain: true,
@@ -26,6 +34,7 @@ export default function appReducer(state = initialState, action) {
           if (!value) {
             return {
               ...state,
+              maxVisibleOpinions: INITIAL_MAX_VISIBLE_OPINIONS,
               filters: {
                 ...state.filters,
                 livingInEU: true,
@@ -37,6 +46,7 @@ export default function appReducer(state = initialState, action) {
 
           return {
             ...state,
+            maxVisibleOpinions: INITIAL_MAX_VISIBLE_OPINIONS,
             filters: {
               ...state.filters,
               livingInEU: false,
@@ -49,6 +59,7 @@ export default function appReducer(state = initialState, action) {
         case 'livingOutsideEU':
           return {
             ...state,
+            maxVisibleOpinions: INITIAL_MAX_VISIBLE_OPINIONS,
             filters: {
               ...state.filters,
               [name]: value,
@@ -61,6 +72,7 @@ export default function appReducer(state = initialState, action) {
         case 'leaningUnsure':
           return {
             ...state,
+            maxVisibleOpinions: INITIAL_MAX_VISIBLE_OPINIONS,
             filters: {
               ...state.filters,
               [name]: value,
@@ -76,6 +88,7 @@ export default function appReducer(state = initialState, action) {
     case RESET_FILTERS:
       return {
         ...state,
+        maxVisibleOpinions: INITIAL_MAX_VISIBLE_OPINIONS,
         filters: initialState.filters,
       };
 
@@ -89,6 +102,12 @@ export default function appReducer(state = initialState, action) {
       return {
         ...state,
         desktopFiltersVisible: false,
+      };
+
+    case SHOW_MORE_OPINIONS:
+      return {
+        ...state,
+        maxVisibleOpinions: state.maxVisibleOpinions + OPINIONS_INCREMENT,
       };
 
     default:
