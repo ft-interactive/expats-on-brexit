@@ -35,11 +35,14 @@ export class ExplorePage extends Component {
   //   this.findInternalNodes();
   // }
 
-  // componentWillUnmount() {
-  //   delete this.controlBar;
-  //   delete this.siteHeader;
-  //   removeEventListener('scroll', this.onPageScroll);
-  // }
+  componentWillUnmount() {
+    // delete this.controlBar;
+    // delete this.siteHeader;
+    // removeEventListener('scroll', this.onPageScroll);
+    
+    // don't keep dropdown open when leaving this page
+    this.props.dispatch({ type: DEACTIVATE_DROPDOWN_FILTERS });
+  }
 
   // onPageScroll() {
   //   // if we're over the threshold, add class to the control bar
