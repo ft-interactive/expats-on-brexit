@@ -112,8 +112,8 @@ export const selectSentenceParts = createSelector(
   (filters, count, countries) => {
     if (count === 0) {
       return [
-        { text: '0', mark: true },
-        { text: ' respondents match your current filters' },
+        // { text: '0', mark: true },
+        { text: 'No respondents match your current filters' },
       ];
     }
 
