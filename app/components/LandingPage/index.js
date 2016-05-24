@@ -46,13 +46,13 @@ function LandingPage({ opinions }) {
         </header>
 
         <div className="landing-page__copy">
-          <p>Millions of Britons living abroad have an interest in the outcome of the EU referendum. With the June 7 voting registration deadline looming, we asked FT readers to describe how the referendum may affect them and what they have learned from living abroad. Nearly 350 British expats in 53 countries responded to our call – from Malta to Ghana to South Korea. You can explore their responses in our interactive. If you are an expat yourself, there is space to add your own opinion.</p>
+          <p>Millions of Britons living abroad have an interest in the outcome of the EU referendum, and many of them can vote. With the June 7 voting registration deadline looming, we asked those FT readers to describe how the outcome would affect them and what living abroad has taught them. Responses flooded in from Malta to Ghana to South Korea. Click the button below to explore their points of view.</p>
 
           <p className="landing-page__explore-link">
             <InternalLink route="/explore" className="btn btn--dark btn--raised">Explore expat responses</InternalLink>
           </p>
 
-          <p>An estimated five million British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though much less scientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
+          <p>An estimated 5m British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though much less scientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
 
           <div className="landing-page__factbox-pair">
             <aside className="landing-page__factbox">
@@ -99,17 +99,17 @@ function LandingPage({ opinions }) {
 
           <h3>EU dwellers: “I want practical facts”</h3>
 
-          <p>Expats living in EU countries will be most directly affected by this vote. One main concern was what would happen to their residency rights if the UK voted to quit the union.</p>
+          <p>Expats living in EU countries will be most directly affected by the vote. One main concern was what would happen to their residency rights if the UK voted to quit the union.</p>
 
           {insertOpinions(25)}
 
-          <p>Many EU-based respondents also provided interesting context from their experiences living on the continent. Here are some observations of two FT readers living in Spain:</p>
+          <p>Many EU-based respondents also provided interesting context from their experiences living on the continent. Here are the observations of two FT readers living in Spain:</p>
 
           {insertOpinions(30, 16)}
 
           <h3>The Swiss model: “Some sovereignty!”</h3>
 
-          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received 15 responses from Switzerland, 12 of which leaned Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
+          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received 15 responses from Switzerland, 12 of which leaned towards Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
 
           {insertOpinions(8, 53)}
 
@@ -121,13 +121,13 @@ function LandingPage({ opinions }) {
 
           <h3>Australasians: “Come on out, the water’s lovely”</h3>
 
-          <p>Residents of Commonwealth countries were much more split: 49 per cent leaned Remain and 33 per cent Leave. Many responses from New Zealand and Australia referred to their varied relationship with the UK – pointing to those countries as models for economic independence, or chastising the UK for focusing too much attention on the EU in recent years.</p>
+          <p>Residents of Commonwealth countries were much more split: 49 per cent leaned towards Remain and 33 per cent Leave. Many respondents from New Zealand and Australia referred to their varied relationship with the UK – pointing to those countries as models for economic independence, or chastising the UK for focusing too much attention on the EU in recent years.</p>
 
           {insertOpinions(19, 101)}
 
           <h3>The disenfranchised: “I have no vote!”</h3>
 
-          <p>Finally, it is worth noting the concerns of British expats who have lived abroad for more than 15 years and therefore cannot vote in the referendum. These ineligible EU members recently lost a challenge in the court of appeal; their case has escalated to the supreme court. Many responses from this 15-year-plus population expressed deep frustration.</p>
+          <p>Finally, it is worth noting the concerns of British expats who have lived abroad for more than 15 years and therefore cannot vote in the referendum. These ineligible EU members recently <a href="https://www.ft.com/content/f56df4d6-0d22-11e6-ad80-67655613c2d6">lost a challenge</a> in the court of appeal and their case <a href="http://www.theguardian.com/politics/2016/may/20/british-expats-battle-for-eu-referendum-vote-goes-to-supreme-court">has escalated</a> to the supreme court. Many responses from this 15-year-plus population expressed deep frustration.</p>
 
           {insertOpinions(12, 1)}
 
