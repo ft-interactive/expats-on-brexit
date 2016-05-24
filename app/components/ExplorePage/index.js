@@ -125,6 +125,11 @@ export class ExplorePage extends Component {
           </StickyContainer>
         </main>
 
+        <ShareLinks
+          url="https://ig.ft.com/sites/expats-on-brexit/"
+          text="What do British expats think of Brexit?"
+        />
+
         <OFooter />
 
         <div
@@ -132,11 +137,6 @@ export class ExplorePage extends Component {
           onClick={() => {
             dispatch({ type: DEACTIVATE_DROPDOWN_FILTERS });
           }}
-        />
-
-        <ShareLinks
-          url="https://ig.ft.com/sites/expats-on-brexit/"
-          text="What do British expats think of Brexit?"
         />
       </div>
     );
