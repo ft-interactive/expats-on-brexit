@@ -102,7 +102,7 @@ export class ExplorePage extends Component {
                   onClick={() => {
                     dispatch({ type: SHOW_MORE_OPINIONS });
                   }}
-                >Show more responses</button>
+                >Load more responses</button>
               </div>
             ) : null}
 
@@ -119,7 +119,7 @@ export class ExplorePage extends Component {
               }}
             >
               <InternalLink route="/form" className="explore-page__floating-action-button">
-                Write a comment
+                Add your view
               </InternalLink>
             </Sticky>
           </StickyContainer>

@@ -22,7 +22,7 @@
 
   &__permanent-filters-wrapper {
     display: none;
-    margin-bottom: 30px;
+    // margin-bottom: 30px;
   }
 
   &__intro {
@@ -48,12 +48,24 @@
     bottom: 60px;
     right: 30px;
     color: white;
-    background-color: #27757B;
-    padding: 0 15px;
+    background-color: #27757b;
+    padding: 0 20px;
     height: $floating-button-height;
     line-height: $floating-button-height;
     z-index: $z-floating-button;
     box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.12), 0px 8px 8px 0px rgba(0,0,0,0.24);
+
+    &:after {
+      content: '';
+      background-image: $pencil-icon;
+      width: 20px;
+      height: 20px;
+      display: inline-block;
+      background-size: contain;
+      position: relative;
+      top: 5px;
+      margin-left: 10px;
+    }
 
     &:hover {
       color: white;
@@ -61,7 +73,9 @@
   }
 
   &__opinions-list-wrapper {
-    margin-top: 40px;
+    margin-top: 30px;
+    
+    padding-top: 1px;
     margin-bottom: 40px;
     min-height: 100vh;
   }
@@ -83,8 +97,8 @@
     // pointer-events: none;
 
     > .control-bar {
-      transition-property: box-shadow, background-color;
-      transition-duration: 0.2s, 0.2s;
+      transition-property: box-shadow/* , background-color */;
+      transition-duration: 0.2s/* , 0.2s */;
     }
 
     &--stuck {
@@ -115,6 +129,10 @@
 
 @include oGridRespondTo(M) {
   .explore-page {
+    &__opinions-list-wrapper {
+      margin-top: -15px;
+    }
+
     &__permanent-filters-wrapper {
       display: block;
     }

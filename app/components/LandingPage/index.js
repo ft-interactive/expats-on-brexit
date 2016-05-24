@@ -34,15 +34,20 @@ function LandingPage({ opinions }) {
           <h1 className="landing-page__headline">
             What do Britons abroad think of Brexit?
           </h1>
+
           <p className="landing-page__standfirst">
-            FT survey aggregates the British expat perspective from 300+ readers across 53 countries
+            FT survey aggregates the British expat perspective from more than 300 readers across 53 countries
           </p>
-          <p className="landing-page__byline">
-            By Lilah&nbsp;Raptopoulos, Callum&nbsp;Locke, Caroline&nbsp;Nevitt and Aleks&nbsp;Wisniewska
-          </p>
-          <p className="landing-page__date">
-            May 23, 2016
-          </p>
+
+          <div className="landing-page__header-meta">
+            <p className="landing-page__byline">
+              By Lilah&nbsp;Raptopoulos, Callum&nbsp;Locke, Caroline&nbsp;Nevitt and Aleks&nbsp;Wisniewska
+            </p>
+
+            <p className="landing-page__date">
+              May 23, 2016
+            </p>
+          </div>
         </header>
 
         <div className="landing-page__copy">
@@ -55,7 +60,7 @@ function LandingPage({ opinions }) {
             </InternalLink>
           </p>
 
-          <p>An estimated 5m British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though much less scientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
+          <p>An estimated 5m British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though unscientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
 
           <div className="landing-page__factbox-pair">
             <aside className="landing-page__factbox">
@@ -88,6 +93,9 @@ function LandingPage({ opinions }) {
               <h4>FT coverage on the EU referendum</h4>
               <ul>
                 <li>
+                  <a href="https://www.ft.com/eu-referendum">Our Brexit hub page</a>
+                </li>
+                <li>
                   <a href="https://www.ft.com/content/e7b2d4d4-daea-11e5-98fd-06d75973fe09">Your top 10 questions answered</a>
                 </li>
                 <li>
@@ -112,7 +120,7 @@ function LandingPage({ opinions }) {
 
           <h3>The Swiss model: “Some sovereignty!”</h3>
 
-          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received 15 responses from Switzerland, 12 of which leaned towards Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
+          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received 17 responses from Switzerland, 12 of which leaned towards Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
 
           {insertOpinions(8, 53)}
 
@@ -135,14 +143,21 @@ function LandingPage({ opinions }) {
           {insertOpinions(12, 1)}
 
           <p>More British expats are eligible to vote than they think: according to a survey by the Electoral Commission, 20 per cent of eligible voters wrongly think they are not entitled. The number of overseas Britons who have registered to vote has jumped to approximately 196,000 in recent months, but that still only accounts for about 3 per cent of British expats – and 1 per cent of eligible Brexit voters.</p>
+
+          <p className="landing-page__explore-link">
+            <InternalLink route="/explore" className="btn btn--dark btn--raised">
+              Explore expat responses
+              <span className="icon icon--interaction"></span>
+            </InternalLink>
+          </p>
         </div>
+
+        
 
         <div className="landing-page__invitation-well">
           <p>Are you also a British expat? We want to hear from you.</p>
-          <p>Quality responses will be published.</p>
-
           <div>
-            <InternalLink route="/form" className="btn btn--dark btn--raised">Add your view</InternalLink>
+            <InternalLink route="/form" className="btn btn--raised">Add your view</InternalLink>
           </div>
         </div>
 

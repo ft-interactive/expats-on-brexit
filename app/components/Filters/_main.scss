@@ -4,8 +4,8 @@
   @import 'react-select/scss/default';
 
   &__filter-set {
-    text-align: cetner;
-    padding: 0 15px;
+    padding: 30px 15px 20px;
+    border-top: 1px solid rgba(black, 0.12);
   }
 
     &__heading {
@@ -15,7 +15,7 @@
     }
     
     &__big-or {
-      font-size: 18px;
+      font-size: 16px;
       text-transform: uppercase;
       text-align: center;
 
@@ -38,6 +38,7 @@
   .filters {
     &__filter-set {
       display: flex;
+      justify-content: center;
     }
       &__heading {
         width: 100px;
@@ -80,9 +81,9 @@
   &:hover {
     background: rgb(250, 250, 220);
 
-    .tick-box__icon {
-      opacity: 0.75;
-    }
+    // .tick-box__icon {
+    //   opacity: 0.75;
+    // }
   }
   &:active {
   }
@@ -94,14 +95,14 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: $control-height * 0.5;
-    opacity: 0.5;
+    opacity: 0.6;
 
     &--eu-flag { background-image: $eu-flag-icon; }
-    &--exit-door { background-image: $exit-door-icon; }
-    &--question-mark { background-image: $question-mark-icon; }
+    &--exit-door { background-image: $exit-door-icon; opacity: 0.5; }
+    &--question-mark { background-image: $question-mark-icon; opacity: 0.5; }
 
-    &--in-eu { background-image: $in-eu-icon; }
-    &--outside-eu { background-image: $outside-eu-icon; }
+    &--in-eu { background-image: $in-eu-icon; opacity: 0.7; }
+    &--outside-eu { background-image: $outside-eu-icon; opacity: 0.7; }
   }
 
     &__label {
@@ -139,6 +140,18 @@
     &__indicator--unticked {
       // background: transparent;
     }
+}
+
+.explore-page__permanent-filters-wrapper .tick-box {
+  background-color: transparent;
+  
+  &__indicator {
+    background-color: transparent;
+    border-color: #CCC0B3;
+  }
+  &__indicator--ticked {
+    background-image: url(getIconURL('tick', #7f7f7f));
+  }
 }
 
 @include oGridRespondTo(L) {

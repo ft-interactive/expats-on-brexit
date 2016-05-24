@@ -22,6 +22,7 @@
       position: absolute;
       left: 0;
       font: 50px $sans;
+      color: #000;
     }
 
     &:before {
@@ -40,17 +41,18 @@
 
     &__name {
       font: 19px $sans;
-      color: #555;
+      color: #222;
+      margin: 5px 0;
     }
 
     &__location {
-      font: 400 14px $sans;
+      font: 600 12px $sans;
       text-transform: uppercase;
-      color: #888;
-      letter-spacing: 0.1em;
+      color: #adadad;
+      letter-spacing: 0.15em;
     }
 
-    $eligibility-indicator-size: 40px;
+    $eligibility-indicator-size: 31px;
 
     &__eligibility {
       position: absolute;
@@ -65,12 +67,12 @@
       > span {
         display: block;
         width: $eligibility-indicator-size;
-        // text-align: center;
         text-transform: uppercase;
-        font: 400 12px $sans;
+        font: 600 12px/1 $sans;
         position: relative;
         left: -3px;
         cursor: default;
+        letter-spacing: 0.02em;
       }
 
       &--can {
@@ -86,7 +88,7 @@
 
     &__text {
       font: 17px/29px $serif;
-      color: #222;
+      color: #191919;
     }
   }
 
