@@ -97,3 +97,17 @@ button.link {
     color: black;
   }
 }
+
+
+.icon {
+  background-repeat: no-repeat;
+  background-size: contain;
+  // background-position: 22px center;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+
+  &--interaction {
+    background-image: $interaction-icon;
+  }
+}
