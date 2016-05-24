@@ -1,10 +1,12 @@
 /* eslint-disable no-console */
 
-import 'dotenv/config';
+import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 import sander from 'sander';
 import MarkdownIt from 'markdown-it';
 import Soup from 'soup';
+
+dotenv.config({ silent: true });
 
 console.assert(process.env.SPREADSHEET_KEY, 'Environment var SPREADSHEET_KEY should be set.');
 
