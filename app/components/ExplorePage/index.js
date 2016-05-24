@@ -127,7 +127,12 @@ export class ExplorePage extends Component {
 
         <OFooter />
 
-        <div className={classnames('explore-page__overlay', { 'explore-page__overlay--active': areDropdownFiltersActive })} />
+        <div
+          className={classnames('explore-page__overlay', { 'explore-page__overlay--active': areDropdownFiltersActive })}
+          onClick={() => {
+            dispatch({ type: DEACTIVATE_DROPDOWN_FILTERS });
+          }}
+        />
       </div>
     );
   }
