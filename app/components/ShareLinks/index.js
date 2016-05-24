@@ -11,30 +11,29 @@ const getLink = (url, networkName) => (
   </a>
 );
 
-export default function ShareLinks({ url, text }) {
-  const encodedURL = encodeURIComponent(url);
-  const encodedText = encodeURIComponent(text);
+export default function ShareLinks() {
+  const e = encodeURIComponent;
+  const url = e('ft.com/expats');
+  const fullURL = e('https://www.ft.com/expats');
 
   return (
     <aside className="share-links">
       {getLink(
-        `https://facebook.com/sharer/sharer.php?u=${encodedURL}`,
-        'Facebook',
-      )}
-
-      {getLink(
-        `https://twitter.com/intent/tweet/?text=${encodedText}&url=${encodedURL}`,
+        `https://twitter.com/intent/tweet/?text=${e('Hundreds of British expats share their thoughts on Brexit with @ft pic.twitter.com/PhlbVLc6Me')}&url=${url}`,
         'Twitter',
       )}
 
       {getLink(
-        `https://www.linkedin.com/shareArticle?mini=true&amp;url=${encodedURL}&amp;title=${encodedText}&amp;summary=${encodedText}&amp;source=${encodedURL}`,
+        `https://facebook.com/sharer/sharer.php?u=${url}`,
+        'Facebook',
+      )}
+
+      {getLink(
+        `https://www.linkedin.com/shareArticle?mini=true&amp;url=${fullURL}&amp;title=${e('Many Britons abroad are eligible to vote in the EU referendum. Here’s what they think of Brexit')}&amp;summary=${e('FT survey aggregates the British expat perspective from 300+ readers across 53 countries')}&amp;source=${fullURL}`,
         'LinkedIn',
       )}
     </aside>
   );
 }
 
-ShareLinks.propTypes = {
-
-};
+ShareLinks.propTypes = {};

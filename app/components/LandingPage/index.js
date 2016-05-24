@@ -20,10 +20,6 @@ function LandingPage({ opinions }) {
     />
   );
 
-  // const bylines = {
-  //   'Lilah&nbsp;Raptopoulos': 
-  // };
-
   return (
     <div className="landing-page page">
       <SiteHeader simple />
