@@ -30,15 +30,9 @@ a {
   }
 }
 
-// style button, or just things with class .btn, to look like a nice button
-button,
 .btn {
-  // @include shadow-1dp;
   cursor: pointer;
-
-  font-family: $sans;
-  font-size: 18px;
-
+  font: 18px/#{1} $sans;
   box-sizing: border-box;
   border: 1px solid #27757B;
   border-radius: 3px;
@@ -46,11 +40,8 @@ button,
   margin: 8px;
   padding: 0 8px;
   height: $button-height;
-  
   background-color: transparent;
   text-align: center;
-  
-  line-height: $button-height;
   color: #27757B;
 
   &:hover {
@@ -95,5 +86,19 @@ button.link {
   &:hover {
     background-color: transparent;
     color: black;
+  }
+}
+
+
+.icon {
+  background-repeat: no-repeat;
+  background-size: contain;
+  // background-position: 22px center;
+  display: inline-block;
+  height: 30px;
+  width: 30px;
+
+  &--interaction {
+    background-image: $interaction-icon;
   }
 }

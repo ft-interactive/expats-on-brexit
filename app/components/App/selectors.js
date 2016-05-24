@@ -17,9 +17,9 @@ export const selectLocationState = () => {
 
 const selectAppState = state => state.app;
 
-export const selectDesktopFiltersVisible = createSelector(
+export const selectAreDropdownFiltersActive = createSelector(
   selectAppState,
-  appState => appState.desktopFiltersVisible
+  appState => appState.areDropdownFiltersActive,
 );
 
 export const selectOptions = createSelector(
@@ -75,6 +75,33 @@ export const selectFilteredOpinions = createSelector(
 export const selectFilteredOpinionsCount = createSelector(
   selectFilteredOpinions,
   opinions => opinions.length
+);
+
+export const selectMaxVisibleOpinions = createSelector(
+  selectAppState,
+  appState => appState.maxVisibleOpinions,
+);
+
+export const selectVisibleOpinions = createSelector(
+  selectFilteredOpinions,
+  selectFilteredOpinionsCount,
+  selectMaxVisibleOpinions,
+  (filteredOpinions, filteredOpinionsCount, maxVisibleOpinions) => (
+    maxVisibleOpinions >= filteredOpinionsCount
+      ? filteredOpinions
+      : filteredOpinions.slice(0, maxVisibleOpinions)
+  ),
+);
+
+export const selectVisibleOpinionsCount = createSelector(
+  selectVisibleOpinions,
+  opinions => opinions.length
+);
+
+export const selectIsMoreOpinionsAvailable = createSelector(
+  selectVisibleOpinionsCount,
+  selectFilteredOpinionsCount,
+  (visibleOpinionsCount, filteredOpinionsCount) => visibleOpinionsCount < filteredOpinionsCount,
 );
 
 export const selectSentenceParts = createSelector(

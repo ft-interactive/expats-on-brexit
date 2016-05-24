@@ -49,7 +49,10 @@ function LandingPage({ opinions }) {
           <p>Millions of Britons living abroad have an interest in the outcome of the EU referendum, and many of them can vote. With the June 7 voting registration deadline looming, we asked those FT readers to describe how the outcome would affect them and what living abroad has taught them. Responses flooded in from Malta to Ghana to South Korea. Click the button below to explore their points of view.</p>
 
           <p className="landing-page__explore-link">
-            <InternalLink route="/explore" className="btn btn--dark btn--raised">Explore expat responses</InternalLink>
+            <InternalLink route="/explore" className="btn btn--dark btn--raised">
+              Explore expat responses
+              <span className="icon icon--interaction"></span>
+            </InternalLink>
           </p>
 
           <p>An estimated 5m British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though much less scientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>

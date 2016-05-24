@@ -88,14 +88,15 @@
       text-align: center;
 
       > a {
-        padding: 0 30px 0 50px;
+        padding: 0 30px;
         height: $button-height + 10px;
         line-height: $button-height + 10px;
 
-        background-image: $pointer-icon;
-        background-repeat: no-repeat;
-        background-size: 14px;
-        background-position: 22px center;
+        > .icon {
+          position: relative;
+          top: 10px;
+          left: 10px;
+        }
       }
     }
 

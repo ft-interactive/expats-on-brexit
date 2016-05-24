@@ -9,7 +9,7 @@
     height: $header-height;
     overflow: hidden;
     position: fixed;
-    z-index: 5;
+    z-index: $z-site-header;
     width: 100%;
 
     @include shadow-6dp;

@@ -2,14 +2,17 @@ import ControlBar from '../ControlBar';
 import InternalLink from '../InternalLink';
 import OFooter from '../OFooter';
 import OnlyMobile from '../OnlyMobile';
+import Filters from '../Filters';
 import OpinionsList from '../OpinionsList';
 import React, { Component, PropTypes } from 'react';
 // import ReactDOM from 'react-dom';
 import SiteHeader from '../SiteHeader';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectFilteredOpinions } from '../App/selectors';
+import { selectVisibleOpinions, selectIsMoreOpinionsAvailable, selectAreDropdownFiltersActive } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
+import { SHOW_MORE_OPINIONS, DEACTIVATE_DROPDOWN_FILTERS } from '../../constants';
+import classnames from 'classnames';
 
 
 export class ExplorePage extends Component {
@@ -60,7 +63,7 @@ export class ExplorePage extends Component {
   // }
 
   render() {
-    const { filteredOpinions } = this.props;
+    const { visibleOpinions, isMoreOpinionsAvailable, dispatch, areDropdownFiltersActive } = this.props;
 
     return (
       <div className="explore-page page">
@@ -73,43 +76,79 @@ export class ExplorePage extends Component {
               <p>Play with the filters below to unearth different points of view.</p>
             </div>
 
+            <div className="explore-page__permanent-filters-wrapper">
+              <Filters horizontal />
+            </div>
+
             <Sticky
               className="explore-page__sticky-control-bar-wrapper"
               stickyClassName="explore-page__sticky-control-bar-wrapper--stuck"
               topOffset={-50}
+              onStickyStateChange={isStuck => {
+                if (!isStuck) dispatch({ type: DEACTIVATE_DROPDOWN_FILTERS });
+              }}
             >
               <ControlBar />
             </Sticky>
 
             <div className="explore-page__opinions-list-wrapper">
-              <p className="explore-page__eligibility-note">
-                ‘<span>CAN’T VOTE</span>’
-                {' '}
-                marks respondents who have lived abroad for more than 15 years.
-              </p>
-              <OpinionsList opinions={filteredOpinions} />
+              <OpinionsList opinions={visibleOpinions} />
             </div>
 
-            <OnlyMobile>
+            {isMoreOpinionsAvailable ? (
+              <div className="explore-page__show-more">
+                <button
+                  className="btn"
+                  onClick={() => {
+                    dispatch({ type: SHOW_MORE_OPINIONS });
+                  }}
+                >Show more responses</button>
+              </div>
+            ) : null}
+
+            <p className="explore-page__eligibility-note">
+              ‘<span>CAN’T VOTE</span>’
+              {' '}
+              marks respondents who have lived abroad for more than 15 years.
+            </p>
+
+            <Sticky
+              bottomOffset={-200}
+              onStickyStateChange={isStuck => {
+                console.log('action button isStuck', isStuck);
+              }}
+            >
               <InternalLink route="/form" className="explore-page__floating-action-button">
                 Write a comment
               </InternalLink>
-            </OnlyMobile>
+            </Sticky>
           </StickyContainer>
         </main>
 
         <OFooter />
+
+        <div
+          className={classnames('explore-page__overlay', { 'explore-page__overlay--active': areDropdownFiltersActive })}
+          onClick={() => {
+            dispatch({ type: DEACTIVATE_DROPDOWN_FILTERS });
+          }}
+        />
       </div>
     );
   }
 }
 
 ExplorePage.propTypes = {
-  filteredOpinions: PropTypes.array.isRequired,
+  visibleOpinions: PropTypes.array.isRequired,
+  dispatch: PropTypes.func.isRequired,
+  isMoreOpinionsAvailable: PropTypes.bool.isRequired,
+  areDropdownFiltersActive: PropTypes.bool.isRequired,
 };
 
 const select = createStructuredSelector({
-  filteredOpinions: selectFilteredOpinions,
+  visibleOpinions: selectVisibleOpinions,
+  isMoreOpinionsAvailable: selectIsMoreOpinionsAvailable,
+  areDropdownFiltersActive: selectAreDropdownFiltersActive,
 });
 
 export default connect(select)(ExplorePage);
