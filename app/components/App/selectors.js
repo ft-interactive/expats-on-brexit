@@ -32,6 +32,11 @@ export const selectCountries = createSelector(
   appState => appState.countries
 );
 
+export const selectNumCountries = createSelector(
+  selectCountries,
+  countries => countries.length
+);
+
 export const selectOpinions = createSelector(
   selectAppState,
   appState => appState.opinions
@@ -45,21 +50,13 @@ export const selectCurrentFilters = createSelector(
 export const selectAnyFiltersChanged = createSelector(
   selectCurrentFilters,
   filters => {
-    console.log(filters);
-
     for (const name of Object.keys(filters)) {
       const value = filters[name];
-
-      console.log('filter', name, value);
 
       if (name === 'country') {
         if (value) return true;
       } else if (!value) return true;
-
-      console.log('continuing');
     }
-
-    console.log('none changed');
 
     return false;
   }
@@ -67,9 +64,9 @@ export const selectAnyFiltersChanged = createSelector(
 
 const selectFilterFunction = createSelector(
   selectCurrentFilters,
-  f => {
+  f => (
     // return a filtering function suitable for passing to Array#filter
-    return o => {
+    o => {
       const visible = ((
         // any matching country
         (f.leaningRemain && o.leaningRemain) ||
@@ -83,8 +80,8 @@ const selectFilterFunction = createSelector(
       ));
 
       return visible;
-    };
-  }
+    }
+  )
 );
 
 export const selectFilteredOpinions = createSelector(

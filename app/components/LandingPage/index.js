@@ -10,9 +10,9 @@ import OFooter from '../OFooter';
 import OpinionsList from '../OpinionsList';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectOpinions } from '../App/selectors';
+import { selectOpinions, selectNumCountries } from '../App/selectors';
 
-function LandingPage({ opinions }) {
+function LandingPage({ opinions, numCountries }) {
   const insertOpinions = (...opinionIDs) => (
     <OpinionsList
       opinions={opinionIDs.map(id => opinions.find(opinion =>
@@ -36,7 +36,7 @@ function LandingPage({ opinions }) {
           </h1>
 
           <p className="landing-page__standfirst">
-            FT survey aggregates the British expat perspective from more than 300 readers across 53 countries
+            FT survey aggregates the British expat perspective from more than 300 readers across {numCountries} countries
           </p>
 
           <div className="landing-page__header-meta">
@@ -179,8 +179,10 @@ function LandingPage({ opinions }) {
 
 LandingPage.propTypes = {
   opinions: PropTypes.array.isRequired,
+  numCountries: PropTypes.number.isRequired,
 };
 
 export default connect(createStructuredSelector({
   opinions: selectOpinions,
+  numCountries: selectNumCountries,
 }))(LandingPage);
