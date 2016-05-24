@@ -1,7 +1,7 @@
 import ControlBar from '../ControlBar';
 import InternalLink from '../InternalLink';
 import OFooter from '../OFooter';
-import OnlyMobile from '../OnlyMobile';
+import ShareLinks from '../ShareLinks';
 import Filters from '../Filters';
 import OpinionsList from '../OpinionsList';
 import React, { Component, PropTypes } from 'react';
@@ -132,6 +132,11 @@ export class ExplorePage extends Component {
           onClick={() => {
             dispatch({ type: DEACTIVATE_DROPDOWN_FILTERS });
           }}
+        />
+
+        <ShareLinks
+          url="https://ig.ft.com/sites/expats-on-brexit/"
+          text="What do British expats think of Brexit?"
         />
       </div>
     );
