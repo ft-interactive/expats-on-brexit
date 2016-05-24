@@ -146,28 +146,28 @@ export const selectSentenceParts = createSelector(
       if (filters.leaningLeave) {
         if (filters.leaningUnsure) {
           parts.push(
-            { text: ' and who are leaning ' },
+            { text: ` and who ${single ? 'is' : 'are'} leaning ` },
             { text: 'any direction', mark: true },
           );
         } else {
           parts.push(
-            { text: ' and who think Britain should ' },
+            { text: ` and who think${single ? 's' : ''} Britain should ` },
             { text: 'remain', mark: true },
-            { text: '/' },
+            { text: ' / ' },
             { text: 'leave', mark: true },
           );
         }
       } else {
         if (filters.leaningUnsure) {
           parts.push(
-            { text: ' and who think Britain should ' },
+            { text: ` and who think${single ? 's' : ''} Britain should ` },
             { text: 'remain', mark: true },
-            { text: ' or are ' },
+            { text: ` or ${single ? 'is' : 'are'} ` },
             { text: 'unsure', mark: true },
           );
         } else {
           parts.push(
-            { text: ' and who think Britain should ' },
+            { text: ` and who think${single ? 's' : ''} Britain should ` },
             { text: 'remain', mark: true },
           );
         }
@@ -176,21 +176,21 @@ export const selectSentenceParts = createSelector(
       if (filters.leaningLeave) {
         if (filters.leaningUnsure) {
           parts.push(
-            { text: ' and who think Britain should ' },
+            { text: ` and who think${single ? 's' : ''} Britain should ` },
             { text: 'leave', mark: true },
             { text: ' or are ' },
             { text: 'unsure', mark: true },
           );
         } else {
           parts.push(
-            { text: ' and who think Britain should ' },
+            { text: ` and who think${single ? 's' : ''} Britain should ` },
             { text: 'leave', mark: true },
           );
         }
       } else {
         if (filters.leaningUnsure) {
           parts.push(
-            { text: ' and who are ' },
+            { text: ` and who ${single ? 'is' : 'are'} ` },
             { text: 'unsure', mark: true },
             { text: ' whether Britain should remain or leave' },
           );
