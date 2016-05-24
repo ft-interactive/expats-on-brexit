@@ -124,7 +124,7 @@
   }
 }
 
-@include oGridRespondTo(M) {
+@include oGridRespondTo(L) {
   .control-bar__sentence-and-buttons {
     max-width: 980px;
   }
@@ -142,5 +142,17 @@
     max-height: 500px;
     // background: red;
     display: block;
+  }
+}
+
+// MOBILE ONLY
+@include oGridRespondTo($until: M) {
+  .control-bar {
+    &__dropdown-filters-wrapper {
+      display: none !important;
+    }
+    &__toggle-dropdown-filters {
+      display: none !important;
+    }    
   }
 }

@@ -21,6 +21,7 @@
   }
 
   &__permanent-filters-wrapper {
+    display: none;
     margin-bottom: 30px;
   }
 
@@ -104,8 +105,20 @@
   }
 }
 
+@include oGridRespondTo($until: M) {
+  .explore-page {
+    &__overlay {
+      display: none !important;
+    }
+  }
+}
+
 @include oGridRespondTo(M) {
   .explore-page {
+    &__permanent-filters-wrapper {
+      display: block;
+    }
+
     &__eligibility-note {
       max-width: 400px;
       margin: 20px auto 30px;

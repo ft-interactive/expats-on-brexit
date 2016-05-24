@@ -32,7 +32,7 @@ a {
 
 .btn {
   cursor: pointer;
-  font: 18px/#{1} $sans;
+  font: 18px/#{$button-height - 1px} $sans;
   box-sizing: border-box;
   border: 1px solid #27757B;
   border-radius: 3px;
