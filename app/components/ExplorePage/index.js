@@ -9,9 +9,12 @@ import React, { Component, PropTypes } from 'react';
 import SiteHeader from '../SiteHeader';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
-import { selectVisibleOpinions, selectIsMoreOpinionsAvailable, selectAreDropdownFiltersActive } from '../App/selectors';
+import {
+  selectVisibleOpinions, selectIsMoreOpinionsAvailable, selectAreDropdownFiltersActive,
+  selectAnyFiltersChanged,
+} from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { SHOW_MORE_OPINIONS, DEACTIVATE_DROPDOWN_FILTERS } from '../../constants';
+import { SHOW_MORE_OPINIONS, DEACTIVATE_DROPDOWN_FILTERS, RESET_FILTERS } from '../../constants';
 import classnames from 'classnames';
 
 
@@ -63,7 +66,10 @@ export class ExplorePage extends Component {
   // }
 
   render() {
-    const { visibleOpinions, isMoreOpinionsAvailable, dispatch, areDropdownFiltersActive } = this.props;
+    const {
+      visibleOpinions, isMoreOpinionsAvailable, dispatch, areDropdownFiltersActive,
+      // anyFiltersChanged,
+    } = this.props;
 
     return (
       <div className="explore-page page">
@@ -76,9 +82,9 @@ export class ExplorePage extends Component {
               <p>Play with the filters below to unearth different points of view.</p>
             </div>
 
-            <div className="explore-page__permanent-filters-wrapper">
+            <section className="explore-page__permanent-filters-wrapper">
               <Filters horizontal />
-            </div>
+            </section>
 
             <Sticky
               className="explore-page__sticky-control-bar-wrapper"
@@ -119,7 +125,7 @@ export class ExplorePage extends Component {
               }}
             >
               <InternalLink route="/form" className="explore-page__floating-action-button">
-                Add your view
+                <span>Add your view</span>
               </InternalLink>
             </Sticky>
           </StickyContainer>
@@ -148,12 +154,14 @@ ExplorePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   isMoreOpinionsAvailable: PropTypes.bool.isRequired,
   areDropdownFiltersActive: PropTypes.bool.isRequired,
+  anyFiltersChanged: PropTypes.bool.isRequired,
 };
 
 const select = createStructuredSelector({
   visibleOpinions: selectVisibleOpinions,
   isMoreOpinionsAvailable: selectIsMoreOpinionsAvailable,
   areDropdownFiltersActive: selectAreDropdownFiltersActive,
+  anyFiltersChanged: selectAnyFiltersChanged,
 });
 
 export default connect(select)(ExplorePage);

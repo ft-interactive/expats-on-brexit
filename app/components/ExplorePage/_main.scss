@@ -1,6 +1,4 @@
 .explore-page {
-  $floating-button-height: 40px;
-
   &__overlay {
     background-color: black;
     opacity: 0;
@@ -22,7 +20,6 @@
 
   &__permanent-filters-wrapper {
     display: none;
-    // margin-bottom: 30px;
   }
 
   &__intro {
@@ -45,8 +42,8 @@
     border-radius: $floating-button-height;
     position: fixed;
     // top: 80vh;
-    bottom: 60px;
-    right: 30px;
+    bottom: 20px;
+    right: 20px;
     color: white;
     background-color: #27757b;
     padding: 0 20px;
@@ -57,14 +54,16 @@
 
     &:after {
       content: '';
-      background-image: $pencil-icon;
-      width: 20px;
-      height: 20px;
+      width: $floating-button-height / 2;
+      height: $floating-button-height / 2;
+
       display: inline-block;
+
+      background: $pencil-icon center center no-repeat;
       background-size: contain;
       position: relative;
-      top: 5px;
-      margin-left: 10px;
+      top: $floating-button-height * 0.15;
+      left: $floating-button-height * 0.14;
     }
 
     &:hover {
@@ -123,6 +122,24 @@
   .explore-page {
     &__overlay {
       display: none !important;
+    }
+
+    &__floating-action-button {
+      padding: 0;
+      width: $floating-button-height;
+      // display: block;
+      // background-color: red;
+      // outline: 5px solid red;
+      
+      &:after {
+
+        // top: $floating-button-height * 0.15;
+        left: $floating-button-height * 0.25;
+      }
+
+      > span {
+        @include visually-hidden;
+      }
     }
   }
 }

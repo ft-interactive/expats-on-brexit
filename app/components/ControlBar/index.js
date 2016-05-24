@@ -9,15 +9,20 @@
 import classnames from 'classnames';
 import Filters from '../Filters';
 import InternalLink from '../InternalLink';
-import OnlyDesktop from '../OnlyDesktop';
+// import OnlyDesktop from '../OnlyDesktop';
 import OnlyMobile from '../OnlyMobile';
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { RESET_FILTERS, DEACTIVATE_DROPDOWN_FILTERS, ACTIVATE_DROPDOWN_FILTERS } from '../../constants';
-import { selectSentenceParts, selectFilteredOpinionsCount, selectAreDropdownFiltersActive } from '../App/selectors';
+import {
+  selectSentenceParts, selectFilteredOpinionsCount, selectAreDropdownFiltersActive,
+  selectAnyFiltersChanged,
+} from '../App/selectors';
 
-function ControlBar({ sentenceParts, count, areDropdownFiltersActive, dispatch }) {
+function ControlBar({
+  sentenceParts, count, areDropdownFiltersActive, dispatch, anyFiltersChanged,
+}) {
   return (
     <div
       className={classnames('control-bar', {
@@ -25,9 +30,22 @@ function ControlBar({ sentenceParts, count, areDropdownFiltersActive, dispatch }
       })}
     >
       <div className="control-bar__inner">
-        <div className="control-bar__dropdown-filters-wrapper">
+        <section className="control-bar__dropdown-filters-wrapper">
+          <header>
+            <h6>Filter comments</h6>
+
+            {anyFiltersChanged ? (
+              <button
+                className="link"
+                onClick={() => {
+                  dispatch({ type: RESET_FILTERS });
+                }}
+              >Reset filters</button>
+            ) : null}
+          </header>
+
           <Filters horizontal />
-        </div>
+        </section>
 
         <div className="control-bar__sentence-and-buttons">
           <div className="control-bar__buttons">
@@ -63,12 +81,14 @@ ControlBar.propTypes = {
   count: PropTypes.number.isRequired,
   areDropdownFiltersActive: PropTypes.bool.isRequired,
   dispatch: PropTypes.func.isRequired,
+  anyFiltersChanged: PropTypes.bool.isRequired,
 };
 
 const select = createStructuredSelector({
   sentenceParts: selectSentenceParts,
   count: selectFilteredOpinionsCount,
   areDropdownFiltersActive: selectAreDropdownFiltersActive,
+  anyFiltersChanged: selectAnyFiltersChanged,
 });
 
 export default connect(select)(ControlBar);

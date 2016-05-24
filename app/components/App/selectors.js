@@ -42,6 +42,29 @@ export const selectCurrentFilters = createSelector(
   appState => appState.filters
 );
 
+export const selectAnyFiltersChanged = createSelector(
+  selectCurrentFilters,
+  filters => {
+    console.log(filters);
+
+    for (const name of Object.keys(filters)) {
+      const value = filters[name];
+
+      console.log('filter', name, value);
+
+      if (name === 'country') {
+        if (value) return true;
+      } else if (!value) return true;
+
+      console.log('continuing');
+    }
+
+    console.log('none changed');
+
+    return false;
+  }
+);
+
 const selectFilterFunction = createSelector(
   selectCurrentFilters,
   f => {

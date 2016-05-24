@@ -82,6 +82,9 @@ button.link {
   display: inline;
   text-align: left;
   font: inherit;
+  background-color: transparent;
+  color: #2B747C;
+  cursor: pointer;
 
   &:hover {
     background-color: transparent;
@@ -101,4 +104,13 @@ button.link {
   &--interaction {
     background-image: $interaction-icon;
   }
+}
+
+h6 {
+  text-transform: uppercase;
+  text-align: center;
+  font: 600 16px/#{$filters-header-height} $sans;
+  color: rgba(black, 0.32);
+  letter-spacing: 0.1em;
+  margin: 0;
 }

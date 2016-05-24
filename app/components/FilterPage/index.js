@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import { RESET_FILTERS } from '../../constants';
 import { selectFilteredOpinionsCount } from '../App/selectors';
+import { push } from 'react-router-redux';
 // import { goBack } from 'react-router-redux';
 
 function FilterPage({ count, dispatch }) {
@@ -25,23 +26,39 @@ function FilterPage({ count, dispatch }) {
         }}
       >×</button>*/}
 
-      <Filters />
+      <main>
+        <header className="filter-page__header">
+          <h6>Filter comments</h6>
 
-      <div className={styles.buttons}>
-        <InternalLink route="/explore" className="btn btn--dark btn--raised">
-          {`Find ${count} filtered opinions`}
-        </InternalLink>
+          <button
+            className="filter-page__close-button"
+            onClick={() => {
+              dispatch({ type: RESET_FILTERS });
+              dispatch(push('/explore'));
+            }}
+          >
+            <span>Close</span>
+          </button>
+        </header>
 
-        <span>{' or '}</span>
+        <Filters />
 
-        <InternalLink
-          route="/explore"
-           // className="btn btn--dark"
-          onClick={() => {
-            dispatch({ type: RESET_FILTERS });
-          }}
-        >show all</InternalLink>
-      </div>
+        <div className={styles.buttons}>
+          <InternalLink route="/explore" className="btn btn--dark btn--raised">
+            {`Find ${count} filtered opinions`}
+          </InternalLink>
+
+          <span>{' or '}</span>
+
+          <InternalLink
+            route="/explore"
+             // className="btn btn--dark"
+            onClick={() => {
+              dispatch({ type: RESET_FILTERS });
+            }}
+          >show all</InternalLink>
+        </div>
+      </main>
     </div>
   );
 }

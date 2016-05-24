@@ -75,7 +75,7 @@
 
   .site-header__brand {
     right: 50%;
-    margin-right: -($header-height * 2);
+    margin-right: -($masthead-width / 2);
 
     > a {
       background-color: transparent;
@@ -98,7 +98,7 @@
 
     &__brand {
       right: 50%;
-      margin-right: -($header-height * 2);
+      margin-right: -($masthead-width / 2);
 
       > a {
         background-color: transparent;

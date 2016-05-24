@@ -1,4 +1,5 @@
 @import '../../sass/shared';
+@import '../../sass/mixins';
 
 .filterPage {
   background-color: white;
@@ -22,4 +23,34 @@
 
 .buttons {
   text-align: center;
+}
+
+// TODO
+:global {
+  .filter-page {
+    
+    &__header {
+      position: relative;
+      padding: 13px 0 10px;
+    }
+      
+      &__close-button {
+        $size: 20px;
+
+        background: url(getIconURL('cross', #000000)) center center no-repeat;
+        display: inline-block;
+        width: 60px;
+        height: 100%;
+        background-size: $size;
+        border: 0;
+        opacity: 0.2;
+        position: absolute;
+        right: 0;
+        top: 0;
+
+        > span {
+          @include visually-hidden;
+        }
+      }
+  }
 }

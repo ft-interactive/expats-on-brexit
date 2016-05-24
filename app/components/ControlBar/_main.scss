@@ -1,6 +1,6 @@
 .control-bar {
   // background-color: #fff1e0;
-  border-top: 1px solid getColor('pink-tint2');
+  // border-top: 1px solid getColor('pink-tint2');
   // border-bottom: 1px solid getColor('pink-tint2');
   position: relative;
   position: sticky;
@@ -19,8 +19,20 @@
       // transition: max-height 0.5s linear;
       // position: relative;
 
+      > header {
+        position: relative;
+
+        > button {
+          position: absolute;
+          right: 15px;
+          top: 0;
+          line-height: $filters-header-height;
+          font-size: 18px;
+        }
+      }
+
       > .filters {
-        margin: 20px auto 10px auto;
+        margin: 0 auto 10px auto;
       }
     }
 
@@ -157,6 +169,10 @@
 
       // display: flex;
       // justify-content: center;
+  }
+  
+  .control-bar__sentence-and-buttons {
+    border-top: 1px solid rgba(black, 0.12);
   }
 }
 
