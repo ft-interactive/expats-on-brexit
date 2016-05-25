@@ -1,15 +1,21 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+// import { createStructuredSelector } from 'reselect';
 
-function App(props) {
-  return (
-    <div className="app">
-      {props.children}
-    </div>
-  );
-}
+const App = ({
+  children,
+}) => (
+  <div className="app">
+    {children}
+  </div>
+);
+
+App.displayName = 'App';
 
 App.propTypes = {
-  children: React.PropTypes.node,
+  children: PropTypes.node,
 };
 
-export default App;
+export default connect(/*createStructuredSelector({
+
+}*/))(App);

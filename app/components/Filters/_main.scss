@@ -1,6 +1,7 @@
 .filters {
   $select-input-height: $control-height - 2;
   $select-menu-max-height: 400px;
+
   @import 'react-select/scss/default';
 
   &__filter-set {

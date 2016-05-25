@@ -1,13 +1,3 @@
-/**
- * <Filters />
- *
- * The UI for toggling filters on and off.
- *
- * Optional 'horizontal' flag for a wider layout.
- */
-
-// import 'react-select/dist/react-select.css';
-
 import classnames from 'classnames';
 import React, { PropTypes } from 'react';
 import Select from 'react-select';
