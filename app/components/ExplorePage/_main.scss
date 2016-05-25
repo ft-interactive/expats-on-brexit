@@ -161,3 +161,12 @@
     }
   }
 }
+
+// hack for IE
+.no-csspointerevents {
+  .explore-page {
+    &__overlay {
+      display: none !important;
+    }
+  }
+}

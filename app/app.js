@@ -1,18 +1,13 @@
 /* global ga */
-/**
- * app.js
- *
- * This is the entry file for the application, only setup and boilerplate
- * code.
- */
+
 import 'babel-polyfill';
+import './modernizr';
 
-// TODO constrain eslint import/no-unresolved rule to this block
-// Load the manifest.json file and the .htaccess file
-// import 'file?name=[name].[ext]!./manifest.json';
-// import 'file?name=[name].[ext]!./.htaccess';
+// webpack's crazy way of making css happen
+import './sass/main.scss';
 
-// Import all the third party stuff
+
+import ctm from './ctm';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
@@ -23,15 +18,16 @@ import useScroll from 'react-router-scroll';
 import configureStore from './store';
 import basePath from './basePath';
 
-import './sass/main.scss';
+import { selectLocationState } from 'components/App/selectors';
+import App from 'components/App';
+import createRoutes from './routes';
 
-// Import the CSS reset, which HtmlWebpackPlugin transfers to the build folder
-// import 'sanitize.css/lib/sanitize.css';
 
-// Create redux store with history
-// this uses the singleton browserHistory provided by react-router
-// Optionally, this could be changed to leverage a created history
-// e.g. `const browserHistory = useRouterHistory(createBrowserHistory)();`
+if (ctm) {
+console.log('CTM');
+
+
+
 const browserHistory = useRouterHistory(createHistory)({
   basename: basePath,
 });
@@ -42,7 +38,6 @@ const store = configureStore(initialState, browserHistory);
 // Sync history and store, as the react-router-redux reducer
 // is under the non-default key ("routing"), selectLocationState
 // must be provided for resolving how to retrieve the "route" in the state
-import { selectLocationState } from 'components/App/selectors';
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState: selectLocationState(),
 });
@@ -58,8 +53,7 @@ history.listen((...args) => {
 });
 
 // Set up the router, wrapping all Routes in the App component
-import App from 'components/App';
-import createRoutes from './routes';
+
 const rootRoute = {
   component: App,
   childRoutes: createRoutes(store),
@@ -99,3 +93,8 @@ ReactDOM.render(
 // // we do not want it installed
 // import { install } from 'offline-plugin/runtime';
 // install();
+
+
+} else {
+  console.log('NOT CTM');
+}
