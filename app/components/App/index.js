@@ -18,4 +18,4 @@ App.propTypes = {
 
 export default connect(/*createStructuredSelector({
 
-}*/))(App);
+})*/)(App);
