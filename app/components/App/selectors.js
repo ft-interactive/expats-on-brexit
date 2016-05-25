@@ -198,7 +198,7 @@ export const selectSentenceParts = createSelector(
           parts.push(
             { text: ` and who think${single ? 's' : ''} Britain should ` },
             { text: 'leave', mark: true },
-            { text: ' or are ' },
+            { text: ` or ${single ? 'is' : 'are'} ` },
             { text: 'unsure', mark: true },
           );
         } else {
