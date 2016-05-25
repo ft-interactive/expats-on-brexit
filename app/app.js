@@ -1,3 +1,4 @@
+/* global ga */
 /**
  * app.js
  *
@@ -44,6 +45,16 @@ const store = configureStore(initialState, browserHistory);
 import { selectLocationState } from 'components/App/selectors';
 const history = syncHistoryWithStore(browserHistory, store, {
   selectLocationState: selectLocationState(),
+});
+
+history.listen((...args) => {
+  console.log('location.pathname', location.pathname);
+  console.log('args', args);
+
+  ga('set', 'page', location.pathname);
+  ga('send', 'pageview');
+
+  console.log('pageview sent');
 });
 
 // Set up the router, wrapping all Routes in the App component
