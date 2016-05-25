@@ -63,7 +63,7 @@ export default function appReducer(state = initialState, action) {
             filters: {
               ...state.filters,
               [name]: value,
-              country: false,
+              country: value === true ? false : state.filters.country,
             },
           };
 
