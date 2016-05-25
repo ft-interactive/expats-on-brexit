@@ -4,8 +4,8 @@ import {
   SHOW_MORE_OPINIONS,
 } from '../../constants';
 
-const INITIAL_MAX_VISIBLE_OPINIONS = 20;
-const OPINIONS_INCREMENT = 20;
+const INITIAL_MAX_VISIBLE_OPINIONS = 5;
+const OPINIONS_INCREMENT = 8;
 
 const initialState = {
   ...data,

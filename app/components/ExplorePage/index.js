@@ -11,7 +11,7 @@ import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
 import {
   selectVisibleOpinions, selectIsMoreOpinionsAvailable, selectAreDropdownFiltersActive,
-  selectAnyFiltersChanged,
+  // selectAnyFiltersChanged,
 } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
 import { SHOW_MORE_OPINIONS, DEACTIVATE_DROPDOWN_FILTERS, SET_FILTER } from '../../constants';
@@ -119,7 +119,8 @@ export class ExplorePage extends Component {
             {isMoreOpinionsAvailable ? (
               <div className="explore-page__show-more">
                 <button
-                  className="btn"
+                  className="link"
+                  style={{fontSize: '21px'}}
                   onClick={() => {
                     dispatch({ type: SHOW_MORE_OPINIONS });
                   }}
@@ -127,12 +128,26 @@ export class ExplorePage extends Component {
               </div>
             ) : null}
 
+            <div className="explore-page__add-your-view">
+              <p>Are&nbsp;you&nbsp;also&nbsp;a&nbsp;British&nbsp;expat? We&nbsp;want&nbsp;to&nbsp;hear&nbsp;from&nbsp;you.</p>
+
+              <p>
+                <InternalLink
+                  className="btn btn--dark btn--raised"
+                  route="/form"
+                >
+                  Add your view
+                </InternalLink>
+              </p>
+            </div>
+
             <p className="explore-page__eligibility-note">
               ‘<span>CAN’T VOTE</span>’
               {' '}
               marks respondents who have lived abroad for more than 15 years.
             </p>
 
+            {/*
             <Sticky
               // bottomOffset={-200}
               // onStickyStateChange={isStuck => {
@@ -142,7 +157,7 @@ export class ExplorePage extends Component {
               <InternalLink route="/form" className="explore-page__floating-action-button">
                 <span>Add your view</span>
               </InternalLink>
-            </Sticky>
+            </Sticky>*/}
           </StickyContainer>
         </main>
 
@@ -169,14 +184,14 @@ ExplorePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   isMoreOpinionsAvailable: PropTypes.bool.isRequired,
   areDropdownFiltersActive: PropTypes.bool.isRequired,
-  anyFiltersChanged: PropTypes.bool.isRequired,
+  // anyFiltersChanged: PropTypes.bool.isRequired,
 };
 
 const select = createStructuredSelector({
   visibleOpinions: selectVisibleOpinions,
   isMoreOpinionsAvailable: selectIsMoreOpinionsAvailable,
   areDropdownFiltersActive: selectAreDropdownFiltersActive,
-  anyFiltersChanged: selectAnyFiltersChanged,
+  // anyFiltersChanged: selectAnyFiltersChanged,
 });
 
 export default connect(select)(ExplorePage);
