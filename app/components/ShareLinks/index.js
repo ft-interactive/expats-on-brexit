@@ -14,7 +14,7 @@ const getLink = (url, networkName) => (
 export default function ShareLinks() {
   const e = encodeURIComponent;
   const url = 'ft.com/expats';
-  // const fullURL = 'https://www.ft.com/expats';
+  const fullURL = 'https://www.ft.com/expats';
 
   return (
     <aside className="share-links">
@@ -27,9 +27,8 @@ export default function ShareLinks() {
         `https://facebook.com/sharer/sharer.php?u=${e(url)}`,
         'Facebook',
       )}
-
       {getLink(
-        `https://www.linkedin.com/shareArticle?mini=true&amp;url=${e(fullURL)}&amp;title=${e('Many Britons abroad are eligible to vote in the EU referendum. Here’s what they think of Brexit')}&amp;summary=${e('FT survey aggregates the British expat perspective from 300+ readers across 53 countries')}&amp;source=${e(fullURL)}`,
+        `https://www.linkedin.com/shareArticle?mini=true&url=${e(fullURL)}&title=${e('Many Britons abroad are eligible to vote in the EU referendum. Here\'s what they think of Brexit')}&summary=${e('FT survey aggregates the British expat perspective from more than 300 readers across 53 countries')}&source=${e(fullURL)}`,
         'LinkedIn',
       )}
     </aside>
