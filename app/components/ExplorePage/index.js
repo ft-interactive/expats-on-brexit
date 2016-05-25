@@ -14,9 +14,10 @@ import {
   selectAnyFiltersChanged,
 } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
-import { SHOW_MORE_OPINIONS, DEACTIVATE_DROPDOWN_FILTERS, RESET_FILTERS } from '../../constants';
+import { SHOW_MORE_OPINIONS, DEACTIVATE_DROPDOWN_FILTERS, SET_FILTER } from '../../constants';
 import classnames from 'classnames';
 
+let mountedOnce;
 
 export class ExplorePage extends Component {
   // constructor() {
@@ -24,6 +25,17 @@ export class ExplorePage extends Component {
   //   this.onPageScroll = this.onPageScroll.bind(this);
   //   this.findInternalNodes = this.findInternalNodes.bind(this);
   // }
+  // 
+  componentWillMount() {
+    // HACK
+    if (!mountedOnce) {
+      mountedOnce = true;
+
+      this.props.dispatch({ type: SET_FILTER, name: 'leaningLeave', value: false });
+      this.props.dispatch({ type: SET_FILTER, name: 'leaningUnsure', value: false });
+      this.props.dispatch({ type: SET_FILTER, name: 'livingOutsideEU', value: false });
+    }
+  }
 
   // componentDidMount() {
   //   // set up page scroll listening!

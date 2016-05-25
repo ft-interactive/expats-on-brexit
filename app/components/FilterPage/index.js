@@ -28,12 +28,12 @@ function FilterPage({ count, dispatch }) {
 
       <main>
         <header className="filter-page__header">
-          <h6>Filter comments</h6>
+          <h6>Filter responses</h6>
 
           <button
             className="filter-page__close-button"
             onClick={() => {
-              dispatch({ type: RESET_FILTERS });
+              // dispatch({ type: RESET_FILTERS });
               dispatch(push('/explore'));
             }}
           >
@@ -45,7 +45,7 @@ function FilterPage({ count, dispatch }) {
 
         <div className={styles.buttons}>
           <InternalLink route="/explore" className="btn btn--dark btn--raised">
-            {`Find ${count} filtered opinions`}
+            {`Show ${count} filtered responses`}
           </InternalLink>
 
           <span>{' or '}</span>

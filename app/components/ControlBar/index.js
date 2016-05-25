@@ -32,7 +32,7 @@ function ControlBar({
       <div className="control-bar__inner">
         <section className="control-bar__dropdown-filters-wrapper">
           <header>
-            <h6>Filter comments</h6>
+            <h6>Filter responses</h6>
 
             {anyFiltersChanged ? (
               <button
@@ -50,7 +50,7 @@ function ControlBar({
         <div className="control-bar__sentence-and-buttons">
           <div className="control-bar__buttons">
             <OnlyMobile>
-              <InternalLink route="/filter" className="control-bar__mobile-filter-button btn">Filter</InternalLink>
+              <InternalLink route="/filter" className="control-bar__mobile-filter-button btn">Adjust</InternalLink>
             </OnlyMobile>
           </div>
 
