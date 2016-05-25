@@ -26,7 +26,7 @@ function LandingPage({ opinions, numCountries }) {
 
       <main>
         <div className="landing-page__illustration">
-          <img src="http://i.imgur.com/su6eFmY.jpg" alt="" role="presentation" />
+          <img src="https://image.webservices.ft.com/v1/images/raw/https%3A%2F%2Fig.ft.com%2Fsites%2Fexpats-on-brexit-files%2Fillustration.jpg?source=ig&amp;width=740&amp;quality=high" alt="" role="presentation" />
         </div>
 
         <header className="landing-page__header">
