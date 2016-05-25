@@ -122,10 +122,10 @@ export class ExplorePage extends Component {
             </p>
 
             <Sticky
-              bottomOffset={-200}
-              onStickyStateChange={isStuck => {
-                console.log('action button isStuck', isStuck);
-              }}
+              // bottomOffset={-200}
+              // onStickyStateChange={isStuck => {
+              //   console.log('action button isStuck', isStuck);
+              // }}
             >
               <InternalLink route="/form" className="explore-page__floating-action-button">
                 <span>Add your view</span>
