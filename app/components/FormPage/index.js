@@ -12,13 +12,6 @@ import { createStructuredSelector } from 'reselect';
 function FormPage() {
   return (
     <div className={styles.formPage}>
-      <h1>
-        WRITE A COMMENT
-      </h1>
-
-      <p>
-        <InternalLink route="/explore">go back</InternalLink>
-      </p>
     </div>
   );
 }

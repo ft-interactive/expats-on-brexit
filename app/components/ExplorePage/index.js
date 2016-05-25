@@ -8,9 +8,11 @@ import React, { Component, PropTypes } from 'react';
 // import ReactDOM from 'react-dom';
 import SiteHeader from '../SiteHeader';
 import { connect } from 'react-redux';
+import queryString from 'query-string';
 import { createStructuredSelector } from 'reselect';
 import {
   selectVisibleOpinions, selectIsMoreOpinionsAvailable, selectAreDropdownFiltersActive,
+  selectCurrentFilters,
   // selectAnyFiltersChanged,
 } from '../App/selectors';
 import { StickyContainer, Sticky } from 'react-sticky';
@@ -27,13 +29,10 @@ export class ExplorePage extends Component {
   // }
   // 
   componentWillMount() {
+    const { dispatch } = this.props;
     // HACK
     if (!mountedOnce) {
       mountedOnce = true;
-
-      this.props.dispatch({ type: SET_FILTER, name: 'leaningLeave', value: false });
-      this.props.dispatch({ type: SET_FILTER, name: 'leaningUnsure', value: false });
-      this.props.dispatch({ type: SET_FILTER, name: 'livingOutsideEU', value: false });
     }
   }
 
@@ -84,7 +83,16 @@ export class ExplorePage extends Component {
     const {
       visibleOpinions, isMoreOpinionsAvailable, dispatch, areDropdownFiltersActive,
       // anyFiltersChanged,
+      currentFilters,
     } = this.props;
+
+    // update the hash to reflect filters selection (using replaceState)
+    (() => {
+      // update the hash
+      const newLocation = `${location.pathname}#${queryString.stringify(currentFilters)}`;
+      console.log('newLocation', newLocation);
+      window.history.replaceState({}, '', newLocation);
+    })();
 
     return (
       <div className="explore-page page">
@@ -120,7 +128,7 @@ export class ExplorePage extends Component {
               <div className="explore-page__show-more">
                 <button
                   className="link"
-                  style={{fontSize: '21px'}}
+                  style={{ fontSize: '21px' }}
                   onClick={() => {
                     dispatch({ type: SHOW_MORE_OPINIONS });
                   }}
@@ -146,18 +154,6 @@ export class ExplorePage extends Component {
               {' '}
               marks respondents who have lived abroad for more than 15 years.
             </p>
-
-            {/*
-            <Sticky
-              // bottomOffset={-200}
-              // onStickyStateChange={isStuck => {
-              //   console.log('action button isStuck', isStuck);
-              // }}
-            >
-              <InternalLink route="/form" className="explore-page__floating-action-button">
-                <span>Add your view</span>
-              </InternalLink>
-            </Sticky>*/}
           </StickyContainer>
         </main>
 
@@ -184,6 +180,7 @@ ExplorePage.propTypes = {
   dispatch: PropTypes.func.isRequired,
   isMoreOpinionsAvailable: PropTypes.bool.isRequired,
   areDropdownFiltersActive: PropTypes.bool.isRequired,
+  currentFilters: PropTypes.object.isRequired,
   // anyFiltersChanged: PropTypes.bool.isRequired,
 };
 
@@ -191,6 +188,7 @@ const select = createStructuredSelector({
   visibleOpinions: selectVisibleOpinions,
   isMoreOpinionsAvailable: selectIsMoreOpinionsAvailable,
   areDropdownFiltersActive: selectAreDropdownFiltersActive,
+  currentFilters: selectCurrentFilters,
   // anyFiltersChanged: selectAnyFiltersChanged,
 });
 
