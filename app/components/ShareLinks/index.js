@@ -14,12 +14,12 @@ const getLink = (url, networkName) => (
 export default function ShareLinks() {
   const e = encodeURIComponent;
   const url = 'ft.com/expats';
-  const fullURL = 'https://www.ft.com/expats';
+  // const fullURL = 'https://www.ft.com/expats';
 
   return (
     <aside className="share-links">
       {getLink(
-        `https://twitter.com/intent/tweet/?text=${e(`Hundreds of British expats share their thoughts on Brexit with @ft ${url} pic.twitter.com/PhlbVLc6Me`)}`,
+        `https://twitter.com/intent/tweet/?text=${e(`Hundreds of British expats share their thoughts on Brexit with @FT ${url} pic.twitter.com/PhlbVLc6Me`)}`,
         'Twitter',
       )}
 
