@@ -63,6 +63,23 @@ function LandingPage({ opinions, numCountries }) {
 
           <p>An estimated 5m British citizens live outside the UK, and they lean overwhelmingly in favour of remaining in the EU. Independent research conducted by global expat network Angloinfo put the split at 73 per cent Remain and 20 per cent Leave, with 7 per cent undecided. Though unscientific, our results show a similar breakdown: 71 per cent of our total respondents lean towards staying in. Here are some standout perspectives.</p>
 
+
+          <h3>EU dwellers: “I want practical facts”</h3>
+
+          <p>Expats living in EU countries will be most directly affected by the vote. One main concern was what would happen to their residency rights if the UK voted to quit the union.</p>
+
+          {insertOpinions(25)}
+
+          <p>Many EU-based respondents also provided interesting context from their experiences living on the continent. Here are the observations of two FT readers living in Spain:</p>
+
+          {insertOpinions(30, 16)}
+
+          <h3>The Swiss model: “Some sovereignty!”</h3>
+
+          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received 17 responses from Switzerland, 12 of which leaned towards Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
+
+          {insertOpinions(8, 53)}
+
           <div className="landing-page__factbox-pair">
             <aside className="landing-page__factbox">
               <h4>FT coverage on the EU referendum</h4>
@@ -108,22 +125,6 @@ function LandingPage({ opinions, numCountries }) {
               </ul>
             </aside>
           </div>
-
-          <h3>EU dwellers: “I want practical facts”</h3>
-
-          <p>Expats living in EU countries will be most directly affected by the vote. One main concern was what would happen to their residency rights if the UK voted to quit the union.</p>
-
-          {insertOpinions(25)}
-
-          <p>Many EU-based respondents also provided interesting context from their experiences living on the continent. Here are the observations of two FT readers living in Spain:</p>
-
-          {insertOpinions(30, 16)}
-
-          <h3>The Swiss model: “Some sovereignty!”</h3>
-
-          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received 17 responses from Switzerland, 12 of which leaned towards Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
-
-          {insertOpinions(8, 53)}
 
           <h3>Brussels residents: the insider perspective</h3>
 
