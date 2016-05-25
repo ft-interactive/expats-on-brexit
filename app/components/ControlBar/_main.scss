@@ -88,6 +88,7 @@
       flex-direction: row-reverse;
       align-items: center;
       min-height: 62px;
+
     }
       &__buttons {
         display: flex;
@@ -145,6 +146,7 @@
   .control-bar__sentence-and-buttons {
     max-width: 740px;
     margin: 0 auto;
+    border-top: 1px solid rgba(black, 0.12);
   }
 }
 
@@ -184,6 +186,15 @@
     }
     &__toggle-dropdown-filters {
       display: none !important;
-    }    
+    }
+
+    &__sentence-and-buttons {
+      background: white;
+      @include shadow-1dp;
+    }
+  }
+
+  .explore-page__sticky-control-bar-wrapper--stuck .control-bar__sentence-and-buttons {
+    box-shadow: none;
   }
 }
