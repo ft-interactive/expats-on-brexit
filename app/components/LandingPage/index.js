@@ -72,7 +72,7 @@ function LandingPage({ opinions, numCountries, dispatch }) {
             </p>
 
             <p className="landing-page__date">
-              May 23, 2016
+              UPDATED June 13, 2016
             </p>
           </div>
         </header>
