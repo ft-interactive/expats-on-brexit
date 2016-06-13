@@ -102,7 +102,7 @@ function LandingPage({ opinions, numCountries, dispatch }) {
 
           <h3>The Swiss model: “Some sovereignty!”</h3>
 
-          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received <InternalLink route="/explore" onClick={() => { setCountrySwitzerland(); }}>31 responses from Switzerland</InternalLink>, 71 per cent of which leaned towards Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
+          <p>European countries outside the EU are often raised as potential models for the UK if it left the bloc. We received <InternalLink route="/explore" onClick={() => { setCountrySwitzerland(); }}>29 responses from Switzerland</InternalLink>, 69 per cent of which leaned towards Remain. Many of them spoke of the danger of losing the opportunity to influence EU laws.</p>
 
           {insertOpinions(8, 53)}
 
@@ -160,7 +160,7 @@ function LandingPage({ opinions, numCountries, dispatch }) {
 
           <h3>Australasians: “Come on out, the water’s lovely”</h3>
 
-          <p>Residents of Commonwealth countries were much more split: exactly 50 per cent leaned towards Remain and 35 per cent Leave. Many respondents from <InternalLink route="/explore" onClick={() => { setNewZealand(); }}>New Zealand</InternalLink> and <InternalLink route="/explore" onClick={() => { setAustralia(); }}>Australia</InternalLink> referred to their varied relationship with the UK – pointing to those countries as models for economic independence, or chastising the UK for focusing too much attention on the EU in recent years.</p>
+          <p>Residents of Commonwealth countries were much more split: 45 per cent leaned towards Remain and 38 per cent Leave. Many respondents from <InternalLink route="/explore" onClick={() => { setNewZealand(); }}>New Zealand</InternalLink> and <InternalLink route="/explore" onClick={() => { setAustralia(); }}>Australia</InternalLink> referred to their varied relationship with the UK – pointing to those countries as models for economic independence, or chastising the UK for focusing too much attention on the EU in recent years.</p>
 
           {insertOpinions(19, 101)}
 
