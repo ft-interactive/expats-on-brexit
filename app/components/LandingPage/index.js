@@ -58,7 +58,7 @@ function LandingPage({ opinions, numCountries, dispatch }) {
         <header className="landing-page__header">
 
           <h1 className="landing-page__headline">
-            What do Britons abroad think of Brexit?
+            What do British expats think of Brexit?
           </h1>
 
           <p className="landing-page__standfirst">
